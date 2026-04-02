@@ -39,7 +39,6 @@ export async function getStaticPaths() {
 }
 
 const playerName: string = String(serverJsonData?.playerInfo?.knownName ?? params.playerName);
-const season2526 = serverJsonData.playerPoints.seasons.find(season => season.year === '2025/2026');
 const props = {
   'player-name': playerName,
   'player-id': params.playerId,
@@ -62,59 +61,5 @@ const props = {
   </head>
   <body style='padding:0 !important;'>
     <PlayerPage {...props} client:idle />
-    {
-      season2526 ? (
-        <pre style='white-space: pre-wrap; padding: 1rem; background: #fff; border-top: 1px solid #ddd; font-size: 12px;'>
-{JSON.stringify(
-  {
-    year: season2526.year,
-    matchesLength: season2526.matches.length,
-    firstMatches: season2526.matches.slice(0, 5),
-    lastMatches: season2526.matches.slice(-5)
-  },
-  null,
-  2
-)}
-        </pre>
-      ) : null
-    }
-    <script is:inline>
-      const scrollPlayerPointsToCurrentMatchday = () => {
-        const playerRoot = document.querySelector('bkb-player');
-        const pointsRoot = playerRoot?.shadowRoot?.querySelector('bkb-player-points');
-        const scroller = pointsRoot?.shadowRoot?.querySelector('.root');
-
-        if (!(scroller instanceof HTMLElement)) {
-          return false;
-        }
-
-        const nextScrollLeft = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
-        if (nextScrollLeft <= 0) {
-          return false;
-        }
-
-        scroller.scrollLeft = nextScrollLeft;
-        return Math.abs(scroller.scrollLeft - nextScrollLeft) < 2;
-      };
-
-      const schedulePlayerPointsScroll = () => {
-        [0, 80, 180, 350, 700, 1200, 2000].forEach(delay => {
-          window.setTimeout(() => {
-            requestAnimationFrame(() => {
-              scrollPlayerPointsToCurrentMatchday();
-            });
-          }, delay);
-        });
-      };
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', schedulePlayerPointsScroll, { once: true });
-      } else {
-        schedulePlayerPointsScroll();
-      }
-
-      window.addEventListener('astro:hydrate', schedulePlayerPointsScroll);
-      window.addEventListener('load', schedulePlayerPointsScroll, { once: true });
-    </script>
   </body>
 </html>

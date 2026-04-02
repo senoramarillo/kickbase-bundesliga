@@ -8,8 +8,13 @@ export interface PlayerSeason {
   matches: PlayerMatch[];
 }
 
-export function playerSeasonFromApiResponse(season: any): PlayerSeason {
-  const matches = (season.m ?? season.ph ?? []).map((match: any) =>
+function mapMatches(rawMatches: any[]): PlayerMatch[] {
+  return [...rawMatches]
+    .sort(
+      (left, right) =>
+        Number(left?.match ?? left?.day ?? left?.d ?? 0) - Number(right?.match ?? right?.day ?? right?.d ?? 0)
+    )
+    .map((match: any) =>
     playerMatchFromApiResponse({
       ...match,
       p: match.p ?? 0,
@@ -17,6 +22,11 @@ export function playerSeasonFromApiResponse(season: any): PlayerSeason {
       startingEleven: Number.parseInt(String(match.mp ?? '0'), 10) > 0
     })
   );
+}
+
+export function playerSeasonFromApiResponse(season: any): PlayerSeason {
+  const year = season.t ?? season.ti ?? '';
+  const matches = mapMatches(season.ph ?? season.m ?? []);
 
   const appearances = matches.filter(match => match.playtimeSeconds > 0).length;
 
@@ -25,6 +35,6 @@ export function playerSeasonFromApiResponse(season: any): PlayerSeason {
     appearances: season.mp ?? appearances,
     startingEleven: season.ms ?? appearances,
     matches,
-    year: season.t ?? season.ti ?? ''
+    year
   };
 }

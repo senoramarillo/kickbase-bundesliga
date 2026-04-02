@@ -104,10 +104,10 @@ export class PlayerPointsComponent extends LitElement {
   `;
 
   @property({ type: Object })
-  public points?: PlayerPoints;
+  declare public points?: PlayerPoints;
 
   @property({ type: Array })
-  public upcomingMatches: PlayerUpcomingMatch[] = [];
+  declare public upcomingMatches: PlayerUpcomingMatch[];
 
   /**
    * The highest points the player has ever scored.
@@ -134,7 +134,9 @@ export class PlayerPointsComponent extends LitElement {
   }
 
   protected render(): TemplateResult {
-    const seasons = this.points?.seasons ?? [];
+    const seasons = [...(this.points?.seasons ?? [])].sort((left: PlayerSeason, right: PlayerSeason) =>
+      this.getSeasonStartYear(right.year) - this.getSeasonStartYear(left.year)
+    );
 
     return html`
       <div class="root">
@@ -150,61 +152,21 @@ export class PlayerPointsComponent extends LitElement {
   }
 
   protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-    this.scrollToRelevantMatchday();
+    return;
   }
 
   protected updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-    if (_changedProperties.has('points') || _changedProperties.has('upcomingMatches')) {
-      this.scrollToRelevantMatchday();
-    }
+    return;
   }
 
   public scrollToRelevantMatchday(force: boolean = false): void {
-    if (force) {
-      this.hasAutoScrolled = false;
-    }
-
-    if (this.hasAutoScrolled || !this.rootElement) {
-      return;
-    }
-
-    if (this.autoScrollTimeoutId) {
-      window.clearTimeout(this.autoScrollTimeoutId);
-    }
-
-    this.runAutoScroll(0);
-  }
-
-  private runAutoScroll(attempt: number): void {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const nextScrollLeft = Math.max(0, this.rootElement.scrollWidth - this.rootElement.clientWidth);
-
-        this.rootElement.scrollLeft = nextScrollLeft;
-
-        const scrollApplied = Math.abs(this.rootElement.scrollLeft - nextScrollLeft) < 2;
-        if (scrollApplied || attempt >= 6) {
-          this.hasAutoScrolled = true;
-          return;
-        }
-
-        this.autoScrollTimeoutId = window.setTimeout(() => {
-          this.runAutoScroll(attempt + 1);
-        }, 120);
-      });
-    });
+    return;
   }
 
   private seasonTemplate(season: PlayerSeason): TemplateResult {
     const avgPoints: number = season.appearances > 0 ? Math.round(season.points / season.appearances) : 0;
     return html`
       <div class="season">
-        ${season.matches.map(
-          (match: PlayerMatch) =>
-            html`<div class="match-item">
-              <bkb-player-points-match .match=${match} .maxPoints=${this.maxPoints}></bkb-player-points-match>
-            </div>`
-        )}
         <div class="season-summary">
           <div class="season-summary-details">
             <div class="season-summary-details-value">${season.year}</div>
@@ -219,7 +181,17 @@ export class PlayerPointsComponent extends LitElement {
             <div class="season-summary-details-key">Startelf</div>
           </div>
         </div>
+        ${season.matches.map(
+          (match: PlayerMatch) =>
+            html`<div class="match-item">
+              <bkb-player-points-match .match=${match} .maxPoints=${this.maxPoints}></bkb-player-points-match>
+            </div>`
+        )}
       </div>
     `;
+  }
+
+  private getSeasonStartYear(year: string): number {
+    return Number.parseInt(String(year).split('/')[0] ?? '0', 10) || 0;
   }
 }

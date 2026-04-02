@@ -370,9 +370,7 @@ export async function getCompetitionPlayerPerformance(
   const authContext = await getAuthContext();
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
   const cacheKey = createCacheKey('performance', effectiveCompetitionId, playerId);
-  const performancePath = authContext.leagueId
-    ? `/leagues/${authContext.leagueId}/players/${playerId}/performance`
-    : `/competitions/${effectiveCompetitionId}/players/${playerId}/performance`;
+  const performancePath = `/competitions/${effectiveCompetitionId}/players/${playerId}/performance`;
 
   if (!competitionPlayerPerformanceCache.has(cacheKey)) {
     competitionPlayerPerformanceCache.set(
