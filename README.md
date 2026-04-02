@@ -10,7 +10,7 @@
 
   <!-- Placeholder for badges -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
-[![Github CI](https://github.com/senoramarillo/kickbase-information/actions/workflows/workflow.yml/badge.svg)](https://github.com/senoramarillo/kickbase-information/actions/workflows/workflow.yml)
+[![Github CI](https://github.com/senoramarillo/kickbase-bundesliga/actions/workflows/workflow.yml/badge.svg)](https://github.com/senoramarillo/kickbase-bundesliga/actions/workflows/workflow.yml)
 </div>
 
 # Architecture
@@ -25,8 +25,8 @@
     - `npm start` Start the development server
     - Frontend will be reachable under http://localhost:3000/
 - **Kickbase v4 access:**
-    - create `/Users/andy/WebstormProjects/kickbase-information/frontend/.env`
-    - you can copy the template from `/Users/andy/WebstormProjects/kickbase-information/frontend/.env.example`
+    - create `/Users/andy/WebstormProjects/kickbase-bundesliga/frontend/.env`
+    - you can copy the template from `/Users/andy/WebstormProjects/kickbase-bundesliga/frontend/.env.example`
     - simplest setup inside `.env`:
       `KICKBASE_EMAIL=deine-mail`
       `KICKBASE_PASSWORD=dein-passwort`

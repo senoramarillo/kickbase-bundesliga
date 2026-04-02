@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { KICKBASE_API_CONFIG } from '../../base-path.mjs';
 
-const authCachePath = '/tmp/kickbase-information-auth-cache.json';
+const authCachePath = '/tmp/kickbase-bundesliga-auth-cache.json';
 
 function loadFrontendEnvFile(): Record<string, string> {
   const envFilePath = path.resolve(process.cwd(), '.env');

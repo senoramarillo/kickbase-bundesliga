@@ -1,4 +1,4 @@
-export const BASE_PATH_WITHOUT_DOMAIN = '/kickbase-information';
+export const BASE_PATH_WITHOUT_DOMAIN = '/kickbase-bundesliga';
 export const SITE = 'https://senoramarillo.github.io';
 // Kickbase v4 competition endpoints can be consumed without the previous worker wrapper.
 
