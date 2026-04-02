@@ -1,0 +1,58 @@
+---
+import favIcon from '../../images/favicon-16.png';
+import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { teamPlayerService } from '../services/team-players.service';
+import { bundesligaTableService } from '../services/bundesliga-table.service';
+import { BundesligaTableEntry, BundesligaTable } from '../models/bundesliga-table';
+import { PlayerListItem } from '../models/player-list-item';
+const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
+const teamIds: string[] = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
+// teamIds.push('INACTIVE_PLAYERS');
+
+const deepPlayerData: PlayerListItem[][] = [];
+for (const teamId of teamIds) {
+  deepPlayerData.push(await teamPlayerService.getBasicData(teamId));
+}
+
+const playerData: PlayerListItem[] = deepPlayerData.flat();
+const playersGroupedByTeam: { [key: string]: PlayerListItem[] } = {};
+playerData.forEach((player: PlayerListItem) => {
+  if (player.teamName in playersGroupedByTeam) {
+    playersGroupedByTeam[player.teamName].push(player);
+  } else {
+    playersGroupedByTeam[player.teamName] = [player];
+  }
+});
+
+let sitecontent: string = '';
+Object.entries(playersGroupedByTeam).forEach(([team, players]: [string, PlayerListItem[]]) => {
+  let playersString = '';
+  players.forEach((player: PlayerListItem) =>
+      (playersString += `<li><a href="${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(
+          player.playerName
+      )}/${encodeURIComponent(player.playerId)}">${player.playerName}</a></li>`)
+  );
+  sitecontent += `
+        <h2>${team}</h2>
+        <ul>
+        ${playersString}
+        </ul>
+    `;
+});
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/x-icon" href={favIcon} />
+  <title>kickbase-information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="kickbase-information Startseite" />
+</head>
+<body>
+<h1>kickbase-information</h1>
+
+<Fragment set:html={sitecontent} />
+</body>
+</html>

@@ -1,0 +1,61 @@
+// @ts-ignore
+import inactivePlayers from '../data/all_inactive_players.json';
+import { PlayerListItem, playerListItemFromApiResponse } from '../models/player-list-item';
+import { getCompetitionPlayer, getKickbaseImageUrl, getKickbasePlayerPortraitUrl, getTeamProfile } from './kickbase-v4.service';
+import { bundesligaTableService } from './bundesliga-table.service';
+
+export class TeamPlayerService {
+  public async getBasicData(teamId: string): Promise<PlayerListItem[]> {
+    if (teamId === 'INACTIVE_PLAYERS') {
+      return this.getInactivePlayers();
+    }
+
+    const [teamProfile, bundesligaTable] = await Promise.all([getTeamProfile(teamId), bundesligaTableService.getData()]);
+    const teamName = teamProfile.tn ?? bundesligaTable.teams.find(team => team.teamId === teamId)?.teamName ?? '';
+
+    return (teamProfile.it ?? []).map((player: any) =>
+      playerListItemFromApiResponse({
+        ...player,
+        teamName,
+        profileFallback: getKickbaseImageUrl(player.pim ?? player.plpim),
+        pim: getKickbasePlayerPortraitUrl(player.pi ?? player.i, player.pim)
+      })
+    );
+  }
+
+  public async getData(team_id: string): Promise<PlayerListItem[]> {
+    if (team_id === 'INACTIVE_PLAYERS') {
+      return this.getInactivePlayers();
+    }
+    if (!team_id) {
+      return [];
+    }
+
+    const players = await this.getBasicData(team_id);
+    const detailedPlayers = await Promise.all(
+      players.map(async player => {
+        const detailedPlayer = await getCompetitionPlayer(String(player.playerId));
+        return playerListItemFromApiResponse({
+          ...detailedPlayer,
+          playerId: player.playerId,
+          playerName: player.playerName,
+          knownName: player.knownName,
+          firstName: player.firstName,
+          lastName: player.lastName,
+          teamName: player.teamName,
+          teamId: player.teamId,
+          profileFallback: getKickbaseImageUrl(detailedPlayer.pim ?? detailedPlayer.plpim),
+          pim: getKickbasePlayerPortraitUrl(detailedPlayer.i ?? player.playerId, detailedPlayer.pim)
+        });
+      })
+    );
+
+    return detailedPlayers;
+  }
+
+  public getInactivePlayers() {
+    return inactivePlayers as PlayerListItem[];
+  }
+}
+
+export const teamPlayerService = new TeamPlayerService();

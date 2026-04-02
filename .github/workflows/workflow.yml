@@ -1,0 +1,52 @@
+name: Github Pages Astro CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "30 21 * * *"
+
+jobs:
+  combined-workflow:
+    runs-on: ubuntu-latest
+    environment: github-pages
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend/
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: frontend/
+        env:
+          KICKBASE_EMAIL: ${{ secrets.KICKBASE_EMAIL }}
+          KICKBASE_PASSWORD: ${{ secrets.KICKBASE_PASSWORD }}
+          KICKBASE_COMPETITION_ID: ${{ secrets.KICKBASE_COMPETITION_ID }}
+          KICKBASE_LEAGUE_ID: ${{ secrets.KICKBASE_LEAGUE_ID }}
+          KICKBASE_TOKEN: ${{ secrets.KICKBASE_TOKEN }}
+        run: |
+          npm run build
+          ls -la
+
+      - name: Deploy frontend
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'frontend/dist'
+          destination-github-username: 'senoramarillo'
+          destination-repository-name: 'kickbase-bundesliga'
+          user-email: 'github-actions[bot]@users.noreply.github.com'
+          target-branch: gh-pages
+          create-target-branch-if-needed: true
