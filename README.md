@@ -26,14 +26,14 @@
     - Frontend will be reachable under http://localhost:3000/
 - **Kickbase v4 access:**
     - create `/Users/andy/WebstormProjects/kickbase-bundesliga/frontend/.env`
-    - you can copy the template from `/Users/andy/WebstormProjects/kickbase-bundesliga/frontend/.env.example`
+    - you can copy the template from `/Users/{username}/WebstormProjects/kickbase-bundesliga/frontend/.env.example`
     - simplest setup inside `.env`:
-      `KICKBASE_EMAIL=deine-mail`
-      `KICKBASE_PASSWORD=dein-passwort`
+      `KICKBASE_EMAIL=your-email`
+      `KICKBASE_PASSWORD=your-password`
     - optional overrides:
       `KICKBASE_COMPETITION_ID=1`
       `KICKBASE_LEAGUE_ID=deine-league-id`
-      `KICKBASE_TOKEN=dein-bearer-token`
+      `KICKBASE_TOKEN=your-bearer-token`
     - if only email/password are set, the app logs in automatically during build/server rendering and picks the first league matching the requested competition
 
 ### Thanks to
