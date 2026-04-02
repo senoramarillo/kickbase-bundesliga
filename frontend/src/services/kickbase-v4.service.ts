@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import * as fs from 'fs';
+import * as path from 'path';
 import { KICKBASE_API_CONFIG } from '../../base-path.mjs';
 
 const authCachePath = '/tmp/kickbase-bundesliga-auth-cache.json';
