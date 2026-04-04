@@ -1,0 +1,30 @@
+---
+import favIcon from '../../images/favicon-16.png';
+import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { topPlayersService, TopPlayersData } from '../services/top-players.service';
+import '../components/top-players.page';
+import '../styles/page.css';
+import { TopPlayersPage } from '../components/top-players.page';
+
+const topPlayers: TopPlayersData = await topPlayersService.getData(10);
+const props: Record<string, string> = {
+  'server-json-data': JSON.stringify(topPlayers)
+};
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href={favIcon} />
+    <link rel="preload" as="font" href={`${BASE_PATH_WITHOUT_DOMAIN}/fonts/roboto-condensed-v24-latin-700.woff2`} />
+    <link rel="preload" as="font" href={`${BASE_PATH_WITHOUT_DOMAIN}/fonts/roboto-condensed-v24-latin-regular.woff2`} />
+    <title>Top 10 Spieler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="kickbase-bundesliga Top 10 des Spieltags und Top 10 insgesamt" />
+  </head>
+  <body style="background-color: #e8edf1; padding: 1rem;">
+    <h1>Top 10 Spieler</h1>
+    <TopPlayersPage {...props} client:idle />
+  </body>
+</html>

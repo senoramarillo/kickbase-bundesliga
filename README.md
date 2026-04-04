@@ -14,7 +14,24 @@
 </div>
 
 # Architecture
-<img src="https://i.imgur.com/duxHrWk.png" width="800px" />
+
+```mermaid
+flowchart LR
+    A["Kickbase API"] --> B["API Layer<br/>kickbase-v4.service.ts"]
+    B --> C["Feature Services<br/>playerdata, matchdays, table, top players"]
+    C --> D["Models<br/>frontend/src/models"]
+    D --> E["Astro Pages<br/>frontend/src/pages"]
+    E --> F["Lit Components<br/>frontend/src/components"]
+    E --> G["Static Build<br/>frontend/dist"]
+    G --> H["GitHub Pages"]
+```
+
+Kurz erklärt:
+- `kickbase-v4.service.ts` ist der zentrale Zugriff auf die Kickbase-API.
+- Die Feature-Services bereiten daraus Daten für Spieler, Teams, Tabelle und Spieltage auf.
+- `models` mappen rohe API-Daten in Frontend-Objekte.
+- `pages` bauen die Routen und übergeben Daten an die Lit-Komponenten.
+- GitHub Actions erzeugt daraus statische Dateien für GitHub Pages.
 
 # How to setup
 
