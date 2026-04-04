@@ -34,7 +34,7 @@
       `KICKBASE_COMPETITION_ID=1`
       `KICKBASE_LEAGUE_ID=deine-league-id`
       `KICKBASE_TOKEN=your-bearer-token`
-    - if only email/password are set, the app logs in automatically during build/server rendering and picks the first league matching the requested competition
+    - if only email/password are set, the app logs in automatically during build/server rendering and picks the first league matching the requested competition.
 
 ### Thanks to
 - [@FelixSchuSi](https://github.com/FelixSchuSi) for the base of the frontend
