@@ -1,4 +1,3 @@
-// @ts-ignore
 import inactivePlayers from '../data/all_inactive_players.json';
 import { PlayerListItem, playerListItemFromApiResponse } from '../models/player-list-item';
 import { getCompetitionPlayer, getKickbaseImageUrl, getKickbasePlayerPortraitUrl, getTeamProfile } from './kickbase-v4.service';
@@ -23,15 +22,15 @@ export class TeamPlayerService {
     );
   }
 
-  public async getData(team_id: string): Promise<PlayerListItem[]> {
-    if (team_id === 'INACTIVE_PLAYERS') {
+  public async getData(teamId: string): Promise<PlayerListItem[]> {
+    if (teamId === 'INACTIVE_PLAYERS') {
       return this.getInactivePlayers();
     }
-    if (!team_id) {
+    if (!teamId) {
       return [];
     }
 
-    const players = await this.getBasicData(team_id);
+    const players = await this.getBasicData(teamId);
     const detailedPlayers = await Promise.all(
       players.map(async player => {
         const detailedPlayer = await getCompetitionPlayer(String(player.playerId));

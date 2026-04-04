@@ -1,7 +1,6 @@
 import { LitElement, html, CSSResultGroup, css, TemplateResult, PropertyValueMap } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
-import { query } from 'lit/decorators/query.js';
 import { pointFormatter } from '../helpers/point-formatter';
 import { PlayerMatch } from '../models/player-match';
 import { PlayerSeason } from '../models/player-season';
@@ -85,22 +84,6 @@ export class PlayerPointsComponent extends LitElement {
       opacity: 60%;
     }
 
-    .load-season {
-      font-family: 'Roboto Condensed';
-      font-size: medium;
-      background-color: transparent;
-      border: 0px solid black;
-      border-left: 1px solid #d3d7d8;
-      border-right: 1px solid #d3d7d8;
-      cursor: pointer;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      max-width: 128px;
-    }
-
-    .load-season:hover {
-      background-color: #efefef;
-    }
   `;
 
   @property({ type: Object })
@@ -115,21 +98,10 @@ export class PlayerPointsComponent extends LitElement {
    */
   private maxPoints: number = 0;
 
-  @query('.root')
-  private rootElement!: HTMLDivElement;
-
-  private hasAutoScrolled = false;
-  private autoScrollTimeoutId?: number;
-
   protected willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
     if (_changedProperties.has('points') && !!this.points?.seasons) {
       const allMatches = this.points.seasons.flatMap((season: PlayerSeason) => season.matches);
       this.maxPoints = allMatches.length > 0 ? Math.max(...allMatches.map((match: PlayerMatch) => match.points)) : 0;
-      this.hasAutoScrolled = false;
-    }
-
-    if (_changedProperties.has('upcomingMatches')) {
-      this.hasAutoScrolled = false;
     }
   }
 
@@ -149,18 +121,6 @@ export class PlayerPointsComponent extends LitElement {
         )}
       </div>
     `;
-  }
-
-  protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-    return;
-  }
-
-  protected updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-    return;
-  }
-
-  public scrollToRelevantMatchday(force: boolean = false): void {
-    return;
   }
 
   private seasonTemplate(season: PlayerSeason): TemplateResult {

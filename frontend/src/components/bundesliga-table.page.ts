@@ -10,10 +10,10 @@ import './bundesliga-table-list-item.ts';
 @customElement('bkb-bundesliga-table')
 export class BundesligaTablePage extends LitElement {
   @property({ type: String, attribute: 'server-json-data' })
-  public serverJsonData: string;
+  declare public serverJsonData: string;
 
   @state()
-  private bundesligaTable?: BundesligaTable;
+  declare private bundesligaTable?: BundesligaTable;
 
   protected async willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): Promise<void> {
     const isFirstUpdate: boolean = !this.bundesligaTable;

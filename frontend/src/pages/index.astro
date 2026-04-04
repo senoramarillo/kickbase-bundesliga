@@ -5,54 +5,544 @@ import { teamPlayerService } from '../services/team-players.service';
 import { bundesligaTableService } from '../services/bundesliga-table.service';
 import { BundesligaTableEntry, BundesligaTable } from '../models/bundesliga-table';
 import { PlayerListItem } from '../models/player-list-item';
+import { getPlayerPositionLabel, PlayerPosition } from '../models/player-position';
+import { teamLogosLarge } from '../../images/teams/large';
+
 const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
 const teamIds: string[] = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
-// teamIds.push('INACTIVE_PLAYERS');
 
 const deepPlayerData: PlayerListItem[][] = [];
 for (const teamId of teamIds) {
-  deepPlayerData.push(await teamPlayerService.getBasicData(teamId));
+  deepPlayerData.push(await teamPlayerService.getData(teamId));
 }
 
 const playerData: PlayerListItem[] = deepPlayerData.flat();
-const playersGroupedByTeam: { [key: string]: PlayerListItem[] } = {};
+const playersGroupedByTeam: Record<string, PlayerListItem[]> = {};
+
 playerData.forEach((player: PlayerListItem) => {
-  if (player.teamName in playersGroupedByTeam) {
+  if (playersGroupedByTeam[player.teamName]) {
     playersGroupedByTeam[player.teamName].push(player);
   } else {
     playersGroupedByTeam[player.teamName] = [player];
   }
 });
 
-let sitecontent: string = '';
-Object.entries(playersGroupedByTeam).forEach(([team, players]: [string, PlayerListItem[]]) => {
-  let playersString = '';
-  players.forEach((player: PlayerListItem) =>
-      (playersString += `<li><a href="${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(
-          player.playerName
-      )}/${encodeURIComponent(player.playerId)}">${player.playerName}</a></li>`)
-  );
-  sitecontent += `
-        <h2>${team}</h2>
-        <ul>
-        ${playersString}
-        </ul>
-    `;
-});
+const groupedTeams = Object.entries(playersGroupedByTeam).sort(([leftTeam], [rightTeam]) => leftTeam.localeCompare(rightTeam));
+
+function sortPlayers(players: PlayerListItem[]): PlayerListItem[] {
+  return [...players].sort((left: PlayerListItem, right: PlayerListItem) => {
+    if (left.position !== right.position) {
+      return left.position - right.position;
+    }
+
+    if ((left.number ?? 0) !== (right.number ?? 0)) {
+      return (left.number ?? 0) - (right.number ?? 0);
+    }
+
+    return left.playerName.localeCompare(right.playerName);
+  });
+}
+
+const playerCategories: { label: string; position: PlayerPosition }[] = [
+  { label: 'Torwart', position: PlayerPosition.GOAL_KEEPER },
+  { label: 'Abwehr', position: PlayerPosition.DEFENDER },
+  { label: 'Mittelfeld', position: PlayerPosition.MIDFIELDER },
+  { label: 'Sturm', position: PlayerPosition.FORWARD }
+];
+
+const playerSearchData = playerData.map((player: PlayerListItem) => ({
+  playerId: player.playerId,
+  playerName: player.playerName,
+  teamName: player.teamName,
+  number: player.number,
+  positionLabel: getPlayerPositionLabel(player.position as unknown as PlayerPosition)
+}));
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/x-icon" href={favIcon} />
-  <title>kickbase-bundesliga</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="kickbase-bundesliga Startseite" />
-</head>
-<body>
-<h1>kickbase-bundesliga</h1>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href={favIcon} />
+    <title>kickbase-bundesliga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="kickbase-bundesliga Startseite" />
+    <style>
+      :root {
+        --page-bg: #e8edf1;
+        --panel-bg: #ffffff;
+        --panel-border: #d7dee3;
+        --text-main: #132128;
+        --text-muted: #63727a;
+        --accent: #1d5f7a;
+        --accent-soft: #dcecf4;
+      }
 
-<Fragment set:html={sitecontent} />
-</body>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 1.5rem;
+        background: radial-gradient(circle at top left, #f5f8fa 0%, var(--page-bg) 55%);
+        color: var(--text-main);
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+
+      main {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #ffffff 0%, #f1f6f8 100%);
+        border: 1px solid var(--panel-border);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 18px 50px rgba(19, 33, 40, 0.08);
+      }
+
+      .eyebrow {
+        margin: 0 0 0.35rem;
+        color: var(--accent);
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1;
+      }
+
+      .hero-copy {
+        max-width: none;
+        margin: 0.75rem 0 0;
+        color: var(--text-muted);
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+
+      .quick-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .search-panel {
+        margin-top: 1rem;
+        padding: 1rem 1.1rem;
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid var(--panel-border);
+        border-radius: 0.85rem;
+      }
+
+      .search-label {
+        display: block;
+        margin-bottom: 0.45rem;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid #c8d5dc;
+        border-radius: 0.8rem;
+        font: inherit;
+        font-size: 1rem;
+        color: var(--text-main);
+        background: #fff;
+      }
+
+      .search-input:focus {
+        outline: 2px solid rgba(29, 95, 122, 0.14);
+        border-color: var(--accent);
+      }
+
+      .search-results {
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.65rem;
+        margin-top: 0.85rem;
+      }
+
+      .search-results.active {
+        display: grid;
+      }
+
+      .search-result {
+        display: block;
+        padding: 0.8rem 0.9rem;
+        background: #fff;
+        border: 1px solid var(--panel-border);
+        border-radius: 0.8rem;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .search-result:hover {
+        border-color: #b9cad2;
+        box-shadow: 0 10px 20px rgba(19, 33, 40, 0.06);
+      }
+
+      .search-result-name {
+        font-weight: 700;
+      }
+
+      .search-result-line {
+        display: block;
+      }
+
+      .search-result-meta {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .search-empty {
+        display: none;
+        margin-top: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .search-empty.active {
+        display: block;
+      }
+
+      .quick-link {
+        display: block;
+        padding: 1rem 1.1rem;
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 0.85rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .quick-link:hover {
+        transform: translateY(-2px);
+        border-color: #b9cad2;
+        box-shadow: 0 12px 24px rgba(19, 33, 40, 0.08);
+      }
+
+      .quick-link-title {
+        display: block;
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+
+      .quick-link-copy {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--text-muted);
+      }
+
+      .teams {
+        margin-top: 2rem;
+      }
+
+      .teams-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .teams-header h2 {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+
+      .teams-header p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .team-card {
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: 0 12px 30px rgba(19, 33, 40, 0.05);
+      }
+
+      .team-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .team-card-header-main {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 0;
+      }
+
+      .team-logo {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        flex: 0 0 auto;
+      }
+
+      .team-card-title {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .player-count {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .player-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .position-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .position-group-title {
+        margin: 0 0 0.45rem;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .player-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-height: 2rem;
+        padding: 0.4rem 0.7rem;
+        background: var(--accent-soft);
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--text-main);
+        font-size: 0.95rem;
+      }
+
+      .player-link:hover {
+        background: #cfe3ee;
+      }
+
+      .player-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+      }
+
+      .player-number,
+      .player-position {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 1.6rem;
+        min-height: 1.35rem;
+        padding: 0 0.35rem;
+        background: rgba(19, 33, 40, 0.08);
+        border-radius: 999px;
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+
+        .hero {
+          padding: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Kickbase Bundesliga</p>
+        <h1>Spieler, Teams und Rankings auf einen Blick</h1>
+        <p class="hero-copy">
+          Direkte Einstiege zur Tabelle, zu den Top 10, zu den Spieltagen und darunter alle Teams mit ihren Spielern.
+        </p>
+
+        <div class="quick-links">
+          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/table`}>
+            <span class="quick-link-title">Bundesliga Tabelle</span>
+            <span class="quick-link-copy">Aktuelle Platzierungen und Teamansicht</span>
+          </a>
+          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/spieltag`}>
+            <span class="quick-link-title">Spieltage</span>
+            <span class="quick-link-copy">Ergebnisse, Tore, Karten, Wechsel und Aufstellungen</span>
+          </a>
+          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/top-players`}>
+            <span class="quick-link-title">Top 10 Spieler</span>
+            <span class="quick-link-copy">Spieltag und Gesamtwertung auf einer Seite</span>
+          </a>
+        </div>
+
+        <div class="search-panel">
+          <label class="search-label" for="player-search">Spieler suchen</label>
+          <input
+            id="player-search"
+            class="search-input"
+            type="search"
+            placeholder="Name eingeben, z. B. Kane oder Musiala"
+            autocomplete="off"
+          />
+          <div id="player-search-results" class="search-results"></div>
+          <p id="player-search-empty" class="search-empty">Kein passender Spieler gefunden.</p>
+        </div>
+      </section>
+
+      <section class="teams">
+        <div class="teams-header">
+          <h2>Alle Teams</h2>
+          <p>{playerData.length} Spieler in der Übersicht</p>
+        </div>
+
+        <div class="team-grid">
+          {groupedTeams.map(([team, players]: [string, PlayerListItem[]]) => (
+            <article class="team-card">
+              <div class="team-card-header">
+                <div class="team-card-header-main">
+                  <img
+                    class="team-logo"
+                    src={teamLogosLarge[`team_${players[0]?.teamId}`]}
+                    alt={`Logo von ${team}`}
+                  />
+                  <h3 class="team-card-title">{team}</h3>
+                </div>
+                <span class="player-count">{players.length} Spieler</span>
+              </div>
+
+              <div class="player-links">
+                <div class="position-groups">
+                  {playerCategories.map(category => {
+                    const playersInCategory = sortPlayers(players).filter(
+                      (player: PlayerListItem) => player.position === category.position
+                    );
+
+                    if (playersInCategory.length === 0) {
+                      return null;
+                    }
+
+                    return (
+                      <section>
+                        <h4 class="position-group-title">{category.label}</h4>
+                        <div class="player-links">
+                          {playersInCategory.map((player: PlayerListItem) => (
+                            <a
+                              class="player-link"
+                              href={`${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
+                                player.playerId
+                              )}`}
+                            >
+                              <span>{player.playerName}</span>
+                              <span class="player-meta">
+                                {player.number ? <span class="player-number">#{player.number}</span> : null}
+                                {player.position ? (
+                                  <span class="player-position">
+                                    {getPlayerPositionLabel(player.position as unknown as PlayerPosition)}
+                                  </span>
+                                ) : null}
+                              </span>
+                            </a>
+                          ))}
+                        </div>
+                      </section>
+                    );
+                  })}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+    <script define:vars={{ playerSearchData, BASE_PATH_WITHOUT_DOMAIN }}>
+      const searchInput = document.getElementById('player-search');
+      const searchResults = document.getElementById('player-search-results');
+      const searchEmpty = document.getElementById('player-search-empty');
+
+      if (searchInput && searchResults && searchEmpty) {
+        const normalizedPlayers = playerSearchData.map(player => ({
+          ...player,
+          searchValue: `${player.playerName} ${player.teamName}`.toLowerCase()
+        }));
+
+        const renderResults = value => {
+          const query = value.trim().toLowerCase();
+
+          if (query === '') {
+            searchResults.classList.remove('active');
+            searchEmpty.classList.remove('active');
+            searchResults.innerHTML = '';
+            return;
+          }
+
+          const matches = normalizedPlayers.filter(player => player.searchValue.includes(query)).slice(0, 12);
+
+          if (matches.length === 0) {
+            searchResults.classList.remove('active');
+            searchEmpty.classList.add('active');
+            searchResults.innerHTML = '';
+            return;
+          }
+
+          searchEmpty.classList.remove('active');
+          searchResults.classList.add('active');
+          searchResults.innerHTML = matches
+            .map(player => {
+              const href = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(player.playerId)}`;
+              const detailParts = [player.teamName];
+
+              if (player.number) {
+                detailParts.push(`#${player.number}`);
+              }
+
+              if (player.positionLabel) {
+                detailParts.push(player.positionLabel);
+              }
+
+              return `
+                <a class="search-result" href="${href}">
+                  <span class="search-result-line">
+                    <span class="search-result-name">${player.playerName}</span>
+                    <span class="search-result-meta"> · ${detailParts.join(' · ')}</span>
+                  </span>
+                </a>
+              `;
+            })
+            .join('');
+        };
+
+        searchInput.addEventListener('input', event => {
+          renderResults(event.target.value);
+        });
+      }
+    </script>
+  </body>
 </html>

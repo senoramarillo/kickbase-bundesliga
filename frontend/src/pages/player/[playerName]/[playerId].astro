@@ -9,6 +9,7 @@ import favIcon from '../../../../images/favicon-16.png';
 import noProfilePicFallback from '../../../../images/no_profile_pic.png';
 import '../../../styles/page.css';
 import { PlayerPage } from '../../../components/player.page';
+import { PlayerMarketValueComponent } from '../../../components/player-market-value';
 
 const { params } = Astro;
 const serverJsonData: PlayerData = await playerDataService.getData(String(params.playerId));
@@ -45,6 +46,10 @@ const props = {
   'team-id': serverJsonData.playerInfo.teamId,
   'server-json-data': JSON.stringify(serverJsonData)
 };
+
+const marketValueProps = {
+  'server-json-data': JSON.stringify(serverJsonData.playerMarketValue)
+};
 ---
 
 <!DOCTYPE html>
@@ -61,5 +66,6 @@ const props = {
   </head>
   <body style='padding:0 !important;'>
     <PlayerPage {...props} client:idle />
+    <PlayerMarketValueComponent {...marketValueProps} client:idle />
   </body>
 </html>

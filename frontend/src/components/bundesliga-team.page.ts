@@ -9,16 +9,16 @@ import './player-list-item.ts';
 @customElement('bkb-team')
 export class BundesligaTeamPage extends LitElement {
   @property({ type: String, attribute: 'server-json-data' })
-  public serverJsonData: string;
+  declare public serverJsonData: string;
 
   @property({ type: String, attribute: 'team-id' })
-  public teamId: TEAM_IDS;
+  declare public teamId: TEAM_IDS;
 
   @property({ type: String, attribute: 'team-name' })
-  public teamName: TEAM_NAMES;
+  declare public teamName: TEAM_NAMES;
 
   @state()
-  private players: PlayerListItem[];
+  declare private players: PlayerListItem[];
 
   protected async willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): Promise<void> {
     const isFirstUpdate: boolean = !this.players;

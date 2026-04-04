@@ -43,7 +43,10 @@ const configuredPassword = readEnv('KICKBASE_PASSWORD');
 const competitionPlayersCache = new Map<string, Promise<any[]>>();
 const competitionPlayerDetailsCache = new Map<string, Promise<any>>();
 const competitionPlayerPerformanceCache = new Map<string, Promise<any>>();
+const competitionPlayerMarketValueCache = new Map<string, Promise<any>>();
 const competitionTableCache = new Map<string, Promise<any>>();
+const competitionMatchdaysCache = new Map<string, Promise<any>>();
+const matchDetailsCache = new Map<string, Promise<any>>();
 const teamProfileCache = new Map<string, Promise<any>>();
 let authContextPromise: Promise<{ token?: string; leagueId?: string; competitionId: string }> | undefined;
 const maxNetworkAttempts = 8;
@@ -309,6 +312,30 @@ export async function getCompetitionTable(
   return competitionTableCache.get(cacheKey)!;
 }
 
+export async function getCompetitionMatchdays(
+  competitionId: string = requestedCompetitionId
+): Promise<any> {
+  const authContext = await getAuthContext();
+  const effectiveCompetitionId = competitionId ?? authContext.competitionId;
+  const cacheKey = createCacheKey('matchdays', effectiveCompetitionId);
+
+  if (!competitionMatchdaysCache.has(cacheKey)) {
+    competitionMatchdaysCache.set(
+      cacheKey,
+      fetchJson(`/competitions/${effectiveCompetitionId}/matchdays`).catch(error => {
+        competitionMatchdaysCache.delete(cacheKey);
+        if (/401|403/.test(String(error))) {
+          return { it: [] };
+        }
+
+        throw error;
+      })
+    );
+  }
+
+  return competitionMatchdaysCache.get(cacheKey)!;
+}
+
 export async function getCompetitionPlayers(
   competitionId: string = requestedCompetitionId
 ): Promise<any[]> {
@@ -333,6 +360,26 @@ export async function getCompetitionPlayers(
   }
 
   return competitionPlayersCache.get(cacheKey)!;
+}
+
+export async function getMatchDetails(matchId: string): Promise<any> {
+  const cacheKey = createCacheKey('match-details', matchId);
+
+  if (!matchDetailsCache.has(cacheKey)) {
+    matchDetailsCache.set(
+      cacheKey,
+      fetchJson(`/matches/${matchId}/details`).catch(error => {
+        matchDetailsCache.delete(cacheKey);
+        if (/401|403/.test(String(error))) {
+          return {};
+        }
+
+        throw error;
+      })
+    );
+  }
+
+  return matchDetailsCache.get(cacheKey)!;
 }
 
 export async function getCompetitionPlayer(
@@ -387,6 +434,40 @@ export async function getCompetitionPlayerPerformance(
   }
 
   return competitionPlayerPerformanceCache.get(cacheKey)!;
+}
+
+export async function getCompetitionPlayerMarketValueHistory(
+  playerId: string,
+  timeframe: number = 92,
+  competitionId: string = requestedCompetitionId
+): Promise<any> {
+  const authContext = await getAuthContext();
+  const effectiveCompetitionId = competitionId ?? authContext.competitionId;
+  const marketValuePath = authContext.leagueId
+    ? `/leagues/${authContext.leagueId}/players/${playerId}/marketvalue/${timeframe}`
+    : `/competitions/${effectiveCompetitionId}/players/${playerId}/marketvalue/${timeframe}`;
+  const cacheKey = createCacheKey(
+    'market-value',
+    authContext.leagueId ?? effectiveCompetitionId,
+    playerId,
+    String(timeframe)
+  );
+
+  if (!competitionPlayerMarketValueCache.has(cacheKey)) {
+    competitionPlayerMarketValueCache.set(
+      cacheKey,
+      fetchJson(marketValuePath).catch(error => {
+        competitionPlayerMarketValueCache.delete(cacheKey);
+        if (/401|403/.test(String(error))) {
+          return { it: [] };
+        }
+
+        throw error;
+      })
+    );
+  }
+
+  return competitionPlayerMarketValueCache.get(cacheKey)!;
 }
 
 export async function getTeamProfile(

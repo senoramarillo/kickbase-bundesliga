@@ -3,7 +3,6 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
-import { query } from 'lit/decorators/query.js';
 import { state } from 'lit/decorators/state.js';
 import type { PlayerInfo } from '../services/playerdata/player-info.service';
 import type { PlayerPoints } from '../services/playerdata/player-points.service';
@@ -13,41 +12,36 @@ import { teamColors } from '../models/team-colors';
 import noProfilePicFallback from '../../images/no_profile_pic.png';
 import './player-badges.ts';
 import './player-points.ts';
-import { PlayerPointsComponent } from './player-points';
 import { priceFormatter } from '../helpers/price-formatter';
-import {PlayerStatus} from "../models/player-status";
+import { PlayerStatus } from '../models/player-status';
 
 @customElement('bkb-player')
 export class PlayerPage extends LitElement {
   @property({ type: String, attribute: 'player-name' })
-  public playerName: any;
+  declare public playerName: string;
 
   @property({ type: String, attribute: 'player-id' })
-  public playerId: any;
+  declare public playerId: string;
 
   @property({ type: String, attribute: 'server-json-data' })
-  public serverJsonData: string;
+  declare public serverJsonData: string;
 
   @property({ type: String, attribute: 'team-id' })
-  public teamId: string;
+  declare public teamId: string;
 
   @state()
-  public playerInfo: PlayerInfo;
+  declare public playerInfo: PlayerInfo;
 
   @state()
-  public playerPoints: PlayerPoints;
+  declare public playerPoints: PlayerPoints;
 
   @state()
-  public playerStats: PlayerStats;
+  declare public playerStats: PlayerStats;
 
   @state()
-  private currentProfileImage: string = noProfilePicFallback;
+  declare private currentProfileImage: string;
+
   private hasTriedKickbaseFallback = false;
-
-  @query('bkb-player-points')
-  private playerPointsSection?: PlayerPointsComponent;
-
-  private hasTriggeredInitialPointsScroll = false;
 
   static styles: CSSResultGroup = [
     teamColors,
@@ -119,24 +113,11 @@ export class PlayerPage extends LitElement {
     }
   }
 
-  protected updated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-    if (
-      !this.hasTriggeredInitialPointsScroll &&
-      (_changedProperties.has('playerPoints') || _changedProperties.has('playerStats')) &&
-      this.playerPointsSection
-    ) {
-      this.hasTriggeredInitialPointsScroll = true;
-      setTimeout(() => {
-        this.playerPointsSection?.scrollToRelevantMatchday(true);
-      }, 150);
-    }
-  }
-
-  private get upperHalfStyles() {
+  private get upperHalfStyles(): Record<string, string> {
     return { 'background-color': `var(--team-primary-color-${this.teamId}, gray)` };
   }
 
-  private get colorFadeStyles() {
+  private get colorFadeStyles(): Record<string, string> {
     return {
       background: `linear-gradient(to bottom, transparent, var(--team-primary-color-${this.teamId}, gray));`
     };
