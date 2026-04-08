@@ -3,14 +3,14 @@
 <div align="center">
   <a href="https://de.kickbase.com/"><img width="200" alt="Logo" src="logo/kickbase.jpg"></a>
   <br>
-  <h1>Kickbase Bundesliga</h1>
+  <h1>Kickbase La Liga</h1>
   This project is a used to gather data from <a href="https://www.kickbase.com/">Kickbase</a> API endpoint and visualize it in a web interface, acting as alternative for the pro membership.
 
   ---
 
   <!-- Placeholder for badges -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
-[![Github CI](https://github.com/senoramarillo/kickbase-bundesliga/actions/workflows/workflow.yml/badge.svg)](https://github.com/senoramarillo/kickbase-bundesliga/actions/workflows/workflow.yml)
+[![Github CI](https://github.com/senoramarillo/kickbase-laliga/actions/workflows/workflow.yml/badge.svg)](https://github.com/senoramarillo/kickbase-laliga/actions/workflows/workflow.yml)
 </div>
 
 # Architecture

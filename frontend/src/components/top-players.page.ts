@@ -2,7 +2,7 @@ import { LitElement, html, CSSResultGroup, css, PropertyValueMap, TemplateResult
 import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
 import { state } from 'lit/decorators/state.js';
-import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { BASE_PATH_WITHOUT_DOMAIN, COMPETITION_CONFIG } from '../../base-path.mjs';
 import noProfilePicFallback from '../../images/no_profile_pic.png';
 import { priceFormatter } from '../helpers/price-formatter';
 import { pointFormatter } from '../helpers/point-formatter';
@@ -147,7 +147,7 @@ export class TopPlayersPage extends LitElement {
   }
 
   private playerCardTemplate(player: TopPlayerEntry, rank: number, showMatchdayPoints: boolean): TemplateResult {
-    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
+    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
       player.playerId
     )}`;
 

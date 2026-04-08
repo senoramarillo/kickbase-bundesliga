@@ -1,15 +1,26 @@
 ---
 import favIcon from '../../images/favicon-16.png';
-import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { BASE_PATH_WITHOUT_DOMAIN, COMPETITION_CONFIG, KICKBASE_API_CONFIG } from '../../base-path.mjs';
 import { teamPlayerService } from '../services/team-players.service';
-import { bundesligaTableService } from '../services/bundesliga-table.service';
-import { BundesligaTableEntry, BundesligaTable } from '../models/bundesliga-table';
+import { laLigaTableService } from '../services/laliga-table.service';
+import { LaLigaTableEntry, LaLigaTable } from '../models/laliga-table';
 import { PlayerListItem } from '../models/player-list-item';
 import { getPlayerPositionLabel, PlayerPosition } from '../models/player-position';
 import { teamLogosLarge } from '../../images/teams/large';
 
-const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
-const teamIds: string[] = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
+const laLigaTable: LaLigaTable = await laLigaTableService.getData();
+const teamIds: string[] = laLigaTable.teams.map((team: LaLigaTableEntry) => team.teamId);
+const teamLogosByName = Object.fromEntries(
+  laLigaTable.teams.map((team: LaLigaTableEntry) => [
+    team.teamName,
+    teamLogosLarge[`team_${team.teamId}`] ??
+      (team.teamLogo
+        ? team.teamLogo.startsWith('http')
+          ? team.teamLogo
+          : `${KICKBASE_API_CONFIG.CDN_URL}${team.teamLogo}`
+        : '')
+  ])
+);
 
 const deepPlayerData: PlayerListItem[][] = [];
 for (const teamId of teamIds) {
@@ -64,9 +75,9 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href={favIcon} />
-    <title>kickbase-bundesliga</title>
+    <title>{COMPETITION_CONFIG.siteName}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="kickbase-bundesliga Startseite" />
+    <meta name="description" content={`${COMPETITION_CONFIG.siteName} Startseite`} />
     <style>
       :root {
         --page-bg: #e8edf1;
@@ -382,23 +393,23 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
   <body>
     <main>
       <section class="hero">
-        <p class="eyebrow">Kickbase Bundesliga</p>
-        <h1>Spieler, Teams und Rankings auf einen Blick</h1>
+        <p class="eyebrow">Kickbase {COMPETITION_CONFIG.competitionName}</p>
+        <h1>La Liga Spieler, Teams und Rankings auf einen Blick</h1>
         <p class="hero-copy">
           Direkte Einstiege zur Tabelle, zu den Top 10, zu den Spieltagen und darunter alle Teams mit ihren Spielern.
         </p>
 
         <div class="quick-links">
-          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/table`}>
-            <span class="quick-link-title">Bundesliga Tabelle</span>
+          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/table`}>
+            <span class="quick-link-title">{COMPETITION_CONFIG.competitionName} Tabelle</span>
             <span class="quick-link-copy">Aktuelle Platzierungen und Teamansicht</span>
           </a>
-          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/spieltag`}>
+          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/spieltag`}>
             <span class="quick-link-title">Spieltage</span>
             <span class="quick-link-copy">Ergebnisse, Tore, Karten, Wechsel und Aufstellungen</span>
           </a>
           <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/top-players`}>
-            <span class="quick-link-title">Top 10 Spieler</span>
+            <span class="quick-link-title">Top 10 La Liga Spieler</span>
             <span class="quick-link-copy">Spieltag und Gesamtwertung auf einer Seite</span>
           </a>
         </div>
@@ -409,7 +420,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
             id="player-search"
             class="search-input"
             type="search"
-            placeholder="Name eingeben, z. B. Kane oder Musiala"
+            placeholder="Name eingeben, z. B. Bellingham oder Lewandowski"
             autocomplete="off"
           />
           <div id="player-search-results" class="search-results"></div>
@@ -430,7 +441,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
                 <div class="team-card-header-main">
                   <img
                     class="team-logo"
-                    src={teamLogosLarge[`team_${players[0]?.teamId}`]}
+                    src={teamLogosByName[team]}
                     alt={`Logo von ${team}`}
                   />
                   <h3 class="team-card-title">{team}</h3>
@@ -456,7 +467,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
                           {playersInCategory.map((player: PlayerListItem) => (
                             <a
                               class="player-link"
-                              href={`${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
+                              href={`${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
                                 player.playerId
                               )}`}
                             >
@@ -482,19 +493,25 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         </div>
       </section>
     </main>
-    <script define:vars={{ playerSearchData, BASE_PATH_WITHOUT_DOMAIN }}>
+    <script define:vars={{ playerSearchData, BASE_PATH_WITHOUT_DOMAIN, COMPETITION_CONFIG }}>
       const searchInput = document.getElementById('player-search');
       const searchResults = document.getElementById('player-search-results');
       const searchEmpty = document.getElementById('player-search-empty');
 
+      const normalizeSearchValue = value =>
+        value
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase();
+
       if (searchInput && searchResults && searchEmpty) {
         const normalizedPlayers = playerSearchData.map(player => ({
           ...player,
-          searchValue: `${player.playerName} ${player.teamName}`.toLowerCase()
+          searchValue: normalizeSearchValue(`${player.playerName} ${player.teamName}`)
         }));
 
         const renderResults = value => {
-          const query = value.trim().toLowerCase();
+          const query = normalizeSearchValue(value.trim());
 
           if (query === '') {
             searchResults.classList.remove('active');
@@ -516,7 +533,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
           searchResults.classList.add('active');
           searchResults.innerHTML = matches
             .map(player => {
-              const href = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(player.playerId)}`;
+              const href = `${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(player.playerId)}`;
               const detailParts = [player.teamName];
 
               if (player.number) {

@@ -1,6 +1,6 @@
 import { PlayerListItem } from '../models/player-list-item';
-import { BundesligaTableEntry } from '../models/bundesliga-table';
-import { bundesligaTableService } from './bundesliga-table.service';
+import { LaLigaTableEntry } from '../models/laliga-table';
+import { laLigaTableService } from './laliga-table.service';
 import { getCompetitionPlayers } from './kickbase-v4.service';
 import { teamPlayerService } from './team-players.service';
 
@@ -15,8 +15,8 @@ export interface TopPlayersData {
 
 export class TopPlayersService {
   public async getData(limit: number = 10): Promise<TopPlayersData> {
-    const bundesligaTable = await bundesligaTableService.getData();
-    const teamIds = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
+    const laLigaTable = await laLigaTableService.getData();
+    const teamIds = laLigaTable.teams.map((team: LaLigaTableEntry) => team.teamId);
 
     const [competitionPlayers, detailedPlayersByTeam] = await Promise.all([
       getCompetitionPlayers(),

@@ -1,7 +1,7 @@
 import inactivePlayers from '../data/all_inactive_players.json';
 import { PlayerListItem, playerListItemFromApiResponse } from '../models/player-list-item';
 import { getCompetitionPlayer, getKickbaseImageUrl, getKickbasePlayerPortraitUrl, getTeamProfile } from './kickbase-v4.service';
-import { bundesligaTableService } from './bundesliga-table.service';
+import { laLigaTableService } from './laliga-table.service';
 
 export class TeamPlayerService {
   public async getBasicData(teamId: string): Promise<PlayerListItem[]> {
@@ -9,8 +9,8 @@ export class TeamPlayerService {
       return this.getInactivePlayers();
     }
 
-    const [teamProfile, bundesligaTable] = await Promise.all([getTeamProfile(teamId), bundesligaTableService.getData()]);
-    const teamName = teamProfile.tn ?? bundesligaTable.teams.find(team => team.teamId === teamId)?.teamName ?? '';
+    const [teamProfile, laLigaTable] = await Promise.all([getTeamProfile(teamId), laLigaTableService.getData()]);
+    const teamName = teamProfile.tn ?? laLigaTable.teams.find(team => team.teamId === teamId)?.teamName ?? '';
 
     return (teamProfile.it ?? []).map((player: any) =>
       playerListItemFromApiResponse({

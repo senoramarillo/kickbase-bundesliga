@@ -2,8 +2,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { KICKBASE_API_CONFIG } from '../../base-path.mjs';
 
-const authCachePath = '/tmp/kickbase-bundesliga-auth-cache.json';
-
 function loadFrontendEnvFile(): Record<string, string> {
   const envFilePath = path.resolve(process.cwd(), '.env');
 
@@ -39,6 +37,7 @@ const configuredLeagueId = readEnv('KICKBASE_LEAGUE_ID');
 const configuredToken = readEnv('KICKBASE_TOKEN');
 const configuredEmail = readEnv('KICKBASE_EMAIL');
 const configuredPassword = readEnv('KICKBASE_PASSWORD');
+const authCachePath = `/tmp/kickbase-auth-cache-${requestedCompetitionId}.json`;
 
 const competitionPlayersCache = new Map<string, Promise<any[]>>();
 const competitionPlayerDetailsCache = new Map<string, Promise<any>>();
@@ -128,12 +127,11 @@ async function login(): Promise<any> {
 
 function chooseLeague(loginResponse: any): { leagueId?: string; competitionId: string } {
   const availableLeagues = Array.isArray(loginResponse?.srvl) ? loginResponse.srvl : [];
-  const preferredLeague =
-    availableLeagues.find((league: any) => String(league.cpi) === requestedCompetitionId) ?? availableLeagues[0];
+  const matchingLeague = availableLeagues.find((league: any) => String(league.cpi) === requestedCompetitionId);
 
   return {
-    leagueId: configuredLeagueId ?? preferredLeague?.id,
-    competitionId: String(preferredLeague?.cpi ?? requestedCompetitionId)
+    leagueId: configuredLeagueId ?? matchingLeague?.id,
+    competitionId: String(matchingLeague?.cpi ?? requestedCompetitionId)
   };
 }
 
@@ -164,7 +162,7 @@ function isAuthCacheValid(cacheEntry?: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): boolean {
-  if (!cacheEntry?.token || cacheEntry.email !== configuredEmail) {
+  if (!cacheEntry?.token || cacheEntry.email !== configuredEmail || cacheEntry.competitionId !== requestedCompetitionId) {
     return false;
   }
 
@@ -182,7 +180,9 @@ function canUseStaleAuthCache(cacheEntry?: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): boolean {
-  return Boolean(cacheEntry?.token && cacheEntry.email === configuredEmail);
+  return Boolean(
+    cacheEntry?.token && cacheEntry.email === configuredEmail && cacheEntry.competitionId === requestedCompetitionId
+  );
 }
 
 function writeAuthCache(entry: {

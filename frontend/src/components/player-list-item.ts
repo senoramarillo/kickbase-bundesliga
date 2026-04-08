@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
 import { PlayerListItem } from '../models/player-list-item';
 import noProfilePicFallback from '../../images/no_profile_pic.png';
-import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { BASE_PATH_WITHOUT_DOMAIN, COMPETITION_CONFIG } from '../../base-path.mjs';
 import { priceFormatter } from '../helpers/price-formatter';
 import { pointFormatter } from '../helpers/point-formatter';
 import { PlayerStatus } from '../models/player-status';
@@ -137,7 +137,7 @@ export class PlayerListItemComponent extends LitElement {
   }
 
   protected render(): TemplateResult {
-    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/player/${this.data.playerName}/${this.data.playerId}`;
+    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/player/${encodeURIComponent(this.data.playerName)}/${encodeURIComponent(this.data.playerId)}`;
 
     return html`
       <a class="root" href=${playerHref}>

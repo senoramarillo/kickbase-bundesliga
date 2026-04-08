@@ -2,7 +2,7 @@ import { LitElement, html, CSSResultGroup, css, PropertyValueMap, TemplateResult
 import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
 import { state } from 'lit/decorators/state.js';
-import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { BASE_PATH_WITHOUT_DOMAIN, COMPETITION_CONFIG } from '../../base-path.mjs';
 import type { MatchdayOverview } from '../services/matchdays.service';
 import { getPlayerPositionLabel, PlayerPosition } from '../models/player-position';
 import type { Matchday, MatchdayEventItem, MatchdayLineupPlayer, MatchdayMatch } from '../models/matchday';
@@ -328,7 +328,7 @@ export class MatchdaysPage extends LitElement {
 
     return html`
       <header class="header">
-        <p class="eyebrow">Bundesliga</p>
+        <p class="eyebrow">${COMPETITION_CONFIG.competitionName}</p>
         <h1>Spieltage</h1>
         <p class="eyebrow">Aktuell: Spieltag ${this.data.currentMatchday}</p>
       </header>
@@ -447,7 +447,7 @@ export class MatchdaysPage extends LitElement {
   private eventLineTemplate(item: MatchdayEventItem): TemplateResult {
     const playerHref =
       item.playerId && item.playerName
-        ? `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(item.playerName)}/${encodeURIComponent(item.playerId)}`
+        ? `${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/player/${encodeURIComponent(item.playerName)}/${encodeURIComponent(item.playerId)}`
         : undefined;
 
     if (playerHref) {
@@ -493,7 +493,7 @@ export class MatchdaysPage extends LitElement {
 
   private lineupPlayerTemplate(player: MatchdayLineupPlayer): TemplateResult {
     const positionLabel = getPlayerPositionLabel((player.position ?? PlayerPosition.UNKNOWN) as PlayerPosition);
-    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.name)}/${encodeURIComponent(player.playerId)}`;
+    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/${COMPETITION_CONFIG.competitionRoute}/player/${encodeURIComponent(player.name)}/${encodeURIComponent(player.playerId)}`;
 
     return html`
       <a class="lineup-chip" href=${playerHref}>
