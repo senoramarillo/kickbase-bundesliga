@@ -39,7 +39,7 @@ Kurz erklärt:
 - **Install dependencies:**
     - `npm install` Install the dependencies
 - **Run frontend:**
-    - `npm start` Start the development server
+    - `npm start` or `npm run dev` Start the development server
     - Frontend will be reachable under http://localhost:3000/
 - **Kickbase v4 access:**
     - create `/Users/andy/WebstormProjects/kickbase-bundesliga/frontend/.env`
