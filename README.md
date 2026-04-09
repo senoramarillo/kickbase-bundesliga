@@ -54,7 +54,7 @@ Kurz erklärt:
     - if only email/password are set, the app logs in automatically during build/server rendering and picks the first league matching the requested competition.
 
 ### Thanks to
-- [@FelixSchuSi](https://github.com/FelixSchuSi) for the base of the frontend
 - [@kevinskyba](https://github.com/kevinskyba) for the [Kickbase API documentation](https://github.com/kevinskyba/kickbase-api-doc)
+- [@FelixSchuSi](https://github.com/FelixSchuSi) for the base of the frontend
 
 ---
