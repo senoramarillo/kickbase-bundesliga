@@ -55,5 +55,6 @@ Kurz erklärt:
 
 ### Thanks to
 - [@FelixSchuSi](https://github.com/FelixSchuSi) for the base of the frontend
+- [@kevinskyba](https://github.com/kevinskyba) for the [Kickbase API documentation](https://github.com/kevinskyba/kickbase-api-doc)
 
 ---
