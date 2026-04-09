@@ -1,4 +1,4 @@
-**For educational and non-profit uses only. All trademarks, logos and brand names are the property of their respective owners.**
+**Unofficial fan-made project for educational and non-commercial purposes only. Kickbase and all related trademarks, logos, and brand names are the property of their respective owners.**
 
 <div align="center">
   <a href="https://de.kickbase.com/"><img width="200" alt="Logo" src="logo/kickbase.jpg"></a>
