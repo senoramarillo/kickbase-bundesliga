@@ -93,6 +93,27 @@ export class TopPlayersPage extends LitElement {
         text-align: left;
       }
     }
+
+    @media (max-width: 640px) {
+      .player-card {
+        grid-template-columns: 36px 48px minmax(0, 1fr);
+        gap: 0.75rem;
+      }
+
+      .player-image {
+        width: 48px;
+        height: 48px;
+      }
+
+      .metric {
+        text-align: left;
+      }
+
+      .metric,
+      .market-value {
+        grid-column: 2 / -1;
+      }
+    }
   `;
 
   @property({ type: String, attribute: 'server-json-data' })

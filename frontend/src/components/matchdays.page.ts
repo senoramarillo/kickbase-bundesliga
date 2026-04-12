@@ -263,36 +263,51 @@ export class MatchdaysPage extends LitElement {
     }
 
     @media (max-width: 800px) {
+      .header {
+        text-align: center;
+      }
+
       .match-card {
         grid-template-columns: 1fr;
+        text-align: center;
       }
 
       .team.away,
       .time,
       .center {
-        justify-content: flex-start;
-        text-align: left;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .team {
+        justify-content: center;
       }
 
       .match-events {
         grid-template-columns: 1fr;
       }
 
+      .event-column,
       .event-column.away {
-        text-align: left;
+        text-align: center;
       }
 
       .event-line {
-        justify-content: flex-start;
+        justify-content: center;
       }
 
       .lineup-grid {
         grid-template-columns: 1fr;
       }
 
+      .lineup-list {
+        justify-content: center;
+      }
+
       .matchday-summary {
-        align-items: flex-start;
+        align-items: center;
         flex-direction: column;
+        text-align: center;
       }
 
       .matchday-meta {

@@ -122,7 +122,8 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         margin: 0.75rem 0 0;
         color: var(--text-muted);
         font-size: 1rem;
-        white-space: nowrap;
+        white-space: normal;
+        overflow-wrap: anywhere;
       }
 
       .quick-links {
@@ -285,6 +286,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         align-items: center;
         gap: 0.75rem;
         margin-bottom: 0.85rem;
+        flex-wrap: wrap;
       }
 
       .team-card-header-main {
@@ -375,6 +377,44 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
 
         .hero {
           padding: 1.1rem;
+        }
+
+        .quick-links,
+        .search-results,
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .teams-header {
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .player-link {
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .player-meta {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero,
+        .search-panel,
+        .team-card,
+        .team-card-header,
+        .team-card-header-main,
+        .position-groups,
+        .position-group-title {
+          text-align: center;
+        }
+
+        .team-card-header-main {
+          justify-content: center;
+          width: 100%;
         }
       }
     </style>

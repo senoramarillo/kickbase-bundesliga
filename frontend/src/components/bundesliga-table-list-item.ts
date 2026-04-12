@@ -145,6 +145,33 @@ export class BundesligaPlayerListItemComponent extends LitElement {
     .label {
       color: #9ca4a8;
     }
+
+    @media (max-width: 760px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
   `;
 
   @property({ type: Object })
