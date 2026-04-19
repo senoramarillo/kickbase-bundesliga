@@ -14,13 +14,13 @@ export interface TopPlayersData {
 }
 
 export class TopPlayersService {
-  public async getData(limit: number = 10): Promise<TopPlayersData> {
-    const bundesligaTable = await bundesligaTableService.getData();
+  public async getData(limit: number = 10, competitionId?: string): Promise<TopPlayersData> {
+    const bundesligaTable = await bundesligaTableService.getData(competitionId);
     const teamIds = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
 
     const [competitionPlayers, detailedPlayersByTeam] = await Promise.all([
-      getCompetitionPlayers(),
-      Promise.all(teamIds.map((teamId: string) => teamPlayerService.getData(teamId)))
+      getCompetitionPlayers(competitionId),
+      Promise.all(teamIds.map((teamId: string) => teamPlayerService.getData(teamId, competitionId)))
     ]);
 
     const detailedPlayers = detailedPlayersByTeam.flat();

@@ -119,6 +119,9 @@ export class TopPlayersPage extends LitElement {
   @property({ type: String, attribute: 'server-json-data' })
   declare public serverJsonData: string;
 
+  @property({ type: String, attribute: 'player-base-path' })
+  public playerBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/player`;
+
   @state()
   declare private data: TopPlayersData;
 
@@ -168,7 +171,7 @@ export class TopPlayersPage extends LitElement {
   }
 
   private playerCardTemplate(player: TopPlayerEntry, rank: number, showMatchdayPoints: boolean): TemplateResult {
-    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
+    const playerHref = `${this.playerBasePath}/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
       player.playerId
     )}`;
 

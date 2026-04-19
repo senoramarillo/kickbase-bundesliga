@@ -4,6 +4,7 @@ import { property } from 'lit/decorators/property.js';
 import { state } from 'lit/decorators/state.js';
 import { TEAM_IDS, TEAM_NAMES } from '../models/teams';
 import { PlayerListItem } from '../models/player-list-item';
+import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
 import './player-list-item.ts';
 
 @customElement('bkb-team')
@@ -16,6 +17,9 @@ export class BundesligaTeamPage extends LitElement {
 
   @property({ type: String, attribute: 'team-name' })
   declare public teamName: TEAM_NAMES;
+
+  @property({ type: String, attribute: 'player-base-path' })
+  public playerBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/player`;
 
   @state()
   declare private players: PlayerListItem[];
@@ -34,7 +38,8 @@ export class BundesligaTeamPage extends LitElement {
     return html`
       <div class="root">
         ${this.players.map(
-          (player: PlayerListItem) => html` <bkb-player-list-item .data=${player}></bkb-player-list-item> `
+          (player: PlayerListItem) =>
+            html` <bkb-player-list-item .data=${player} .playerBasePath=${this.playerBasePath}></bkb-player-list-item> `
         )}
       </div>
     `;

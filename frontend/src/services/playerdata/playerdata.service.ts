@@ -12,12 +12,12 @@ export interface PlayerData {
 }
 
 class PlayerDataService {
-  public async getData(playerId: string): Promise<PlayerData> {
+  public async getData(playerId: string, competitionId?: string): Promise<PlayerData> {
     return {
-      playerInfo: await playerInfoService.getData(playerId),
-      playerMarketValue: await playerMarketValueService.getData(playerId),
-      playerPoints: await playerPointsService.getData(playerId),
-      playerStats: await playerStatsService.getData(playerId)
+      playerInfo: await playerInfoService.getData(playerId, competitionId),
+      playerMarketValue: await playerMarketValueService.getData(playerId, competitionId),
+      playerPoints: await playerPointsService.getData(playerId, competitionId),
+      playerStats: await playerStatsService.getData(playerId, competitionId)
     };
   }
 }

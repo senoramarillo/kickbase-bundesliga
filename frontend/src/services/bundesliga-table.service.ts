@@ -3,9 +3,12 @@ import { Matchday, matchdayFromApiResponse } from '../models/matchday';
 import { getCompetitionMatchdays, getCompetitionTable } from './kickbase-v4.service';
 
 export class BundesligaTableService {
-  public async getData(): Promise<BundesligaTable> {
+  public async getData(competitionId?: string): Promise<BundesligaTable> {
     try {
-      const [rawTableData, rawMatchdaysData]: [any, any] = await Promise.all([getCompetitionTable(), getCompetitionMatchdays()]);
+      const [rawTableData, rawMatchdaysData]: [any, any] = await Promise.all([
+        getCompetitionTable(competitionId),
+        getCompetitionMatchdays(competitionId)
+      ]);
       return this.transformApiResponse(rawTableData, rawMatchdaysData);
     } catch (error) {
       console.error('Error fetching Bundesliga table data:', error);

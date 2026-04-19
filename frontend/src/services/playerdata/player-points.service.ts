@@ -6,9 +6,9 @@ export interface PlayerPoints {
 }
 
 export class PlayerPointsService {
-  public async getData(playerId: string): Promise<PlayerPoints> {
+  public async getData(playerId: string, competitionId?: string): Promise<PlayerPoints> {
     try {
-      const points: any = await getCompetitionPlayerPerformance(playerId);
+      const points: any = await getCompetitionPlayerPerformance(playerId, competitionId);
       return { seasons: (points.it ?? []).map(playerSeasonFromApiResponse) };
     } catch (error) {
       console.log('request was not successful:', error);

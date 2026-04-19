@@ -1,32 +1,35 @@
 ---
 import { BASE_PATH_WITHOUT_DOMAIN } from '../../../../base-path.mjs';
 import favIcon from '../../../../images/favicon-16.png';
+import { COMPETITIONS } from '../../../models/competition';
 import '../../../styles/page.css';
 import { teamPlayerService } from '../../../services/team-players.service';
 import { bundesligaTableService } from '../../../services/bundesliga-table.service';
 import { BundesligaTableEntry, BundesligaTable } from '../../../models/bundesliga-table';
 import { PlayerListItem } from '../../../models/player-list-item';
-import '../../../components/bundesliga-team.page';
-import { BundesligaTeamPage } from '../../../components/bundesliga-team.page';
+import '../../../components/bundesliga-team.page.ts';
+import { BundesligaTeamPage } from '../../../components/bundesliga-team.page.ts';
 const { params } = Astro;
+const competition = COMPETITIONS.bundesliga;
 
 export async function getStaticPaths() {
-  const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
+  const bundesligaTable: BundesligaTable = await bundesligaTableService.getData(COMPETITIONS.bundesliga.competitionId);
   const teams: { params: { teamName: string } }[] = bundesligaTable.teams.map((team: BundesligaTableEntry) => {
     return { params: { teamName: team.teamName } };
   });
   return teams;
 }
 
-const currentTable: BundesligaTable = await bundesligaTableService.getData();
+const currentTable: BundesligaTable = await bundesligaTableService.getData(competition.competitionId);
 const currentTeam = currentTable.teams.find(team => team.teamName === params.teamName);
 const teamId: string = currentTeam?.teamId ?? '';
-const serverJsonData: PlayerListItem[] = await teamPlayerService.getData(String(teamId));
+const serverJsonData: PlayerListItem[] = await teamPlayerService.getData(String(teamId), competition.competitionId);
 
 const props = {
   'team-name': params.teamName,
   'team-id': String(teamId),
-  'server-json-data': JSON.stringify(serverJsonData)
+  'server-json-data': JSON.stringify(serverJsonData),
+  'player-base-path': `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/player`
 };
 ---
 
@@ -39,7 +42,7 @@ const props = {
     <link rel="icon" type="image/x-icon" href={favIcon} />
     <title>{params.teamName}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={`${params.teamName} - kickbase-bundesliga`} />
+    <meta name="description" content={`${params.teamName} - ${competition.label} - kickbase-bundesliga`} />
   </head>
   <body style="background-color: #e8edf1;  padding: 1rem;">
     <BundesligaTeamPage {...props} client:idle />

@@ -3,13 +3,17 @@ import favIcon from '../../../images/favicon-16.png';
 import { bundesligaTableService } from '../../services/bundesliga-table.service';
 import { BundesligaTable } from '../../models/bundesliga-table';
 import { BASE_PATH_WITHOUT_DOMAIN } from '../../../base-path.mjs';
-import '../../components/bundesliga-table.page';
+import { COMPETITIONS } from '../../models/competition';
+import CompetitionSwitcher from '../../components/competition-switcher.astro';
+import '../../components/bundesliga-table.page.ts';
 import '../../styles/page.css';
-import { BundesligaTablePage } from '../../components/bundesliga-table.page';
+import { BundesligaTablePage } from '../../components/bundesliga-table.page.ts';
 
-const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
+const competition = COMPETITIONS.bundesliga;
+const bundesligaTable: BundesligaTable = await bundesligaTableService.getData(competition.competitionId);
 const props: Record<string, string> = {
-  'server-json-data': JSON.stringify(bundesligaTable)
+  'server-json-data': JSON.stringify(bundesligaTable),
+  'team-base-path': `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`
 };
 ---
 
@@ -20,11 +24,12 @@ const props: Record<string, string> = {
     <link rel="icon" type="image/x-icon" href={favIcon} />
     <link rel="preload" as="font" href={`${BASE_PATH_WITHOUT_DOMAIN}/fonts/roboto-condensed-v24-latin-700.woff2`} />
     <link rel="preload" as="font" href={`${BASE_PATH_WITHOUT_DOMAIN}/fonts/roboto-condensed-v24-latin-regular.woff2`} />
-    <title>Bundesliga Tabelle</title>
+    <title>{competition.label} Tabelle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="kickbase-bundesliga Bundesliga Tabelle" />
+    <meta name="description" content={`kickbase-bundesliga ${competition.label} Tabelle`} />
   </head>
   <body style="background-color: #e8edf1;  padding: 1rem;">
+    <CompetitionSwitcher currentSlug="bundesliga" section="table" />
     <BundesligaTablePage {...props} client:idle />
   </body>
 </html>

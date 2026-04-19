@@ -177,8 +177,11 @@ export class BundesligaPlayerListItemComponent extends LitElement {
   @property({ type: Object })
   public data: BundesligaTableEntry;
 
+  @property({ type: String, attribute: 'team-base-path' })
+  public teamBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`;
+
   protected render(): TemplateResult {
-    const teamHref = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team/${this.data.teamName}`;
+    const teamHref = `${this.teamBasePath}/${encodeURIComponent(this.data.teamName)}`;
     const localLogo = teamLogosLarge[`team_${this.data.teamId}`];
     const fallbackLogo = this.data.teamLogo
       ? this.data.teamLogo.startsWith('http')
