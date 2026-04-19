@@ -2,13 +2,14 @@
 import favIcon from '../../../images/favicon-16.png';
 import { BASE_PATH_WITHOUT_DOMAIN } from '../../../base-path.mjs';
 import { matchdaysService, MatchdayOverview } from '../../services/matchdays.service';
-import '../../components/matchdays.page';
+import '../../components/matchdays.page.ts';
 import '../../styles/page.css';
-import { MatchdaysPage } from '../../components/matchdays.page';
+import { MatchdaysPage } from '../../components/matchdays.page.ts';
 
 const matchdayOverview: MatchdayOverview = await matchdaysService.getData();
 const props: Record<string, string> = {
-  'server-json-data': JSON.stringify(matchdayOverview)
+  'server-json-data': JSON.stringify(matchdayOverview),
+  'team-base-path': `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`
 };
 ---
 

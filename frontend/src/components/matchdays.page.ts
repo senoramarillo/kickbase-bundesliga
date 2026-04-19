@@ -216,6 +216,27 @@ export class MatchdaysPage extends LitElement {
       min-width: 0;
     }
 
+    .team-link,
+    .team-link:link,
+    .team-link:visited,
+    .team-link:hover,
+    .team-link:active {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .team-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .team-link:hover .team-name {
+      text-decoration: underline;
+    }
+
     .team.away {
       justify-content: flex-end;
       text-align: right;
@@ -319,6 +340,9 @@ export class MatchdaysPage extends LitElement {
   @property({ type: String, attribute: 'server-json-data' })
   declare public serverJsonData: string;
 
+  @property({ type: String, attribute: 'team-base-path' })
+  public teamBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`;
+
   @state()
   declare private data: MatchdayOverview;
 
@@ -371,11 +395,16 @@ export class MatchdaysPage extends LitElement {
   }
 
   private matchTemplate(match: MatchdayMatch): TemplateResult {
+    const homeTeamHref = `${this.teamBasePath}/${encodeURIComponent(match.homeTeamName)}`;
+    const awayTeamHref = `${this.teamBasePath}/${encodeURIComponent(match.awayTeamName)}`;
+
     return html`
       <article class="match-card">
         <div class="team">
-          <img class="team-logo" src=${match.homeTeamLogo} alt=${`Logo von ${match.homeTeamName}`} />
-          <div class="team-name">${match.homeTeamName}</div>
+          <a class="team-link" href=${homeTeamHref}>
+            <img class="team-logo" src=${match.homeTeamLogo} alt=${`Logo von ${match.homeTeamName}`} />
+            <div class="team-name">${match.homeTeamName}</div>
+          </a>
         </div>
 
         <div class="center">
@@ -384,8 +413,10 @@ export class MatchdaysPage extends LitElement {
         </div>
 
         <div class="team away">
-          <div class="team-name">${match.awayTeamName}</div>
-          <img class="team-logo" src=${match.awayTeamLogo} alt=${`Logo von ${match.awayTeamName}`} />
+          <a class="team-link away" href=${awayTeamHref}>
+            <div class="team-name">${match.awayTeamName}</div>
+            <img class="team-logo" src=${match.awayTeamLogo} alt=${`Logo von ${match.awayTeamName}`} />
+          </a>
         </div>
 
         <div class="time">
