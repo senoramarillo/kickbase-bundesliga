@@ -26,12 +26,12 @@ flowchart LR
     G --> H["GitHub Pages"]
 ```
 
-Kurz erklärt:
-- `kickbase-v4.service.ts` ist der zentrale Zugriff auf die Kickbase-API.
-- Die Feature-Services bereiten daraus Daten für Spieler, Teams, Tabelle und Spieltage auf.
-- `models` mappen rohe API-Daten in Frontend-Objekte.
-- `pages` bauen die Routen und übergeben Daten an die Lit-Komponenten.
-- GitHub Actions erzeugt daraus statische Dateien für GitHub Pages.
+In short:
+- `kickbase-v4.service.ts` is the central access layer for the Kickbase API.
+- The feature services process the data for players, teams, standings, and matchdays.
+- `models` map raw API data into frontend objects.
+- `pages` define routes and pass data to the Lit components.
+- GitHub Actions builds static files for deployment to GitHub Pages.
 
 # How to setup
 
@@ -49,7 +49,7 @@ Kurz erklärt:
       `KICKBASE_PASSWORD=your-password`
     - optional overrides:
       `KICKBASE_COMPETITION_ID=1`
-      `KICKBASE_LEAGUE_ID=deine-league-id`
+      `KICKBASE_LEAGUE_ID=your-league-id`
       `KICKBASE_TOKEN=your-bearer-token`
     - if only email/password are set, the app logs in automatically during build/server rendering and picks the first league matching the requested competition.
 
