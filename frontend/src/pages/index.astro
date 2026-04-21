@@ -1,6 +1,6 @@
 ---
 import favIcon from '../../images/favicon-16.png';
-import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { BASE_PATH_WITHOUT_DOMAIN, KICKBASE_API_CONFIG } from '../../base-path.mjs';
 import { teamPlayerService } from '../services/team-players.service';
 import { bundesligaTableService } from '../services/bundesliga-table.service';
 import { BundesligaTableEntry, BundesligaTable } from '../models/bundesliga-table';
@@ -15,6 +15,7 @@ interface CompetitionSection {
   shortLabel: string;
   teamBasePath: string;
   playerBasePath: string;
+  teamLogosByName: Record<string, string>;
   groupedTeams: [string, PlayerListItem[]][];
   playerCount: number;
 }
@@ -45,6 +46,17 @@ async function buildCompetitionSection(competition: CompetitionConfig): Promise<
     shortLabel: competition.shortLabel,
     teamBasePath: `${BASE_PATH_WITHOUT_DOMAIN}/${competition.slug}/team`,
     playerBasePath: `${BASE_PATH_WITHOUT_DOMAIN}/${competition.slug}/player`,
+    teamLogosByName: Object.fromEntries(
+      table.teams.map((team: BundesligaTableEntry) => [
+        team.teamName,
+        teamLogosLarge[`team_${team.teamId}`] ??
+          (team.teamLogo
+            ? team.teamLogo.startsWith('http')
+              ? team.teamLogo
+              : `${KICKBASE_API_CONFIG.CDN_URL}${team.teamLogo}`
+            : '')
+      ])
+    ),
     groupedTeams: Object.entries(playersGroupedByTeam).sort(([leftTeam], [rightTeam]) => leftTeam.localeCompare(rightTeam)),
     playerCount: playerData.length
   };
@@ -351,34 +363,56 @@ const playerSearchData = competitionSections.flatMap(section =>
       .team-card-header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         gap: 0.75rem;
         margin-bottom: 0.85rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
       }
 
       .team-card-header-main {
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        flex: 1 1 auto;
         min-width: 0;
       }
 
       .team-logo {
-        width: 42px;
-        height: 42px;
-        object-fit: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        padding: 0.35rem;
+        background: #fff;
+        border: 1px solid #e3eaee;
+        border-radius: 0.85rem;
+        overflow: hidden;
         flex: 0 0 auto;
+      }
+
+      .team-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: scale(1.08);
+        transform-origin: center;
       }
 
       .team-card-title {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1.08rem;
+        line-height: 1.2;
+        word-break: normal;
+        overflow-wrap: normal;
+        hyphens: auto;
       }
 
       .player-count {
         color: var(--text-muted);
         font-size: 0.9rem;
+        flex: 0 0 auto;
+        white-space: nowrap;
       }
 
       .player-links {
@@ -489,6 +523,10 @@ const playerSearchData = competitionSections.flatMap(section =>
           justify-content: center;
           width: 100%;
         }
+
+        .team-card-header {
+          flex-wrap: wrap;
+        }
       }
     </style>
   </head>
@@ -559,7 +597,7 @@ const playerSearchData = competitionSections.flatMap(section =>
                     <div class="team-card-header-main">
                       <img
                         class="team-logo"
-                        src={teamLogosLarge[`team_${players[0]?.teamId}`]}
+                        src={section.teamLogosByName[team]}
                         alt={`Logo von ${team}`}
                       />
                       <h3 class="team-card-title">{team}</h3>

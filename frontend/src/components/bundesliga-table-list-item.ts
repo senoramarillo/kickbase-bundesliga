@@ -17,7 +17,7 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       min-height: 76px;
       align-items: center;
       padding: 0 1rem;
-      gap: 1rem;
+      gap: 0.85rem;
       cursor: pointer;
       color: black;
       box-sizing: border-box;
@@ -42,9 +42,12 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       flex: 1 1 auto;
       min-width: 0;
       white-space: normal;
+      font-size: 0.94rem;
       line-height: 1.15;
       text-align: left;
-      word-break: break-word;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
     }
 
     .stats-section {
@@ -70,17 +73,17 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-width: 56px;
+      min-width: 52px;
     }
 
     .stat-column.wide {
-      min-width: 76px;
+      min-width: 68px;
     }
 
     .record {
       display: flex;
       gap: 0.5rem;
-      min-width: 120px;
+      min-width: 108px;
       justify-content: center;
     }
 
@@ -93,7 +96,7 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 96px;
+      min-width: 88px;
     }
 
     .form-dots {
@@ -130,13 +133,21 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       justify-content: center;
       align-items: center;
       width: 56px;
+      height: 56px;
       flex: 0 0 56px;
+      padding: 0.35rem;
+      background: #fff;
+      border: 1px solid #e3eaee;
+      border-radius: 0.85rem;
+      overflow: hidden;
     }
 
     .team-logo > img {
-      max-width: 40px;
-      max-height: 40px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      transform: scale(1.08);
+      transform-origin: center;
     }
 
     .invisible {
@@ -171,6 +182,13 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       .record {
         justify-content: space-between;
       }
+
+      .team-name {
+        word-break: normal;
+        overflow-wrap: break-word;
+        hyphens: manual;
+      }
+
     }
   `;
 

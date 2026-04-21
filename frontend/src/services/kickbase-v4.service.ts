@@ -130,12 +130,11 @@ async function login(): Promise<any> {
 
 function chooseLeague(loginResponse: any, desiredCompetitionId: string): { leagueId?: string; competitionId: string } {
   const availableLeagues = Array.isArray(loginResponse?.srvl) ? loginResponse.srvl : [];
-  const preferredLeague =
-    availableLeagues.find((league: any) => String(league.cpi) === desiredCompetitionId) ?? availableLeagues[0];
+  const matchingLeague = availableLeagues.find((league: any) => String(league.cpi) === desiredCompetitionId);
 
   return {
-    leagueId: configuredLeagueId ?? preferredLeague?.id,
-    competitionId: String(preferredLeague?.cpi ?? desiredCompetitionId)
+    leagueId: configuredLeagueId ?? matchingLeague?.id,
+    competitionId: String(matchingLeague?.cpi ?? desiredCompetitionId)
   };
 }
 
@@ -182,7 +181,7 @@ function isAuthCacheValid(cacheEntry?: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): boolean {
-  if (!cacheEntry?.token || cacheEntry.email !== configuredEmail) {
+  if (!cacheEntry?.token || cacheEntry.email !== configuredEmail || cacheEntry.competitionId !== requestedCompetitionId) {
     return false;
   }
 
@@ -200,7 +199,9 @@ function canUseStaleAuthCache(cacheEntry?: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): boolean {
-  return Boolean(cacheEntry?.token && cacheEntry.email === configuredEmail);
+  return Boolean(
+    cacheEntry?.token && cacheEntry.email === configuredEmail && cacheEntry.competitionId === requestedCompetitionId
+  );
 }
 
 function writeAuthCache(entry: {
