@@ -231,6 +231,9 @@ export class MatchdaysPage extends LitElement {
       gap: 0.75rem;
       min-width: 0;
       cursor: pointer;
+      position: relative;
+      z-index: 1;
+      pointer-events: auto;
     }
 
     .team-link:hover .team-name {
@@ -339,6 +342,9 @@ export class MatchdaysPage extends LitElement {
 
   @property({ type: String, attribute: 'server-json-data' })
   declare public serverJsonData: string;
+
+  @property({ type: String, attribute: 'player-base-path' })
+  public playerBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/player`;
 
   @property({ type: String, attribute: 'team-base-path' })
   public teamBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`;
@@ -493,7 +499,7 @@ export class MatchdaysPage extends LitElement {
   private eventLineTemplate(item: MatchdayEventItem): TemplateResult {
     const playerHref =
       item.playerId && item.playerName
-        ? `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(item.playerName)}/${encodeURIComponent(item.playerId)}`
+        ? `${this.playerBasePath}/${encodeURIComponent(item.playerName)}/${encodeURIComponent(item.playerId)}`
         : undefined;
 
     if (playerHref) {
@@ -539,7 +545,7 @@ export class MatchdaysPage extends LitElement {
 
   private lineupPlayerTemplate(player: MatchdayLineupPlayer): TemplateResult {
     const positionLabel = getPlayerPositionLabel((player.position ?? PlayerPosition.UNKNOWN) as PlayerPosition);
-    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.name)}/${encodeURIComponent(player.playerId)}`;
+    const playerHref = `${this.playerBasePath}/${encodeURIComponent(player.name)}/${encodeURIComponent(player.playerId)}`;
 
     return html`
       <a class="lineup-chip" href=${playerHref}>

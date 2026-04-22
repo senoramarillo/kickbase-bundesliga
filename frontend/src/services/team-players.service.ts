@@ -4,12 +4,15 @@ import { getCompetitionPlayer, getKickbaseImageUrl, getKickbasePlayerPortraitUrl
 import { bundesligaTableService } from './bundesliga-table.service';
 
 export class TeamPlayerService {
-  public async getBasicData(teamId: string): Promise<PlayerListItem[]> {
+  public async getBasicData(teamId: string, competitionId?: string): Promise<PlayerListItem[]> {
     if (teamId === 'INACTIVE_PLAYERS') {
       return this.getInactivePlayers();
     }
 
-    const [teamProfile, bundesligaTable] = await Promise.all([getTeamProfile(teamId), bundesligaTableService.getData()]);
+    const [teamProfile, bundesligaTable] = await Promise.all([
+      getTeamProfile(teamId, competitionId),
+      bundesligaTableService.getData(competitionId)
+    ]);
     const teamName = teamProfile.tn ?? bundesligaTable.teams.find(team => team.teamId === teamId)?.teamName ?? '';
 
     return (teamProfile.it ?? []).map((player: any) =>
@@ -22,7 +25,7 @@ export class TeamPlayerService {
     );
   }
 
-  public async getData(teamId: string): Promise<PlayerListItem[]> {
+  public async getData(teamId: string, competitionId?: string): Promise<PlayerListItem[]> {
     if (teamId === 'INACTIVE_PLAYERS') {
       return this.getInactivePlayers();
     }
@@ -30,10 +33,10 @@ export class TeamPlayerService {
       return [];
     }
 
-    const players = await this.getBasicData(teamId);
+    const players = await this.getBasicData(teamId, competitionId);
     const detailedPlayers = await Promise.all(
       players.map(async player => {
-        const detailedPlayer = await getCompetitionPlayer(String(player.playerId));
+        const detailedPlayer = await getCompetitionPlayer(String(player.playerId), competitionId);
         return playerListItemFromApiResponse({
           ...detailedPlayer,
           playerId: player.playerId,

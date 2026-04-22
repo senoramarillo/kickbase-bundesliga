@@ -13,8 +13,11 @@ interface MatchPlayerMeta {
 }
 
 export class MatchdaysService {
-  public async getData(): Promise<MatchdayOverview> {
-    const [response, competitionPlayers] = await Promise.all([getCompetitionMatchdays(), getCompetitionPlayers()]);
+  public async getData(competitionId?: string): Promise<MatchdayOverview> {
+    const [response, competitionPlayers] = await Promise.all([
+      getCompetitionMatchdays(competitionId),
+      getCompetitionPlayers(competitionId)
+    ]);
     const rawMatchdays = (response.it ?? [])
       .map(matchdayFromApiResponse)
       .sort((left: Matchday, right: Matchday) => left.day - right.day);
@@ -30,7 +33,7 @@ export class MatchdaysService {
           }
         ])
     );
-    const matchdays = await this.enrichRelevantMatchdays(rawMatchdays, currentMatchday, playerMetaById);
+    const matchdays = await this.enrichRelevantMatchdays(rawMatchdays, currentMatchday, playerMetaById, competitionId);
 
     return {
       currentMatchday,
@@ -41,13 +44,14 @@ export class MatchdaysService {
   private async enrichRelevantMatchdays(
     matchdays: Matchday[],
     _currentMatchday: number,
-    playerMetaById: Map<string, MatchPlayerMeta>
+    playerMetaById: Map<string, MatchPlayerMeta>,
+    competitionId?: string
   ): Promise<Matchday[]> {
     const allVisibleMatches = matchdays.flatMap((matchday: Matchday) => matchday.matches);
     const detailEntries = await Promise.allSettled(
       allVisibleMatches
         .filter((match: MatchdayMatch) => match.matchId !== '')
-        .map(async (match: MatchdayMatch) => [match.matchId, await getMatchDetails(match.matchId)] as const)
+        .map(async (match: MatchdayMatch) => [match.matchId, await getMatchDetails(match.matchId, competitionId)] as const)
     );
     const detailsByMatchId = new Map<string, any>(
       detailEntries

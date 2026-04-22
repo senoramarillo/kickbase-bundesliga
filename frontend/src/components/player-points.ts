@@ -6,7 +6,7 @@ import { PlayerMatch } from '../models/player-match';
 import { PlayerSeason } from '../models/player-season';
 import { PlayerUpcomingMatch } from '../models/player-upcoming-match';
 import { PlayerPoints } from '../services/playerdata/player-points.service';
-import './player-points-match';
+import './player-points-match.ts';
 
 @customElement('bkb-player-points')
 export class PlayerPointsComponent extends LitElement {

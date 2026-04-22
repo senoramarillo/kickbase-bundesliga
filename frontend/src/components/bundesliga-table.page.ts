@@ -3,6 +3,7 @@ import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
 import { state } from 'lit/decorators/state.js';
 import { BundesligaTable, BundesligaTableEntry } from '../models/bundesliga-table';
+import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
 import './player-badges.ts';
 import './player-points.ts';
 import './bundesliga-table-list-item.ts';
@@ -11,6 +12,9 @@ import './bundesliga-table-list-item.ts';
 export class BundesligaTablePage extends LitElement {
   @property({ type: String, attribute: 'server-json-data' })
   declare public serverJsonData: string;
+
+  @property({ type: String, attribute: 'team-base-path' })
+  public teamBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`;
 
   @state()
   declare private bundesligaTable?: BundesligaTable;
@@ -30,7 +34,10 @@ export class BundesligaTablePage extends LitElement {
       <div class="root">
         ${this.bundesligaTable?.teams.map(
           (team: BundesligaTableEntry) => html`
-            <bkb-bundesliga-table-list-item .data=${team}></bkb-bundesliga-table-list-item>
+            <bkb-bundesliga-table-list-item
+              .data=${team}
+              .teamBasePath=${this.teamBasePath}
+            ></bkb-bundesliga-table-list-item>
           `
         )}
       </div>

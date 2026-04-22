@@ -1,33 +1,71 @@
 ---
 import favIcon from '../../images/favicon-16.png';
-import { BASE_PATH_WITHOUT_DOMAIN } from '../../base-path.mjs';
+import { BASE_PATH_WITHOUT_DOMAIN, KICKBASE_API_CONFIG } from '../../base-path.mjs';
 import { teamPlayerService } from '../services/team-players.service';
 import { bundesligaTableService } from '../services/bundesliga-table.service';
 import { BundesligaTableEntry, BundesligaTable } from '../models/bundesliga-table';
 import { PlayerListItem } from '../models/player-list-item';
 import { getPlayerPositionLabel, PlayerPosition } from '../models/player-position';
+import { COMPETITIONS, type CompetitionConfig } from '../models/competition';
 import { teamLogosLarge } from '../../images/teams/large';
 
-const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
-const teamIds: string[] = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
-
-const deepPlayerData: PlayerListItem[][] = [];
-for (const teamId of teamIds) {
-  deepPlayerData.push(await teamPlayerService.getData(teamId));
+interface CompetitionSection {
+  slug: CompetitionConfig['slug'];
+  label: string;
+  shortLabel: string;
+  teamBasePath: string;
+  playerBasePath: string;
+  teamLogosByName: Record<string, string>;
+  groupedTeams: [string, PlayerListItem[]][];
+  playerCount: number;
 }
 
-const playerData: PlayerListItem[] = deepPlayerData.flat();
-const playersGroupedByTeam: Record<string, PlayerListItem[]> = {};
+async function buildCompetitionSection(competition: CompetitionConfig): Promise<CompetitionSection> {
+  const table: BundesligaTable = await bundesligaTableService.getData(competition.competitionId);
+  const teamIds: string[] = table.teams.map((team: BundesligaTableEntry) => team.teamId);
 
-playerData.forEach((player: PlayerListItem) => {
-  if (playersGroupedByTeam[player.teamName]) {
-    playersGroupedByTeam[player.teamName].push(player);
-  } else {
-    playersGroupedByTeam[player.teamName] = [player];
+  const deepPlayerData: PlayerListItem[][] = [];
+  for (const teamId of teamIds) {
+    deepPlayerData.push(await teamPlayerService.getData(teamId, competition.competitionId));
   }
-});
 
-const groupedTeams = Object.entries(playersGroupedByTeam).sort(([leftTeam], [rightTeam]) => leftTeam.localeCompare(rightTeam));
+  const playerData: PlayerListItem[] = deepPlayerData.flat();
+  const playersGroupedByTeam: Record<string, PlayerListItem[]> = {};
+
+  playerData.forEach((player: PlayerListItem) => {
+    if (playersGroupedByTeam[player.teamName]) {
+      playersGroupedByTeam[player.teamName].push(player);
+    } else {
+      playersGroupedByTeam[player.teamName] = [player];
+    }
+  });
+
+  return {
+    slug: competition.slug,
+    label: competition.label,
+    shortLabel: competition.shortLabel,
+    teamBasePath: `${BASE_PATH_WITHOUT_DOMAIN}/${competition.slug}/team`,
+    playerBasePath: `${BASE_PATH_WITHOUT_DOMAIN}/${competition.slug}/player`,
+    teamLogosByName: Object.fromEntries(
+      table.teams.map((team: BundesligaTableEntry) => [
+        team.teamName,
+        teamLogosLarge[`team_${team.teamId}`] ??
+          (team.teamLogo
+            ? team.teamLogo.startsWith('http')
+              ? team.teamLogo
+              : `${KICKBASE_API_CONFIG.CDN_URL}${team.teamLogo}`
+            : '')
+      ])
+    ),
+    groupedTeams: Object.entries(playersGroupedByTeam).sort(([leftTeam], [rightTeam]) => leftTeam.localeCompare(rightTeam)),
+    playerCount: playerData.length
+  };
+}
+
+const competitionSections: CompetitionSection[] = await Promise.all([
+  buildCompetitionSection(COMPETITIONS.bundesliga),
+  buildCompetitionSection(COMPETITIONS['zweite-bundesliga'])
+]);
 
 function sortPlayers(players: PlayerListItem[]): PlayerListItem[] {
   return [...players].sort((left: PlayerListItem, right: PlayerListItem) => {
@@ -50,13 +88,19 @@ const playerCategories: { label: string; position: PlayerPosition }[] = [
   { label: 'Sturm', position: PlayerPosition.FORWARD }
 ];
 
-const playerSearchData = playerData.map((player: PlayerListItem) => ({
-  playerId: player.playerId,
-  playerName: player.playerName,
-  teamName: player.teamName,
-  number: player.number,
-  positionLabel: getPlayerPositionLabel(player.position as unknown as PlayerPosition)
-}));
+const playerSearchData = competitionSections.flatMap(section =>
+  section.groupedTeams.flatMap(([, players]) =>
+    players.map((player: PlayerListItem) => ({
+      playerId: player.playerId,
+      playerName: player.playerName,
+      teamName: player.teamName,
+      number: player.number,
+      competitionLabel: section.shortLabel,
+      playerBasePath: section.playerBasePath,
+      positionLabel: getPlayerPositionLabel(player.position as unknown as PlayerPosition)
+    }))
+  )
+);
 ---
 
 <!DOCTYPE html>
@@ -131,6 +175,34 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 0.75rem;
         margin-top: 1.5rem;
+      }
+
+      .league-switcher {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+      }
+
+      .league-switch-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.4rem;
+        padding: 0.55rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid #cfd9de;
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--text-main);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .league-switch-button.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
       }
 
       .search-panel {
@@ -248,6 +320,14 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         margin-top: 2rem;
       }
 
+      .competition-panel {
+        display: none;
+      }
+
+      .competition-panel.active {
+        display: block;
+      }
+
       .teams-header {
         display: flex;
         justify-content: space-between;
@@ -283,34 +363,56 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
       .team-card-header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         gap: 0.75rem;
         margin-bottom: 0.85rem;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
       }
 
       .team-card-header-main {
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        flex: 1 1 auto;
         min-width: 0;
       }
 
       .team-logo {
-        width: 42px;
-        height: 42px;
-        object-fit: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        padding: 0.35rem;
+        background: #fff;
+        border: 1px solid #e3eaee;
+        border-radius: 0.85rem;
+        overflow: hidden;
         flex: 0 0 auto;
+      }
+
+      .team-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: scale(1.08);
+        transform-origin: center;
       }
 
       .team-card-title {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1.08rem;
+        line-height: 1.2;
+        word-break: normal;
+        overflow-wrap: normal;
+        hyphens: auto;
       }
 
       .player-count {
         color: var(--text-muted);
         font-size: 0.9rem;
+        flex: 0 0 auto;
+        white-space: nowrap;
       }
 
       .player-links {
@@ -412,9 +514,18 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
           text-align: center;
         }
 
+        .league-switcher {
+          display: flex;
+          justify-content: center;
+        }
+
         .team-card-header-main {
           justify-content: center;
           width: 100%;
+        }
+
+        .team-card-header {
+          flex-wrap: wrap;
         }
       }
     </style>
@@ -422,28 +533,42 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
   <body>
     <main>
       <section class="hero">
-        <p class="eyebrow">Kickbase Bundesliga</p>
-        <h1>Spieler, Teams und Rankings auf einen Blick</h1>
+        <p class="eyebrow">Kickbase Liga Explorer</p>
+        <h1>1. und 2. Bundesliga auf einen Blick</h1>
         <p class="hero-copy">
-          Direkte Einstiege zur Tabelle, zu den Top 10, zu den Spieltagen und darunter alle Teams mit ihren Spielern.
+          Wähle oben die Liga aus und springe dann direkt zu Tabelle, Spieltagen, Top 10 und allen Teams dieser Liga.
         </p>
 
-        <div class="quick-links">
-          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/table`}>
-            <span class="quick-link-title">Bundesliga Tabelle</span>
-            <span class="quick-link-copy">Aktuelle Platzierungen und Teamansicht</span>
-          </a>
-          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/spieltag`}>
-            <span class="quick-link-title">Spieltage</span>
-            <span class="quick-link-copy">Ergebnisse, Tore, Karten, Wechsel und Aufstellungen</span>
-          </a>
-          <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/top-players`}>
-            <span class="quick-link-title">Top 10 Spieler</span>
-            <span class="quick-link-copy">Spieltag und Gesamtwertung auf einer Seite</span>
-          </a>
+        <div class="league-switcher" role="tablist" aria-label="Liga auswahlen">
+          {competitionSections.map((section, index) => (
+            <button
+              class:list={['league-switch-button', { active: index === 0 }]}
+              type="button"
+              data-competition-slug={section.slug}
+            >
+              {section.shortLabel}
+            </button>
+          ))}
         </div>
 
-        <div class="search-panel">
+        {competitionSections.map((section, index) => (
+          <div class:list={['competition-panel', 'quick-links', { active: index === 0 }]} data-competition-panel={section.slug}>
+            <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/${section.slug}/table`}>
+              <span class="quick-link-title">{section.shortLabel} Tabelle</span>
+              <span class="quick-link-copy">Aktuelle Platzierungen und Teamansicht</span>
+            </a>
+            <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/${section.slug}/spieltag`}>
+              <span class="quick-link-title">{section.shortLabel} Spieltage</span>
+              <span class="quick-link-copy">Ergebnisse, Tore, Karten, Wechsel und Aufstellungen</span>
+            </a>
+            <a class="quick-link" href={`${BASE_PATH_WITHOUT_DOMAIN}/${section.slug}/top-players`}>
+              <span class="quick-link-title">{section.shortLabel} Top 10</span>
+              <span class="quick-link-copy">Spieltag und Gesamtwertung auf einer Seite</span>
+            </a>
+          </div>
+        ))}
+
+        <div class="search-panel" data-search-panel>
           <label class="search-label" for="player-search">Spieler suchen</label>
           <input
             id="player-search"
@@ -458,130 +583,178 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
       </section>
 
       <section class="teams">
-        <div class="teams-header">
-          <h2>Alle Teams</h2>
-          <p>{playerData.length} Spieler in der Übersicht</p>
-        </div>
+        {competitionSections.map((section, index) => (
+          <section class:list={['teams-league-section', 'competition-panel', { active: index === 0 }]} data-competition-panel={section.slug}>
+            <div class="teams-header">
+              <h2>{section.shortLabel}</h2>
+              <p>{section.playerCount} Spieler in der Übersicht</p>
+            </div>
 
-        <div class="team-grid">
-          {groupedTeams.map(([team, players]: [string, PlayerListItem[]]) => (
-            <article class="team-card">
-              <div class="team-card-header">
-                <div class="team-card-header-main">
-                  <img
-                    class="team-logo"
-                    src={teamLogosLarge[`team_${players[0]?.teamId}`]}
-                    alt={`Logo von ${team}`}
-                  />
-                  <h3 class="team-card-title">{team}</h3>
-                </div>
-                <span class="player-count">{players.length} Spieler</span>
-              </div>
+            <div class="team-grid">
+              {section.groupedTeams.map(([team, players]: [string, PlayerListItem[]]) => (
+                <article class="team-card">
+                  <div class="team-card-header">
+                    <div class="team-card-header-main">
+                      <img
+                        class="team-logo"
+                        src={section.teamLogosByName[team]}
+                        alt={`Logo von ${team}`}
+                      />
+                      <h3 class="team-card-title">{team}</h3>
+                    </div>
+                    <span class="player-count">{players.length} Spieler</span>
+                  </div>
 
-              <div class="player-links">
-                <div class="position-groups">
-                  {playerCategories.map(category => {
-                    const playersInCategory = sortPlayers(players).filter(
-                      (player: PlayerListItem) => player.position === category.position
-                    );
+                  <div class="player-links">
+                    <div class="position-groups">
+                      {playerCategories.map(category => {
+                        const playersInCategory = sortPlayers(players).filter(
+                          (player: PlayerListItem) => player.position === category.position
+                        );
 
-                    if (playersInCategory.length === 0) {
-                      return null;
-                    }
+                        if (playersInCategory.length === 0) {
+                          return null;
+                        }
 
-                    return (
-                      <section>
-                        <h4 class="position-group-title">{category.label}</h4>
-                        <div class="player-links">
-                          {playersInCategory.map((player: PlayerListItem) => (
-                            <a
-                              class="player-link"
-                              href={`${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
-                                player.playerId
-                              )}`}
-                            >
-                              <span>{player.playerName}</span>
-                              <span class="player-meta">
-                                {player.number ? <span class="player-number">#{player.number}</span> : null}
-                                {player.position ? (
-                                  <span class="player-position">
-                                    {getPlayerPositionLabel(player.position as unknown as PlayerPosition)}
+                        return (
+                          <section>
+                            <h4 class="position-group-title">{category.label}</h4>
+                            <div class="player-links">
+                              {playersInCategory.map((player: PlayerListItem) => (
+                                <a
+                                  class="player-link"
+                                  href={`${section.playerBasePath}/${encodeURIComponent(player.playerName)}/${encodeURIComponent(
+                                    player.playerId
+                                  )}`}
+                                >
+                                  <span>{player.playerName}</span>
+                                  <span class="player-meta">
+                                    {player.number ? <span class="player-number">#{player.number}</span> : null}
+                                    {player.position ? (
+                                      <span class="player-position">
+                                        {getPlayerPositionLabel(player.position as unknown as PlayerPosition)}
+                                      </span>
+                                    ) : null}
                                   </span>
-                                ) : null}
-                              </span>
-                            </a>
-                          ))}
-                        </div>
-                      </section>
-                    );
-                  })}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+                                </a>
+                              ))}
+                            </div>
+                          </section>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
       </section>
     </main>
     <script define:vars={{ playerSearchData, BASE_PATH_WITHOUT_DOMAIN }}>
+      const leagueButtons = Array.from(document.querySelectorAll('[data-competition-slug]'));
+      const competitionPanels = Array.from(document.querySelectorAll('[data-competition-panel]'));
       const searchInput = document.getElementById('player-search');
       const searchResults = document.getElementById('player-search-results');
       const searchEmpty = document.getElementById('player-search-empty');
+      let activeCompetitionSlug = 'bundesliga';
+
+      const setActiveCompetition = slug => {
+        activeCompetitionSlug = slug;
+
+        leagueButtons.forEach(button => {
+          button.classList.toggle('active', button.dataset.competitionSlug === slug);
+        });
+
+        competitionPanels.forEach(panel => {
+          panel.classList.toggle('active', panel.dataset.competitionPanel === slug);
+        });
+
+        if (searchInput && searchInput.value.trim() !== '') {
+          renderResults(searchInput.value);
+        }
+      };
+
+      const normalizedPlayers = playerSearchData.map(player => ({
+        ...player,
+        competitionSlug:
+          player.playerBasePath.includes('/zweite-bundesliga/') ? 'zweite-bundesliga' : 'bundesliga',
+        searchValue: `${player.playerName} ${player.teamName} ${player.competitionLabel}`.toLowerCase()
+      }));
+
+      const renderResults = value => {
+        if (!searchInput || !searchResults || !searchEmpty) {
+          return;
+        }
+
+        const query = value.trim().toLowerCase();
+
+        if (query === '') {
+          searchResults.classList.remove('active');
+          searchEmpty.classList.remove('active');
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        const matches = normalizedPlayers
+          .filter(player => player.competitionSlug === activeCompetitionSlug)
+          .filter(player => player.searchValue.includes(query))
+          .slice(0, 12);
+
+        if (matches.length === 0) {
+          searchResults.classList.remove('active');
+          searchEmpty.classList.add('active');
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        searchEmpty.classList.remove('active');
+        searchResults.classList.add('active');
+        searchResults.innerHTML = matches
+          .map(player => {
+            const href = `${player.playerBasePath}/${encodeURIComponent(player.playerName)}/${encodeURIComponent(player.playerId)}`;
+            const detailParts = [player.teamName, player.competitionLabel];
+
+            if (player.number) {
+              detailParts.push(`#${player.number}`);
+            }
+
+            if (player.positionLabel) {
+              detailParts.push(player.positionLabel);
+            }
+
+            return `
+              <a class="search-result" href="${href}">
+                <span class="search-result-line">
+                  <span class="search-result-name">${player.playerName}</span>
+                  <span class="search-result-meta"> · ${detailParts.join(' · ')}</span>
+                </span>
+              </a>
+            `;
+          })
+          .join('');
+      };
 
       if (searchInput && searchResults && searchEmpty) {
-        const normalizedPlayers = playerSearchData.map(player => ({
-          ...player,
-          searchValue: `${player.playerName} ${player.teamName}`.toLowerCase()
-        }));
+        leagueButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            setActiveCompetition(button.dataset.competitionSlug);
+          });
+        });
 
-        const renderResults = value => {
-          const query = value.trim().toLowerCase();
-
-          if (query === '') {
-            searchResults.classList.remove('active');
-            searchEmpty.classList.remove('active');
-            searchResults.innerHTML = '';
-            return;
-          }
-
-          const matches = normalizedPlayers.filter(player => player.searchValue.includes(query)).slice(0, 12);
-
-          if (matches.length === 0) {
-            searchResults.classList.remove('active');
-            searchEmpty.classList.add('active');
-            searchResults.innerHTML = '';
-            return;
-          }
-
-          searchEmpty.classList.remove('active');
-          searchResults.classList.add('active');
-          searchResults.innerHTML = matches
-            .map(player => {
-              const href = `${BASE_PATH_WITHOUT_DOMAIN}/player/${encodeURIComponent(player.playerName)}/${encodeURIComponent(player.playerId)}`;
-              const detailParts = [player.teamName];
-
-              if (player.number) {
-                detailParts.push(`#${player.number}`);
-              }
-
-              if (player.positionLabel) {
-                detailParts.push(player.positionLabel);
-              }
-
-              return `
-                <a class="search-result" href="${href}">
-                  <span class="search-result-line">
-                    <span class="search-result-name">${player.playerName}</span>
-                    <span class="search-result-meta"> · ${detailParts.join(' · ')}</span>
-                  </span>
-                </a>
-              `;
-            })
-            .join('');
-        };
+        setActiveCompetition(activeCompetitionSlug);
 
         searchInput.addEventListener('input', event => {
           renderResults(event.target.value);
         });
+      } else {
+        leagueButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            setActiveCompetition(button.dataset.competitionSlug);
+          });
+        });
+
+        setActiveCompetition(activeCompetitionSlug);
       }
     </script>
   </body>

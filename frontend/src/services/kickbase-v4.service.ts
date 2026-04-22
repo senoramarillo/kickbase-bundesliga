@@ -2,8 +2,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { KICKBASE_API_CONFIG } from '../../base-path.mjs';
 
-const authCachePath = '/tmp/kickbase-bundesliga-auth-cache.json';
-
 function loadFrontendEnvFile(): Record<string, string> {
   const envFilePath = path.resolve(process.cwd(), '.env');
 
@@ -48,7 +46,7 @@ const competitionTableCache = new Map<string, Promise<any>>();
 const competitionMatchdaysCache = new Map<string, Promise<any>>();
 const matchDetailsCache = new Map<string, Promise<any>>();
 const teamProfileCache = new Map<string, Promise<any>>();
-let authContextPromise: Promise<{ token?: string; leagueId?: string; competitionId: string }> | undefined;
+const authContextPromises = new Map<string, Promise<{ token?: string; leagueId?: string; competitionId: string }>>();
 const maxNetworkAttempts = 8;
 
 function createCacheKey(...parts: string[]): string {
@@ -59,8 +57,12 @@ async function sleep(ms: number): Promise<void> {
   await new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function fetchJson<T>(path: string): Promise<T> {
-  const authContext = await getAuthContext();
+function getAuthCachePath(competitionId: string): string {
+  return `/tmp/kickbase-bundesliga-auth-cache-${competitionId}.json`;
+}
+
+async function fetchJson<T>(path: string, competitionId: string = requestedCompetitionId): Promise<T> {
+  const authContext = await getAuthContext(competitionId);
   const headers: HeadersInit = {
     ...KICKBASE_API_CONFIG.DEFAULT_OPTS.headers,
     ...(authContext.token ? { Authorization: `Bearer ${authContext.token}` } : {})
@@ -126,14 +128,13 @@ async function login(): Promise<any> {
   throw lastError instanceof Error ? lastError : new Error('Failed to login');
 }
 
-function chooseLeague(loginResponse: any): { leagueId?: string; competitionId: string } {
+function chooseLeague(loginResponse: any, desiredCompetitionId: string): { leagueId?: string; competitionId: string } {
   const availableLeagues = Array.isArray(loginResponse?.srvl) ? loginResponse.srvl : [];
-  const preferredLeague =
-    availableLeagues.find((league: any) => String(league.cpi) === requestedCompetitionId) ?? availableLeagues[0];
+  const matchingLeague = availableLeagues.find((league: any) => String(league.cpi) === desiredCompetitionId);
 
   return {
-    leagueId: configuredLeagueId ?? preferredLeague?.id,
-    competitionId: String(preferredLeague?.cpi ?? requestedCompetitionId)
+    leagueId: configuredLeagueId ?? matchingLeague?.id,
+    competitionId: String(matchingLeague?.cpi ?? desiredCompetitionId)
   };
 }
 
@@ -146,6 +147,22 @@ function readAuthCache():
       tokenExpiresAt?: string;
     }
   | undefined {
+  return readAuthCacheForCompetition(requestedCompetitionId);
+}
+
+function readAuthCacheForCompetition(
+  competitionId: string
+):
+  | {
+      email?: string;
+      token?: string;
+      leagueId?: string;
+      competitionId?: string;
+      tokenExpiresAt?: string;
+    }
+  | undefined {
+  const authCachePath = getAuthCachePath(competitionId);
+
   if (!fs.existsSync(authCachePath)) {
     return undefined;
   }
@@ -164,7 +181,7 @@ function isAuthCacheValid(cacheEntry?: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): boolean {
-  if (!cacheEntry?.token || cacheEntry.email !== configuredEmail) {
+  if (!cacheEntry?.token || cacheEntry.email !== configuredEmail || cacheEntry.competitionId !== requestedCompetitionId) {
     return false;
   }
 
@@ -182,7 +199,9 @@ function canUseStaleAuthCache(cacheEntry?: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): boolean {
-  return Boolean(cacheEntry?.token && cacheEntry.email === configuredEmail);
+  return Boolean(
+    cacheEntry?.token && cacheEntry.email === configuredEmail && cacheEntry.competitionId === requestedCompetitionId
+  );
 }
 
 function writeAuthCache(entry: {
@@ -192,6 +211,21 @@ function writeAuthCache(entry: {
   competitionId?: string;
   tokenExpiresAt?: string;
 }): void {
+  writeAuthCacheForCompetition(requestedCompetitionId, entry);
+}
+
+function writeAuthCacheForCompetition(
+  competitionId: string,
+  entry: {
+    email?: string;
+    token?: string;
+    leagueId?: string;
+    competitionId?: string;
+    tokenExpiresAt?: string;
+  }
+): void {
+  const authCachePath = getAuthCachePath(competitionId);
+
   try {
     fs.writeFileSync(authCachePath, JSON.stringify(entry), 'utf8');
   } catch {
@@ -199,14 +233,16 @@ function writeAuthCache(entry: {
   }
 }
 
-async function getAuthContext(): Promise<{ token?: string; leagueId?: string; competitionId: string }> {
-  if (!authContextPromise) {
-    authContextPromise = (async () => {
+async function getAuthContext(
+  competitionId: string = requestedCompetitionId
+): Promise<{ token?: string; leagueId?: string; competitionId: string }> {
+  if (!authContextPromises.has(competitionId)) {
+    authContextPromises.set(competitionId, (async () => {
       if (configuredToken) {
         return {
           token: configuredToken,
           leagueId: configuredLeagueId,
-          competitionId: requestedCompetitionId
+          competitionId
         };
       }
 
@@ -214,25 +250,25 @@ async function getAuthContext(): Promise<{ token?: string; leagueId?: string; co
         return {
           token: undefined,
           leagueId: configuredLeagueId,
-          competitionId: requestedCompetitionId
+          competitionId
         };
       }
 
-      const cachedAuth = readAuthCache();
+      const cachedAuth = readAuthCacheForCompetition(competitionId);
       if (isAuthCacheValid(cachedAuth)) {
         return {
           token: cachedAuth?.token,
           leagueId: configuredLeagueId ?? cachedAuth?.leagueId,
-          competitionId: cachedAuth?.competitionId ?? requestedCompetitionId
+          competitionId: cachedAuth?.competitionId ?? competitionId
         };
       }
 
       try {
         const loginResponse = await login();
-        const selectedLeague = chooseLeague(loginResponse);
+        const selectedLeague = chooseLeague(loginResponse, competitionId);
         const token = loginResponse.tkn ?? loginResponse.token;
 
-        writeAuthCache({
+        writeAuthCacheForCompetition(competitionId, {
           email: configuredEmail,
           token,
           leagueId: selectedLeague.leagueId,
@@ -250,21 +286,25 @@ async function getAuthContext(): Promise<{ token?: string; leagueId?: string; co
           return {
             token: cachedAuth?.token,
             leagueId: configuredLeagueId ?? cachedAuth?.leagueId,
-            competitionId: cachedAuth?.competitionId ?? requestedCompetitionId
+            competitionId: cachedAuth?.competitionId ?? competitionId
           };
         }
 
         throw error;
       }
-    })();
+    })());
   }
 
   try {
-    return await authContextPromise;
+    return await authContextPromises.get(competitionId)!;
   } catch (error) {
-    authContextPromise = undefined;
+    authContextPromises.delete(competitionId);
     throw error;
   }
+}
+
+function canUseLeagueContext(authContext: { leagueId?: string; competitionId: string }, competitionId: string): boolean {
+  return Boolean(authContext.leagueId && authContext.competitionId === competitionId);
 }
 
 export function getKickbaseImageUrl(path?: string): string {
@@ -291,14 +331,14 @@ export function getKickbasePlayerPortraitUrl(playerId?: string | number, fallbac
 export async function getCompetitionTable(
   competitionId: string = requestedCompetitionId
 ): Promise<any> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
   const cacheKey = createCacheKey('table', effectiveCompetitionId);
 
   if (!competitionTableCache.has(cacheKey)) {
     competitionTableCache.set(
       cacheKey,
-      fetchJson(`/competitions/${effectiveCompetitionId}/table`).catch(error => {
+      fetchJson(`/competitions/${effectiveCompetitionId}/table`, effectiveCompetitionId).catch(error => {
         competitionTableCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return { it: [] };
@@ -315,14 +355,14 @@ export async function getCompetitionTable(
 export async function getCompetitionMatchdays(
   competitionId: string = requestedCompetitionId
 ): Promise<any> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
   const cacheKey = createCacheKey('matchdays', effectiveCompetitionId);
 
   if (!competitionMatchdaysCache.has(cacheKey)) {
     competitionMatchdaysCache.set(
       cacheKey,
-      fetchJson(`/competitions/${effectiveCompetitionId}/matchdays`).catch(error => {
+      fetchJson(`/competitions/${effectiveCompetitionId}/matchdays`, effectiveCompetitionId).catch(error => {
         competitionMatchdaysCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return { it: [] };
@@ -339,14 +379,14 @@ export async function getCompetitionMatchdays(
 export async function getCompetitionPlayers(
   competitionId: string = requestedCompetitionId
 ): Promise<any[]> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
   const cacheKey = createCacheKey('players', effectiveCompetitionId);
 
   if (!competitionPlayersCache.has(cacheKey)) {
     competitionPlayersCache.set(
       cacheKey,
-      fetchJson<{ it?: any[] }>(`/competitions/${effectiveCompetitionId}/players?position=&sorting=`)
+      fetchJson<{ it?: any[] }>(`/competitions/${effectiveCompetitionId}/players?position=&sorting=`, effectiveCompetitionId)
         .then(response => response.it ?? [])
         .catch(error => {
           competitionPlayersCache.delete(cacheKey);
@@ -362,13 +402,13 @@ export async function getCompetitionPlayers(
   return competitionPlayersCache.get(cacheKey)!;
 }
 
-export async function getMatchDetails(matchId: string): Promise<any> {
-  const cacheKey = createCacheKey('match-details', matchId);
+export async function getMatchDetails(matchId: string, competitionId: string = requestedCompetitionId): Promise<any> {
+  const cacheKey = createCacheKey('match-details', competitionId, matchId);
 
   if (!matchDetailsCache.has(cacheKey)) {
     matchDetailsCache.set(
       cacheKey,
-      fetchJson(`/matches/${matchId}/details`).catch(error => {
+      fetchJson(`/matches/${matchId}/details`, competitionId).catch(error => {
         matchDetailsCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return {};
@@ -386,17 +426,17 @@ export async function getCompetitionPlayer(
   playerId: string,
   competitionId: string = requestedCompetitionId
 ): Promise<any> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
   const cacheKey = createCacheKey('player', effectiveCompetitionId, playerId);
-  const playerPath = authContext.leagueId
+  const playerPath = canUseLeagueContext(authContext, effectiveCompetitionId)
     ? `/leagues/${authContext.leagueId}/players/${playerId}`
     : `/competitions/${effectiveCompetitionId}/players/${playerId}`;
 
   if (!competitionPlayerDetailsCache.has(cacheKey)) {
     competitionPlayerDetailsCache.set(
       cacheKey,
-      fetchJson(playerPath).catch(error => {
+      fetchJson(playerPath, effectiveCompetitionId).catch(error => {
         competitionPlayerDetailsCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return {};
@@ -414,7 +454,7 @@ export async function getCompetitionPlayerPerformance(
   playerId: string,
   competitionId: string = requestedCompetitionId
 ): Promise<any> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
   const cacheKey = createCacheKey('performance', effectiveCompetitionId, playerId);
   const performancePath = `/competitions/${effectiveCompetitionId}/players/${playerId}/performance`;
@@ -422,7 +462,7 @@ export async function getCompetitionPlayerPerformance(
   if (!competitionPlayerPerformanceCache.has(cacheKey)) {
     competitionPlayerPerformanceCache.set(
       cacheKey,
-      fetchJson(performancePath).catch(error => {
+      fetchJson(performancePath, effectiveCompetitionId).catch(error => {
         competitionPlayerPerformanceCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return { it: [] };
@@ -441,14 +481,14 @@ export async function getCompetitionPlayerMarketValueHistory(
   timeframe: number = 92,
   competitionId: string = requestedCompetitionId
 ): Promise<any> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
-  const marketValuePath = authContext.leagueId
+  const marketValuePath = canUseLeagueContext(authContext, effectiveCompetitionId)
     ? `/leagues/${authContext.leagueId}/players/${playerId}/marketvalue/${timeframe}`
     : `/competitions/${effectiveCompetitionId}/players/${playerId}/marketvalue/${timeframe}`;
   const cacheKey = createCacheKey(
     'market-value',
-    authContext.leagueId ?? effectiveCompetitionId,
+    canUseLeagueContext(authContext, effectiveCompetitionId) ? authContext.leagueId ?? effectiveCompetitionId : effectiveCompetitionId,
     playerId,
     String(timeframe)
   );
@@ -456,7 +496,7 @@ export async function getCompetitionPlayerMarketValueHistory(
   if (!competitionPlayerMarketValueCache.has(cacheKey)) {
     competitionPlayerMarketValueCache.set(
       cacheKey,
-      fetchJson(marketValuePath).catch(error => {
+      fetchJson(marketValuePath, effectiveCompetitionId).catch(error => {
         competitionPlayerMarketValueCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return { it: [] };
@@ -474,17 +514,22 @@ export async function getTeamProfile(
   teamId: string,
   competitionId: string = requestedCompetitionId
 ): Promise<any> {
-  const authContext = await getAuthContext();
+  const authContext = await getAuthContext(competitionId);
   const effectiveCompetitionId = competitionId ?? authContext.competitionId;
-  const cacheKey = createCacheKey('teamprofile', effectiveCompetitionId, authContext.leagueId ?? 'no-league', teamId);
-  const teamProfilePath = authContext.leagueId
+  const cacheKey = createCacheKey(
+    'teamprofile',
+    effectiveCompetitionId,
+    canUseLeagueContext(authContext, effectiveCompetitionId) ? authContext.leagueId ?? 'no-league' : 'competition',
+    teamId
+  );
+  const teamProfilePath = canUseLeagueContext(authContext, effectiveCompetitionId)
     ? `/leagues/${authContext.leagueId}/teams/${teamId}/teamprofile/`
     : `/competitions/${effectiveCompetitionId}/teams/${teamId}/teamprofile`;
 
   if (!teamProfileCache.has(cacheKey)) {
     teamProfileCache.set(
       cacheKey,
-      fetchJson(teamProfilePath).catch(error => {
+      fetchJson(teamProfilePath, effectiveCompetitionId).catch(error => {
         teamProfileCache.delete(cacheKey);
         if (/401|403/.test(String(error))) {
           return { it: [] };

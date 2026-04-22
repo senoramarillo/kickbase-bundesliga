@@ -165,6 +165,9 @@ export class PlayerListItemComponent extends LitElement {
   @property({ type: Object })
   public data: PlayerListItem;
 
+  @property({ type: String, attribute: 'player-base-path' })
+  public playerBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/player`;
+
   private handleImageError(event: Event): void {
     const image = event.currentTarget as HTMLImageElement | null;
     if (!image) {
@@ -183,7 +186,7 @@ export class PlayerListItemComponent extends LitElement {
   }
 
   protected render(): TemplateResult {
-    const playerHref = `${BASE_PATH_WITHOUT_DOMAIN}/player/${this.data.playerName}/${this.data.playerId}`;
+    const playerHref = `${this.playerBasePath}/${encodeURIComponent(this.data.playerName)}/${encodeURIComponent(this.data.playerId)}`;
 
     return html`
       <a class="root" href=${playerHref}>

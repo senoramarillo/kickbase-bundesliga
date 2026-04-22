@@ -6,8 +6,8 @@ export interface PlayerStats {
 }
 
 export class PlayerStatsService {
-  public async getData(playerId: string): Promise<PlayerStats> {
-    const player = await getCompetitionPlayer(playerId);
+  public async getData(playerId: string, competitionId?: string): Promise<PlayerStats> {
+    const player = await getCompetitionPlayer(playerId, competitionId);
     const upcomingMatches = (player.mdsum ?? [])
       .filter((match: any) => Number(match.mdst ?? 0) !== 2)
       .map((match: any) =>
