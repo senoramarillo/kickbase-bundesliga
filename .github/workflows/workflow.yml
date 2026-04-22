@@ -41,12 +41,10 @@ jobs:
 
       - name: Deploy frontend
         uses: peaceiris/actions-gh-pages@v4
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'frontend/dist'
-          destination-github-username: 'senoramarillo'
-          destination-repository-name: 'kickbase-bundesliga'
-          user-email: 'github-actions[bot]@users.noreply.github.com'
-          target-branch: gh-pages
-          create-target-branch-if-needed: true
+           personal_token: ${{ secrets.API_TOKEN_GITHUB }}
+           external_repository: senoramarillo/kickbase-bundesliga
+           publish_branch: gh-pages
+           publish_dir: frontend/dist
+           user_email: github-actions[bot]@users.noreply.github.com
+           force_orphan: true
