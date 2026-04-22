@@ -40,7 +40,7 @@ jobs:
           ls -la
 
       - name: Deploy frontend
-        uses: cpina/github-action-push-to-another-repository@main
+        uses: peaceiris/actions-gh-pages@v4
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
