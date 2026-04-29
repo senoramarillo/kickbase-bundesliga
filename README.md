@@ -56,7 +56,7 @@ The repository is organized around a simple separation of concerns:
   - Matchday overview
   - Top players
   - Team and player detail views
-  - 2. Bundesliga pages
+  - 2. Bundesliga pages (in progess)
 
 ## Tech Stack
 
