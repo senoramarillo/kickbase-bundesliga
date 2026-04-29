@@ -41,10 +41,12 @@ export class BundesligaPlayerListItemComponent extends LitElement {
     .team-name {
       flex: 1 1 auto;
       min-width: 0;
+      font-size: 0.9rem;
       white-space: normal;
       line-height: 1.15;
       text-align: left;
-      word-break: break-word;
+      overflow-wrap: normal;
+      word-break: normal;
     }
 
     .stats-section {
@@ -146,12 +148,16 @@ export class BundesligaPlayerListItemComponent extends LitElement {
       color: #9ca4a8;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 980px) {
       .root {
         flex-direction: column;
         align-items: stretch;
         padding: 0.9rem;
         gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
       }
 
       .stats-section {
