@@ -9,7 +9,7 @@ import favIcon from '../../../../images/favicon-16.png';
 import noProfilePicFallback from '../../../../images/no_profile_pic.png';
 import '../../../styles/page.css';
 import { PlayerPage } from '../../../components/player.page';
-import { PlayerMarketValueComponent } from '../../../components/player-market-value';
+import { PlayerMarketValueComponent } from '../../../components/player-market-value.ts';
 
 const { params } = Astro;
 const serverJsonData: PlayerData = await playerDataService.getData(String(params.playerId));
