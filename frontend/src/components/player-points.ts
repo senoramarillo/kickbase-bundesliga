@@ -106,15 +106,14 @@ export class PlayerPointsComponent extends LitElement {
   }
 
   protected render(): TemplateResult {
-    const seasons = this.mergeDuplicateSeasons(this.points?.seasons ?? []).sort(
-      (left: PlayerSeason, right: PlayerSeason) => this.getSeasonStartYear(right.year) - this.getSeasonStartYear(left.year)
+    const seasons = [...(this.points?.seasons ?? [])].sort((left: PlayerSeason, right: PlayerSeason) =>
+      this.getSeasonStartYear(right.year) - this.getSeasonStartYear(left.year)
     );
-    const visibleUpcomingMatches = this.getVisibleUpcomingMatches(seasons, this.upcomingMatches ?? []);
 
     return html`
       <div class="root">
         ${seasons.map((season: PlayerSeason) => this.seasonTemplate(season))}
-        ${visibleUpcomingMatches.map(
+        ${this.upcomingMatches.map(
           (upcomingMatch: PlayerUpcomingMatch) =>
             html`<div class="match-item">
               <bkb-player-points-match .match=${upcomingMatch} .maxPoints=${this.maxPoints}></bkb-player-points-match>
@@ -154,65 +153,5 @@ export class PlayerPointsComponent extends LitElement {
 
   private getSeasonStartYear(year: string): number {
     return Number.parseInt(String(year).split('/')[0] ?? '0', 10) || 0;
-  }
-
-  private mergeDuplicateSeasons(seasons: PlayerSeason[]): PlayerSeason[] {
-    const seasonsByKey = new Map<string, PlayerSeason[]>();
-
-    for (const season of seasons) {
-      const key = this.getSeasonKey(season);
-      seasonsByKey.set(key, [...(seasonsByKey.get(key) ?? []), season]);
-    }
-
-    return [...seasonsByKey.values()].map(groupedSeasons => {
-      if (groupedSeasons.length === 1) {
-        return groupedSeasons[0];
-      }
-
-      const matches = this.mergeDuplicateMatches(groupedSeasons.flatMap(season => season.matches));
-      const appearances = matches.filter(match => match.playtimeSeconds > 0).length;
-
-      return {
-        year: groupedSeasons[0].year,
-        matches,
-        points: matches.reduce((sum, match) => sum + match.points, 0),
-        appearances,
-        startingEleven: matches.filter(match => match.startingEleven).length
-      };
-    });
-  }
-
-  private mergeDuplicateMatches(matches: PlayerMatch[]): PlayerMatch[] {
-    const matchesByKey = new Map<string, PlayerMatch>();
-
-    for (const match of matches) {
-      matchesByKey.set(this.getMatchKey(match), match);
-    }
-
-    return [...matchesByKey.values()].sort((left, right) => left.match - right.match);
-  }
-
-  private getSeasonKey(season: PlayerSeason): string {
-    const startYear = String(season.year).match(/\d{4}/)?.[0];
-    return startYear ?? `year:${String(season.year).trim().toLowerCase() || 'unknown'}`;
-  }
-
-  private getVisibleUpcomingMatches(seasons: PlayerSeason[], upcomingMatches: PlayerUpcomingMatch[]): PlayerUpcomingMatch[] {
-    const currentSeason = seasons[0];
-    if (!currentSeason) {
-      return upcomingMatches;
-    }
-
-    const currentSeasonMatchKeys = new Set(currentSeason.matches.map((match: PlayerMatch) => this.getMatchKey(match)));
-
-    return upcomingMatches.filter((match: PlayerUpcomingMatch) => !currentSeasonMatchKeys.has(this.getMatchKey(match)));
-  }
-
-  private getMatchKey(match: PlayerMatch | PlayerUpcomingMatch): string {
-    return [
-      match.match,
-      String(match.homeTeamId),
-      String(match.awayTeamId)
-    ].join(':');
   }
 }
