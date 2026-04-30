@@ -1,5 +1,7 @@
 import { LitElement, html, CSSResultGroup, css, TemplateResult, PropertyValueMap } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
+import {state} from "lit/decorators/state.js";
+import { repeat } from 'lit/directives/repeat.js'
 import { property } from 'lit/decorators/property.js';
 import { pointFormatter } from '../helpers/point-formatter';
 import { PlayerMatch } from '../models/player-match';
@@ -86,6 +88,7 @@ export class PlayerPointsComponent extends LitElement {
 
   `;
 
+
   @property({ type: Object })
   declare public points?: PlayerPoints;
 
@@ -96,7 +99,7 @@ export class PlayerPointsComponent extends LitElement {
    * The highest points the player has ever scored.
    * Is used to determine how to render the bars.
    */
-  private maxPoints: number = 0;
+  @state() private maxPoints: number = 0;
 
   protected willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
     if (_changedProperties.has('points') && !!this.points?.seasons) {
@@ -106,18 +109,28 @@ export class PlayerPointsComponent extends LitElement {
   }
 
   protected render(): TemplateResult {
-    const seasons = [...(this.points?.seasons ?? [])].sort((left: PlayerSeason, right: PlayerSeason) =>
-      this.getSeasonStartYear(right.year) - this.getSeasonStartYear(left.year)
+    const seasons = [...(this.points?.seasons ?? [])]
+        .sort((left: PlayerSeason, right: PlayerSeason) =>
+            this.getSeasonStartYear(right.year) - this.getSeasonStartYear(left.year)
+        )
+        .filter((season, index, self) =>
+            index === self.findIndex((s) => s.year === season.year)
+        );
+
+    const uniqueUpcomingMatches = (this.upcomingMatches ?? []).filter(
+        (match, index, self) => index === self.findIndex((m) => m.match === match.match)
     );
 
     return html`
       <div class="root">
         ${seasons.map((season: PlayerSeason) => this.seasonTemplate(season))}
-        ${this.upcomingMatches.map(
-          (upcomingMatch: PlayerUpcomingMatch) =>
-            html`<div class="match-item">
-              <bkb-player-points-match .match=${upcomingMatch} .maxPoints=${this.maxPoints}></bkb-player-points-match>
-            </div>`
+
+        ${uniqueUpcomingMatches.map(
+            (upcomingMatch: PlayerUpcomingMatch) => html`
+              <div class="match-item">
+                <bkb-player-points-match .match=${upcomingMatch} .maxPoints=${this.maxPoints}></bkb-player-points-match>
+              </div>
+            `
         )}
       </div>
     `;
