@@ -15,8 +15,8 @@ export interface PlayerInfo {
 }
 
 export class PlayerInfoService {
-  public async getData(playerId: string): Promise<PlayerInfo> {
-    const player = await getCompetitionPlayer(playerId);
+  public async getData(playerId: string, competitionId?: string): Promise<PlayerInfo> {
+    const player = await getCompetitionPlayer(playerId, competitionId);
     const profileImage = getKickbasePlayerPortraitUrl(player.i ?? playerId, player.pim);
     const profileFallback = getKickbaseImageUrl(player.pim ?? player.plpim);
 
