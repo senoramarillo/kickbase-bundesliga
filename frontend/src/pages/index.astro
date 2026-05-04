@@ -270,13 +270,14 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1rem;
+        align-items: start;
       }
 
       .team-card {
         background: var(--panel-bg);
         border: 1px solid var(--panel-border);
         border-radius: 1rem;
-        padding: 1rem;
+        overflow: hidden;
         box-shadow: 0 12px 30px rgba(19, 33, 40, 0.05);
       }
 
@@ -285,8 +286,14 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         justify-content: space-between;
         align-items: center;
         gap: 0.75rem;
-        margin-bottom: 0.85rem;
+        padding: 1rem;
+        cursor: pointer;
         flex-wrap: wrap;
+        list-style: none;
+      }
+
+      .team-card-header::-webkit-details-marker {
+        display: none;
       }
 
       .team-card-header-main {
@@ -294,6 +301,13 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
         align-items: center;
         gap: 0.75rem;
         min-width: 0;
+      }
+
+      .team-card-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-left: auto;
       }
 
       .team-logo {
@@ -311,6 +325,39 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
       .player-count {
         color: var(--text-muted);
         font-size: 0.9rem;
+      }
+
+      .team-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        transition: transform 0.15s ease;
+      }
+
+      .team-toggle::before {
+        content: '';
+        width: 0.45rem;
+        height: 0.45rem;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg) translate(-1px, -1px);
+      }
+
+      .team-card[open] .team-toggle {
+        transform: rotate(180deg);
+      }
+
+      .team-card[open] .team-card-header {
+        border-bottom: 1px solid var(--panel-border);
+      }
+
+      .team-card-body {
+        padding: 1rem;
       }
 
       .player-links {
@@ -416,6 +463,12 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
           justify-content: center;
           width: 100%;
         }
+
+        .team-card-meta {
+          justify-content: center;
+          margin-left: 0;
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -465,8 +518,8 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
 
         <div class="team-grid">
           {groupedTeams.map(([team, players]: [string, PlayerListItem[]]) => (
-            <article class="team-card">
-              <div class="team-card-header">
+            <details class="team-card">
+              <summary class="team-card-header">
                 <div class="team-card-header-main">
                   <img
                     class="team-logo"
@@ -475,10 +528,13 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
                   />
                   <h3 class="team-card-title">{team}</h3>
                 </div>
-                <span class="player-count">{players.length} Spieler</span>
-              </div>
+                <span class="team-card-meta">
+                  <span class="player-count">{players.length} Spieler</span>
+                  <span class="team-toggle" aria-hidden="true"></span>
+                </span>
+              </summary>
 
-              <div class="player-links">
+              <div class="team-card-body">
                 <div class="position-groups">
                   {playerCategories.map(category => {
                     const playersInCategory = sortPlayers(players).filter(
@@ -517,7 +573,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
                   })}
                 </div>
               </div>
-            </article>
+            </details>
           ))}
         </div>
       </section>
