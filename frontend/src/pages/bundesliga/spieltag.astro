@@ -11,6 +11,7 @@ const props: Record<string, string> = {
   'server-json-data': JSON.stringify(matchdayOverview),
   'team-base-path': `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`
 };
+const currentMatchday: number = matchdayOverview.currentMatchday;
 ---
 
 <!DOCTYPE html>
@@ -25,6 +26,36 @@ const props: Record<string, string> = {
     <meta name="description" content="kickbase-bundesliga Spieltagsübersicht mit Partien und Ergebnissen" />
   </head>
   <body style="background-color: #e8edf1; padding: 1rem;">
-    <MatchdaysPage {...props} client:idle />
+    <MatchdaysPage {...props} />
+    <script define:vars={{ currentMatchday }}>
+      const scrollToCurrentMatchday = () => {
+        if ('scrollRestoration' in window.history) {
+          window.history.scrollRestoration = 'manual';
+        }
+
+        const matchdaysElement = document.querySelector('bkb-matchdays');
+        const matchdaysRoot = matchdaysElement?.shadowRoot ?? matchdaysElement;
+        const currentMatchdaySection = matchdaysRoot?.querySelector('.current-matchday-section');
+
+        if (!currentMatchdaySection) {
+          return false;
+        }
+
+        const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+        const scrollTop = currentMatchdaySection.getBoundingClientRect().top + window.scrollY - 16;
+        window.scrollTo({ top: Math.max(scrollTop, 0), behavior });
+        return true;
+      };
+
+      const scheduleCurrentMatchdayScroll = () => {
+        [0, 150, 500, 1000, 1800].forEach(delay => {
+          window.setTimeout(scrollToCurrentMatchday, delay);
+        });
+      };
+
+      window.addEventListener('load', scheduleCurrentMatchdayScroll, { once: true });
+      customElements.whenDefined('bkb-matchdays').then(scheduleCurrentMatchdayScroll).catch(() => {});
+      scheduleCurrentMatchdayScroll();
+    </script>
   </body>
 </html>

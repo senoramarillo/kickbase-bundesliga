@@ -30,6 +30,10 @@ export class MatchdaysPage extends LitElement {
       margin-top: 1.5rem;
     }
 
+    .current-matchday-section {
+      scroll-margin-top: 1rem;
+    }
+
     .matchday-disclosure {
       border-radius: 1rem;
       overflow: hidden;
@@ -341,10 +345,32 @@ export class MatchdaysPage extends LitElement {
   declare public serverJsonData: string;
 
   @property({ type: String, attribute: 'team-base-path' })
-  public teamBasePath: string = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`;
+  declare public teamBasePath: string;
 
   @state()
   declare private data: MatchdayOverview;
+
+  private currentMatchdayScrollAttempts = 0;
+
+  public constructor() {
+    super();
+    this.teamBasePath = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team`;
+  }
+
+  public connectedCallback(): void {
+    super.connectedCallback();
+
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('load', this.handleWindowLoad);
+  }
+
+  public disconnectedCallback(): void {
+    window.removeEventListener('load', this.handleWindowLoad);
+    super.disconnectedCallback();
+  }
 
   protected async willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): Promise<void> {
     if (!this.data) {
@@ -362,6 +388,10 @@ export class MatchdaysPage extends LitElement {
     }
   }
 
+  protected firstUpdated(): void {
+    this.scheduleCurrentMatchdayScroll();
+  }
+
   protected render(): TemplateResult {
     const relevantMatchdays = [...this.data.matchdays].sort((left: Matchday, right: Matchday) => left.day - right.day);
 
@@ -374,7 +404,7 @@ export class MatchdaysPage extends LitElement {
 
       ${relevantMatchdays.map(
         (matchday: Matchday) => html`
-          <section class="matchday-section">
+          <section class="matchday-section ${matchday.day === this.data.currentMatchday ? 'current-matchday-section' : ''}">
             <details class="matchday-disclosure" ?open=${matchday.day === this.data.currentMatchday}>
               <summary class="matchday-summary ${matchday.day === this.data.currentMatchday ? 'current' : ''}">
                 <h2 class="matchday-title">
@@ -392,6 +422,41 @@ export class MatchdaysPage extends LitElement {
         `
       )}
     `;
+  }
+
+  private readonly handleWindowLoad = (): void => {
+    this.scheduleCurrentMatchdayScroll();
+  };
+
+  private scheduleCurrentMatchdayScroll(): void {
+    const delays = [0, 150, 500, 1000, 1800];
+
+    delays.forEach(delay => {
+      window.setTimeout(() => {
+        void this.scrollToCurrentMatchday();
+      }, delay);
+    });
+  }
+
+  private async scrollToCurrentMatchday(): Promise<void> {
+    if (this.currentMatchdayScrollAttempts >= 10) {
+      return;
+    }
+
+    this.currentMatchdayScrollAttempts += 1;
+    await this.updateComplete;
+
+    window.requestAnimationFrame(() => {
+      const currentMatchdaySection = this.renderRoot.querySelector<HTMLElement>('.current-matchday-section');
+
+      if (!currentMatchdaySection) {
+        return;
+      }
+
+      const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      const scrollTop = currentMatchdaySection.getBoundingClientRect().top + window.scrollY - 16;
+      window.scrollTo({ top: Math.max(scrollTop, 0), behavior });
+    });
   }
 
   private matchTemplate(match: MatchdayMatch): TemplateResult {
