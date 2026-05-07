@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABPlBMVEUTFBgWFxsSExcHBwsGBgoUFRkYGR1ZXGFcXmQaHCAREhYUFRoODxMJCg4jJCje5O3m7fYrLDEQERUKCw8ODhIVFhowMjZNUFUAAQUfICXR2ODV2+MfICQAAANMTlMzNTkKCg6yuL3x+P+QlZsbHCC/xc3l7PRHSk6GipDw9/+4vsSFipDf5u3///+NkplCREne5e30+//7///i6fCKjpUICAwqLDCwtr3Y3+YVFRoiJChtcXdydnwxMzgICQ0tLzOyuL/X3uYmKCx2eoA1NzwHCAyIjZPh6O6LkJZER0zh6PDz+v7k6/KOkpkNDhKutLmMkZgaGx/Bx87k6/NERkuChozu9v22vMIPEBQTFRgLCw9KTFEAAAQfISXV3OMAAAJISk8xMzcKCw7d5Ozl7fURERUUFhpUV11XWmAGBwsf6ADXAAAAAWJLR0QtzdpBPQAAAAd0SU1FB+gIFQsmOIb9C3gAAAABb3JOVAHPoneaAAAAvUlEQVQY02NggABGRgYUwMTMwoTgsTIysbFzcHIxckP5PLxMfPwCgkLCIqIgvqiwmLiEpJS0jKycvIIoWIGikrKKqpq6hqaWENg8Rm0dXT19A0MjYxM2JlaQiKmZuYWllbWNLTPEJiY7ewdHVicbZxdXiAJGN3ddD08vbyMfX7AWVj9/zYDAoOCQ0LDwiEiQtVH20TGxUnGx8QmJSaIQhyUx8SWnmKUK86QhnJ6eEcjFyIrkOddMJlTvwr0PAEAYGZyYd5KIAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTA4LTIxVDExOjM4OjU0KzAwOjAwVcvdUAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0wOC0yMVQxMTozODo1NCswMDowMCSWZewAAAAASUVORK5CYII=">
+    <link rel="preload" as="font" href="/kickbase-bundesliga/fonts/roboto-condensed-v24-latin-700.woff2">
+    <link rel="preload" as="font" href="/kickbase-bundesliga/fonts/roboto-condensed-v24-latin-regular.woff2">
+    <title>Top 10 Spieler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kickbase-bundesliga Top 10 des Spieltags und Top 10 insgesamt">
+  <link rel="stylesheet" href="/kickbase-bundesliga/assets/spieltag.1c0b4fd0.css" /><script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
+/** Bundled JS generated from "@astrojs/lit/client-shim.js" */
+var N = Object.defineProperty;
+var i = (t, n) => () => (t && (n = t((t = 0))), n);
+var b = (t, n) => {
+	for (var a in n) N(t, a, { get: n[a], enumerable: !0 });
+};
+function s() {
+	if (d === void 0) {
+		let t = document.createElement('div');
+		(t.innerHTML = '<div><template shadowroot="open"></template></div>'),
+			(d = !!t.firstElementChild.shadowRoot);
+	}
+	return d;
+}
+var d,
+	m = i(() => {});
+var p,
+	c,
+	f,
+	u = i(() => {
+		(p = (t) => t.parentElement === null),
+			(c = (t) => t.tagName === 'TEMPLATE'),
+			(f = (t) => t.nodeType === Node.ELEMENT_NODE);
+	});
+var h,
+	E = i(() => {
+		m();
+		u();
+		h = (t) => {
+			var n;
+			if (s()) return;
+			let a = [],
+				e = t.firstElementChild;
+			for (; e !== t && e !== null; )
+				if (c(e)) a.push(e), (e = e.content);
+				else if (e.firstElementChild !== null) e = e.firstElementChild;
+				else if (f(e) && e.nextElementSibling !== null) e = e.nextElementSibling;
+				else {
+					let o;
+					for (; e !== t && e !== null; )
+						if (p(e)) {
+							o = a.pop();
+							let r = o.parentElement,
+								l = o.getAttribute('shadowroot');
+							if (((e = o), l === 'open' || l === 'closed')) {
+								let y = o.hasAttribute('shadowrootdelegatesfocus');
+								try {
+									r.attachShadow({ mode: l, delegatesFocus: y }).append(o.content);
+								} catch {}
+							} else o = void 0;
+						} else {
+							let r = e.nextElementSibling;
+							if (r != null) {
+								(e = r), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							let l =
+								(n = e.parentElement) === null || n === void 0 ? void 0 : n.nextElementSibling;
+							if (l != null) {
+								(e = l), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							(e = e.parentElement), o !== void 0 && (o.parentElement.removeChild(o), (o = void 0));
+						}
+				}
+		};
+	});
+var w = i(() => {
+	E();
+});
+var v = {};
+b(v, { hasNativeDeclarativeShadowRoots: () => s, hydrateShadowRoots: () => h });
+var S = i(() => {
+	m();
+	w();
+});
+async function g() {
+	let { hydrateShadowRoots: t } = await Promise.resolve().then(() => (S(), v));
+	window.addEventListener('DOMContentLoaded', () => t(document.body), { once: true });
+}
+var x = new DOMParser()
+	.parseFromString('<p><template shadowroot="open"></template></p>', 'text/html', {
+		includeShadowRoots: !0,
+	})
+	.querySelector('p');
+(!x || !x.shadowRoot) && g();
+</script></head>
+  <body style="background-color: #e8edf1; padding: 1rem;">
+    <h1>Top 10 Spieler</h1>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2bjErP" component-url="/kickbase-bundesliga/top-players.page.dc037183.js" ssr="" client="idle" before-hydration-url="/kickbase-bundesliga/chunks/astro_scripts/before-hydration.js.faae8adf.js" opts="{&quot;name&quot;:&quot;TopPlayersPage&quot;,&quot;value&quot;:true}" await-children=""><bkb-top-players server-json-data="{&quot;currentMatchdayTopPlayers&quot;:[{&quot;playerId&quot;:2746,&quot;playerName&quot;:&quot;Schick&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Schick&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamId&quot;:&quot;7&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2746.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:14,&quot;averagePoints&quot;:109,&quot;totalPoints&quot;:2824,&quot;marketValue&quot;:28376544,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:367},{&quot;playerId&quot;:660,&quot;playerName&quot;:&quot;Goretzka&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Goretzka&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/660.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:8,&quot;averagePoints&quot;:124,&quot;totalPoints&quot;:3595,&quot;marketValue&quot;:25478800,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:333},{&quot;playerId&quot;:3183,&quot;playerName&quot;:&quot;Kade&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Kade&quot;,&quot;teamName&quot;:&quot;Augsburg&quot;,&quot;teamId&quot;:&quot;13&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/3183.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/b93977fb3dee4e75af09d67896a1666b.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:30,&quot;averagePoints&quot;:62,&quot;totalPoints&quot;:1622,&quot;marketValue&quot;:3250133,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:306},{&quot;playerId&quot;:8329,&quot;playerName&quot;:&quot;Olise&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Olise&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/8329.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:17,&quot;averagePoints&quot;:226,&quot;totalPoints&quot;:6770,&quot;marketValue&quot;:61850753,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:290},{&quot;playerId&quot;:7269,&quot;playerName&quot;:&quot;Tella&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Tella&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamId&quot;:&quot;7&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/7269.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:23,&quot;averagePoints&quot;:68,&quot;totalPoints&quot;:1149,&quot;marketValue&quot;:7146137,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:277},{&quot;playerId&quot;:1622,&quot;playerName&quot;:&quot;Busch&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Busch&quot;,&quot;teamName&quot;:&quot;Heidenheim&quot;,&quot;teamId&quot;:&quot;50&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1622.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/ef0f480acb2e4002811381446d78ae87.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:2,&quot;averagePoints&quot;:63,&quot;totalPoints&quot;:1757,&quot;marketValue&quot;:3389164,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:269},{&quot;playerId&quot;:9605,&quot;playerName&quot;:&quot;Grønbæk&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Grønbæk&quot;,&quot;teamName&quot;:&quot;Hamburg&quot;,&quot;teamId&quot;:&quot;6&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/9605.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/6bd6cf911d5b497e977b3e6a4526aef9.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:23,&quot;averagePoints&quot;:65,&quot;totalPoints&quot;:323,&quot;marketValue&quot;:1751123,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:266},{&quot;playerId&quot;:6173,&quot;playerName&quot;:&quot;Grimaldo&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Grimaldo&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamId&quot;:&quot;7&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/6173.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:20,&quot;averagePoints&quot;:169,&quot;totalPoints&quot;:4566,&quot;marketValue&quot;:45336044,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:262},{&quot;playerId&quot;:10105,&quot;playerName&quot;:&quot;Touré&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Touré&quot;,&quot;teamName&quot;:&quot;Hoffenheim&quot;,&quot;teamId&quot;:&quot;14&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/10105.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/1fe930ae579e4ba78fe7c4f948264d3b.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:29,&quot;averagePoints&quot;:100,&quot;totalPoints&quot;:2812,&quot;marketValue&quot;:24766348,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:256},{&quot;playerId&quot;:2367,&quot;playerName&quot;:&quot;Schmid&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Schmid&quot;,&quot;teamName&quot;:&quot;Bremen&quot;,&quot;teamId&quot;:&quot;10&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2367.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/1a88a39549924d048294f618079e8437.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:20,&quot;averagePoints&quot;:102,&quot;totalPoints&quot;:3269,&quot;marketValue&quot;:22247895,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:248}],&quot;overallTopPlayers&quot;:[{&quot;playerId&quot;:8329,&quot;playerName&quot;:&quot;Olise&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Olise&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/8329.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:17,&quot;averagePoints&quot;:226,&quot;totalPoints&quot;:6770,&quot;marketValue&quot;:61850753,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:290},{&quot;playerId&quot;:7226,&quot;playerName&quot;:&quot;Kane&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Kane&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/7226.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:9,&quot;averagePoints&quot;:215,&quot;totalPoints&quot;:6235,&quot;marketValue&quot;:66264774,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0},{&quot;playerId&quot;:11675,&quot;playerName&quot;:&quot;Díaz&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Díaz&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/11675.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:14,&quot;averagePoints&quot;:181,&quot;totalPoints&quot;:5443,&quot;marketValue&quot;:50993937,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0},{&quot;playerId&quot;:1685,&quot;playerName&quot;:&quot;Kimmich&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Kimmich&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1685.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:6,&quot;averagePoints&quot;:179,&quot;totalPoints&quot;:4836,&quot;marketValue&quot;:58064993,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0},{&quot;playerId&quot;:6173,&quot;playerName&quot;:&quot;Grimaldo&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Grimaldo&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamId&quot;:&quot;7&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/6173.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:20,&quot;averagePoints&quot;:169,&quot;totalPoints&quot;:4566,&quot;marketValue&quot;:45336044,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:262},{&quot;playerId&quot;:4199,&quot;playerName&quot;:&quot;García&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;García&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamId&quot;:&quot;7&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/4199.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:24,&quot;averagePoints&quot;:140,&quot;totalPoints&quot;:4334,&quot;marketValue&quot;:32302488,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:214},{&quot;playerId&quot;:10771,&quot;playerName&quot;:&quot;Diomande&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Diomande&quot;,&quot;teamName&quot;:&quot;Leipzig&quot;,&quot;teamId&quot;:&quot;43&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/10771.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/fe5ccc7927254a46ab71aeed829805e4.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:49,&quot;averagePoints&quot;:139,&quot;totalPoints&quot;:4298,&quot;marketValue&quot;:34349696,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0},{&quot;playerId&quot;:2522,&quot;playerName&quot;:&quot;Raum&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Raum&quot;,&quot;teamName&quot;:&quot;Leipzig&quot;,&quot;teamId&quot;:&quot;43&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2522.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/fe5ccc7927254a46ab71aeed829805e4.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:22,&quot;averagePoints&quot;:148,&quot;totalPoints&quot;:4293,&quot;marketValue&quot;:33796879,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0},{&quot;playerId&quot;:1246,&quot;playerName&quot;:&quot;Orban&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Orban&quot;,&quot;teamName&quot;:&quot;Leipzig&quot;,&quot;teamId&quot;:&quot;43&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1246.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/fe5ccc7927254a46ab71aeed829805e4.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:4,&quot;averagePoints&quot;:126,&quot;totalPoints&quot;:3900,&quot;marketValue&quot;:32332557,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0},{&quot;playerId&quot;:2783,&quot;playerName&quot;:&quot;Tapsoba&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Tapsoba&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamId&quot;:&quot;7&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2783.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:12,&quot;averagePoints&quot;:142,&quot;totalPoints&quot;:3824,&quot;marketValue&quot;:28190380,&quot;marketValueTrend&quot;:1,&quot;currentMatchdayPoints&quot;:0}]}"><template shadowroot="open"><style>
+    .section + .section {
+      margin-top: 2rem;
+    }
+
+    .section-title {
+      margin-bottom: 0.75rem;
+    }
+
+    .player-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .player-card {
+      display: grid;
+      grid-template-columns: 48px 72px minmax(0, 1fr) 80px 80px 80px 132px;
+      align-items: center;
+      gap: 1rem;
+      background: white;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .rank {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .player-image {
+      width: 72px;
+      height: 72px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      background: #eef2f4;
+    }
+
+    .player-main {
+      min-width: 0;
+    }
+
+    .player-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .player-team {
+      color: #6f7b80;
+      font-size: 0.95rem;
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric-value {
+      font-weight: 700;
+    }
+
+    .metric-label {
+      color: #6f7b80;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .player-card {
+        grid-template-columns: 40px 56px minmax(0, 1fr) 72px 72px;
+      }
+
+      .player-image {
+        width: 56px;
+        height: 56px;
+      }
+
+      .market-value {
+        grid-column: 2 / -1;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .player-card {
+        grid-template-columns: 36px 48px minmax(0, 1fr);
+        gap: 0.75rem;
+      }
+
+      .player-image {
+        width: 48px;
+        height: 48px;
+      }
+
+      .metric {
+        text-align: left;
+      }
+
+      .metric,
+      .market-value {
+        grid-column: 2 / -1;
+      }
+    }
+  </style><!--lit-part NFPzmBkuHHw=-->
+      <section class="section">
+        <h2 class="section-title">Top 10 des Spieltags</h2>
+        <div class="player-list">
+          <!--lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Schick/2746"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->1<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/2746.png"
+          alt="Profilbild von Schick"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Schick<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->367<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->109<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->2.824<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->28.376.544 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Goretzka/660"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->2<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/660.png"
+          alt="Profilbild von Goretzka"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Goretzka<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->333<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->124<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->3.595<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->25.478.800 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Kade/3183"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->3<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/3183.png"
+          alt="Profilbild von Kade"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/b93977fb3dee4e75af09d67896a1666b.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Kade<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Augsburg<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->306<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->62<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->1.622<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->3.250.133 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Olise/8329"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->4<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/8329.png"
+          alt="Profilbild von Olise"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Olise<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->290<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->226<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->6.770<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->61.850.753 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Tella/7269"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->5<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/7269.png"
+          alt="Profilbild von Tella"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Tella<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->277<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->68<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->1.149<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->7.146.137 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Busch/1622"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->6<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/1622.png"
+          alt="Profilbild von Busch"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/ef0f480acb2e4002811381446d78ae87.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Busch<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Heidenheim<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->269<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->63<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->1.757<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->3.389.164 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Gr%C3%B8nb%C3%A6k/9605"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->7<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/9605.png"
+          alt="Profilbild von Grønbæk"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/6bd6cf911d5b497e977b3e6a4526aef9.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Grønbæk<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Hamburg<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->266<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->65<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->323<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->1.751.123 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Grimaldo/6173"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->8<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/6173.png"
+          alt="Profilbild von Grimaldo"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Grimaldo<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->262<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->169<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->4.566<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->45.336.044 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Tour%C3%A9/10105"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->9<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/10105.png"
+          alt="Profilbild von Touré"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/1fe930ae579e4ba78fe7c4f948264d3b.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Touré<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Hoffenheim<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->256<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->100<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->2.812<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->24.766.348 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Schmid/2367"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->10<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/2367.png"
+          alt="Profilbild von Schmid"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/1a88a39549924d048294f618079e8437.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Schmid<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bremen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->248<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->ST-Pkt.<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->102<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->3.269<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->22.247.895 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--/lit-part-->
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Top 10 insgesamt</h2>
+        <div class="player-list">
+          <!--lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Olise/8329"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->1<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/8329.png"
+          alt="Profilbild von Olise"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Olise<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->6.770<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->226<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->6.770<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->61.850.753 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Kane/7226"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->2<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/7226.png"
+          alt="Profilbild von Kane"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Kane<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->6.235<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->215<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->6.235<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->66.264.774 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/D%C3%ADaz/11675"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->3<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/11675.png"
+          alt="Profilbild von Díaz"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Díaz<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->5.443<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->181<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->5.443<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->50.993.937 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Kimmich/1685"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->4<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/1685.png"
+          alt="Profilbild von Kimmich"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Kimmich<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->4.836<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->179<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->4.836<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->58.064.993 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Grimaldo/6173"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->5<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/6173.png"
+          alt="Profilbild von Grimaldo"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Grimaldo<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->4.566<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->169<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->4.566<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->45.336.044 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Garc%C3%ADa/4199"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->6<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/4199.png"
+          alt="Profilbild von García"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->García<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->4.334<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->140<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->4.334<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->32.302.488 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Diomande/10771"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->7<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/10771.png"
+          alt="Profilbild von Diomande"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/fe5ccc7927254a46ab71aeed829805e4.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Diomande<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leipzig<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->4.298<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->139<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->4.298<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->34.349.696 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Raum/2522"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->8<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/2522.png"
+          alt="Profilbild von Raum"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/fe5ccc7927254a46ab71aeed829805e4.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Raum<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leipzig<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->4.293<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->148<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->4.293<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->33.796.879 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Orban/1246"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->9<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/1246.png"
+          alt="Profilbild von Orban"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/fe5ccc7927254a46ab71aeed829805e4.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Orban<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leipzig<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->3.900<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->126<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->3.900<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->32.332.557 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--lit-part Du5KOoxCsZ0=-->
+      <a class="player-card" href="/kickbase-bundesliga/player/Tapsoba/2783"><!--lit-node 0-->
+        <div class="rank"><!--lit-part-->10<!--/lit-part--></div>
+        <img
+          class="player-image"
+          src="https://kickbase.b-cdn.net/pool/playersbig/2783.png"
+          alt="Profilbild von Tapsoba"
+          data-fallback-src="https://kickbase.b-cdn.net/content/file/353820bceb58462590ea1a470cde9cc6.png"
+          onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+          
+        /><!--lit-node 3-->
+        <div class="player-main">
+          <div class="player-name"><!--lit-part-->Tapsoba<!--/lit-part--></div>
+          <div class="player-team"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">
+            <!--lit-part-->3.824<!--/lit-part-->
+          </div>
+          <div class="metric-label"><!--lit-part-->Gesamt<!--/lit-part--></div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->142<!--/lit-part--></div>
+          <div class="metric-label">Ø Pkt.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value"><!--lit-part-->3.824<!--/lit-part--></div>
+          <div class="metric-label">Ges. Pkt.</div>
+        </div>
+        <div class="metric market-value">
+          <div class="metric-value"><!--lit-part-->28.190.380 €<!--/lit-part--></div>
+          <div class="metric-label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--><!--/lit-part-->
+        </div>
+      </section>
+    <!--/lit-part--></template></bkb-top-players></astro-island>
+  </body></html>

@@ -1,0 +1,5863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preload" as="font" href="/kickbase-bundesliga/fonts/roboto-condensed-v24-latin-700.woff2">
+    <link rel="preload" as="font" href="/kickbase-bundesliga/fonts/roboto-condensed-v24-latin-regular.woff2">
+    <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABPlBMVEUTFBgWFxsSExcHBwsGBgoUFRkYGR1ZXGFcXmQaHCAREhYUFRoODxMJCg4jJCje5O3m7fYrLDEQERUKCw8ODhIVFhowMjZNUFUAAQUfICXR2ODV2+MfICQAAANMTlMzNTkKCg6yuL3x+P+QlZsbHCC/xc3l7PRHSk6GipDw9/+4vsSFipDf5u3///+NkplCREne5e30+//7///i6fCKjpUICAwqLDCwtr3Y3+YVFRoiJChtcXdydnwxMzgICQ0tLzOyuL/X3uYmKCx2eoA1NzwHCAyIjZPh6O6LkJZER0zh6PDz+v7k6/KOkpkNDhKutLmMkZgaGx/Bx87k6/NERkuChozu9v22vMIPEBQTFRgLCw9KTFEAAAQfISXV3OMAAAJISk8xMzcKCw7d5Ozl7fURERUUFhpUV11XWmAGBwsf6ADXAAAAAWJLR0QtzdpBPQAAAAd0SU1FB+gIFQsmOIb9C3gAAAABb3JOVAHPoneaAAAAvUlEQVQY02NggABGRgYUwMTMwoTgsTIysbFzcHIxckP5PLxMfPwCgkLCIqIgvqiwmLiEpJS0jKycvIIoWIGikrKKqpq6hqaWENg8Rm0dXT19A0MjYxM2JlaQiKmZuYWllbWNLTPEJiY7ewdHVicbZxdXiAJGN3ddD08vbyMfX7AWVj9/zYDAoOCQ0LDwiEiQtVH20TGxUnGx8QmJSaIQhyUx8SWnmKUK86QhnJ6eEcjFyIrkOddMJlTvwr0PAEAYGZyYd5KIAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTA4LTIxVDExOjM4OjU0KzAwOjAwVcvdUAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0wOC0yMVQxMTozODo1NCswMDowMCSWZewAAAAASUVORK5CYII=">
+    <title>Bayern</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bayern - kickbase-bundesliga">
+  <link rel="stylesheet" href="/kickbase-bundesliga/assets/spieltag.1c0b4fd0.css" /><script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
+/** Bundled JS generated from "@astrojs/lit/client-shim.js" */
+var N = Object.defineProperty;
+var i = (t, n) => () => (t && (n = t((t = 0))), n);
+var b = (t, n) => {
+	for (var a in n) N(t, a, { get: n[a], enumerable: !0 });
+};
+function s() {
+	if (d === void 0) {
+		let t = document.createElement('div');
+		(t.innerHTML = '<div><template shadowroot="open"></template></div>'),
+			(d = !!t.firstElementChild.shadowRoot);
+	}
+	return d;
+}
+var d,
+	m = i(() => {});
+var p,
+	c,
+	f,
+	u = i(() => {
+		(p = (t) => t.parentElement === null),
+			(c = (t) => t.tagName === 'TEMPLATE'),
+			(f = (t) => t.nodeType === Node.ELEMENT_NODE);
+	});
+var h,
+	E = i(() => {
+		m();
+		u();
+		h = (t) => {
+			var n;
+			if (s()) return;
+			let a = [],
+				e = t.firstElementChild;
+			for (; e !== t && e !== null; )
+				if (c(e)) a.push(e), (e = e.content);
+				else if (e.firstElementChild !== null) e = e.firstElementChild;
+				else if (f(e) && e.nextElementSibling !== null) e = e.nextElementSibling;
+				else {
+					let o;
+					for (; e !== t && e !== null; )
+						if (p(e)) {
+							o = a.pop();
+							let r = o.parentElement,
+								l = o.getAttribute('shadowroot');
+							if (((e = o), l === 'open' || l === 'closed')) {
+								let y = o.hasAttribute('shadowrootdelegatesfocus');
+								try {
+									r.attachShadow({ mode: l, delegatesFocus: y }).append(o.content);
+								} catch {}
+							} else o = void 0;
+						} else {
+							let r = e.nextElementSibling;
+							if (r != null) {
+								(e = r), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							let l =
+								(n = e.parentElement) === null || n === void 0 ? void 0 : n.nextElementSibling;
+							if (l != null) {
+								(e = l), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							(e = e.parentElement), o !== void 0 && (o.parentElement.removeChild(o), (o = void 0));
+						}
+				}
+		};
+	});
+var w = i(() => {
+	E();
+});
+var v = {};
+b(v, { hasNativeDeclarativeShadowRoots: () => s, hydrateShadowRoots: () => h });
+var S = i(() => {
+	m();
+	w();
+});
+async function g() {
+	let { hydrateShadowRoots: t } = await Promise.resolve().then(() => (S(), v));
+	window.addEventListener('DOMContentLoaded', () => t(document.body), { once: true });
+}
+var x = new DOMParser()
+	.parseFromString('<p><template shadowroot="open"></template></p>', 'text/html', {
+		includeShadowRoots: !0,
+	})
+	.querySelector('p');
+(!x || !x.shadowRoot) && g();
+</script></head>
+  <body style="background-color: #e8edf1;  padding: 1rem;">
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="1OR6uF" component-url="/kickbase-bundesliga/bundesliga-team.page.f544bc87.js" ssr="" client="idle" before-hydration-url="/kickbase-bundesliga/chunks/astro_scripts/before-hydration.js.faae8adf.js" opts="{&quot;name&quot;:&quot;BundesligaTeamPage&quot;,&quot;value&quot;:true}" await-children=""><bkb-team team-name="Bayern" team-id="2" server-json-data="[{&quot;playerId&quot;:173,&quot;playerName&quot;:&quot;Tah&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Tah&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/173.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:4,&quot;averagePoints&quot;:129,&quot;totalPoints&quot;:3360,&quot;marketValue&quot;:32278029,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:237,&quot;playerName&quot;:&quot;Neuer&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Neuer&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/237.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:1,&quot;number&quot;:1,&quot;averagePoints&quot;:97,&quot;totalPoints&quot;:2038,&quot;marketValue&quot;:5430593,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:383,&quot;playerName&quot;:&quot;Ulreich&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Ulreich&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/383.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:1,&quot;number&quot;:26,&quot;averagePoints&quot;:125,&quot;totalPoints&quot;:125,&quot;marketValue&quot;:500000,&quot;marketValueTrend&quot;:0},{&quot;playerId&quot;:660,&quot;playerName&quot;:&quot;Goretzka&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Goretzka&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/660.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:8,&quot;averagePoints&quot;:124,&quot;totalPoints&quot;:3595,&quot;marketValue&quot;:25478800,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:1685,&quot;playerName&quot;:&quot;Kimmich&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Kimmich&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1685.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:6,&quot;averagePoints&quot;:179,&quot;totalPoints&quot;:4836,&quot;marketValue&quot;:58064993,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:1862,&quot;playerName&quot;:&quot;Guerreiro&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Guerreiro&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1862.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:22,&quot;averagePoints&quot;:111,&quot;totalPoints&quot;:1880,&quot;marketValue&quot;:6025907,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:1961,&quot;playerName&quot;:&quot;Gnabry&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Gnabry&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1961.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:1,&quot;position&quot;:3,&quot;number&quot;:7,&quot;averagePoints&quot;:142,&quot;totalPoints&quot;:2980,&quot;marketValue&quot;:19191559,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:1991,&quot;playerName&quot;:&quot;Upamecano&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Upamecano&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/1991.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:2,&quot;averagePoints&quot;:120,&quot;totalPoints&quot;:2635,&quot;marketValue&quot;:28326446,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:2038,&quot;playerName&quot;:&quot;Laimer&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Laimer&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2038.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:27,&quot;averagePoints&quot;:138,&quot;totalPoints&quot;:3739,&quot;marketValue&quot;:30162485,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:2300,&quot;playerName&quot;:&quot;Stanišić&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Stanišić&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2300.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:44,&quot;averagePoints&quot;:129,&quot;totalPoints&quot;:3088,&quot;marketValue&quot;:27447530,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:2366,&quot;playerName&quot;:&quot;Davies&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Davies&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2366.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:19,&quot;averagePoints&quot;:86,&quot;totalPoints&quot;:1116,&quot;marketValue&quot;:16811663,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:2804,&quot;playerName&quot;:&quot;Musiala&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Musiala&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/2804.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:10,&quot;averagePoints&quot;:103,&quot;totalPoints&quot;:1340,&quot;marketValue&quot;:27709538,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:3072,&quot;playerName&quot;:&quot;Urbig&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Urbig&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/3072.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:1,&quot;number&quot;:40,&quot;averagePoints&quot;:114,&quot;totalPoints&quot;:1363,&quot;marketValue&quot;:5202793,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:3089,&quot;playerName&quot;:&quot;Ito&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Ito&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/3089.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:21,&quot;averagePoints&quot;:100,&quot;totalPoints&quot;:1507,&quot;marketValue&quot;:10977548,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:3120,&quot;playerName&quot;:&quot;Bischof&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Bischof&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/3120.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:20,&quot;averagePoints&quot;:108,&quot;totalPoints&quot;:2581,&quot;marketValue&quot;:10820906,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:4280,&quot;playerName&quot;:&quot;Jackson&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Jackson&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/4280.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:11,&quot;averagePoints&quot;:81,&quot;totalPoints&quot;:1702,&quot;marketValue&quot;:10417226,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:6080,&quot;playerName&quot;:&quot;Pavlović&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Pavlović&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/6080.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:45,&quot;averagePoints&quot;:119,&quot;totalPoints&quot;:2844,&quot;marketValue&quot;:27034897,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:6668,&quot;playerName&quot;:&quot;Minjae&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Minjae&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/6668.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:3,&quot;averagePoints&quot;:122,&quot;totalPoints&quot;:2939,&quot;marketValue&quot;:15402437,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:7226,&quot;playerName&quot;:&quot;Kane&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Kane&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/7226.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:9,&quot;averagePoints&quot;:215,&quot;totalPoints&quot;:6235,&quot;marketValue&quot;:66264774,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:8329,&quot;playerName&quot;:&quot;Olise&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Olise&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/8329.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:17,&quot;averagePoints&quot;:226,&quot;totalPoints&quot;:6770,&quot;marketValue&quot;:61850753,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:10133,&quot;playerName&quot;:&quot;Mike&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Mike&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/10133.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:1,&quot;position&quot;:3,&quot;number&quot;:36,&quot;averagePoints&quot;:29,&quot;totalPoints&quot;:117,&quot;marketValue&quot;:500000,&quot;marketValueTrend&quot;:0},{&quot;playerId&quot;:10789,&quot;playerName&quot;:&quot;Karl&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Karl&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/10789.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:42,&quot;averagePoints&quot;:105,&quot;totalPoints&quot;:2514,&quot;marketValue&quot;:20344846,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:11105,&quot;playerName&quot;:&quot;Santos Daiber&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Santos Daiber&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/11105.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:1,&quot;position&quot;:3,&quot;number&quot;:47,&quot;averagePoints&quot;:43,&quot;totalPoints&quot;:85,&quot;marketValue&quot;:500000,&quot;marketValueTrend&quot;:0},{&quot;playerId&quot;:11675,&quot;playerName&quot;:&quot;Díaz&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Díaz&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/11675.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:14,&quot;averagePoints&quot;:181,&quot;totalPoints&quot;:5443,&quot;marketValue&quot;:50993937,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:12273,&quot;playerName&quot;:&quot;Ofli&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Ofli&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/12273.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:34,&quot;averagePoints&quot;:16,&quot;totalPoints&quot;:16,&quot;marketValue&quot;:837724,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:12314,&quot;playerName&quot;:&quot;Ndiaye&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Ndiaye&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/12314.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:3,&quot;number&quot;:39,&quot;averagePoints&quot;:49,&quot;totalPoints&quot;:194,&quot;marketValue&quot;:2789165,&quot;marketValueTrend&quot;:1},{&quot;playerId&quot;:12322,&quot;playerName&quot;:&quot;Prescott&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Prescott&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/12322.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:1,&quot;number&quot;:37,&quot;averagePoints&quot;:0,&quot;totalPoints&quot;:0,&quot;marketValue&quot;:500000,&quot;marketValueTrend&quot;:0},{&quot;playerId&quot;:12324,&quot;playerName&quot;:&quot;Cardozo&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Cardozo&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/12324.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:1,&quot;position&quot;:3,&quot;number&quot;:49,&quot;averagePoints&quot;:26,&quot;totalPoints&quot;:51,&quot;marketValue&quot;:500000,&quot;marketValueTrend&quot;:0},{&quot;playerId&quot;:13601,&quot;playerName&quot;:&quot;Pavic&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Pavic&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/13601.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:2,&quot;number&quot;:43,&quot;averagePoints&quot;:0,&quot;totalPoints&quot;:0,&quot;marketValue&quot;:916644,&quot;marketValueTrend&quot;:2},{&quot;playerId&quot;:13655,&quot;playerName&quot;:&quot;Assomo&quot;,&quot;firstName&quot;:&quot;&quot;,&quot;lastName&quot;:&quot;&quot;,&quot;knownName&quot;:&quot;Assomo&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamId&quot;:&quot;2&quot;,&quot;profileBig&quot;:&quot;https://kickbase.b-cdn.net/pool/playersbig/13655.png&quot;,&quot;profileFallback&quot;:&quot;https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png&quot;,&quot;status&quot;:0,&quot;position&quot;:4,&quot;number&quot;:33,&quot;averagePoints&quot;:0,&quot;totalPoints&quot;:0,&quot;marketValue&quot;:500000,&quot;marketValueTrend&quot;:0}]"><template shadowroot="open"><!--lit-part 2ZpZeWOl1O4=-->
+      <div class="root">
+        <!--lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Neuer/237"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/237.png"
+            alt="Profilbild von Neuer"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->1<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->TW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Neuer<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.038<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->97<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->5.430.593 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Ulreich/383"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/383.png"
+            alt="Profilbild von Ulreich"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->26<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->TW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Ulreich<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->125<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->125<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->500.000 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Urbig/3072"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/3072.png"
+            alt="Profilbild von Urbig"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->40<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->TW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Urbig<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->1.363<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->114<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->5.202.793 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Prescott/12322"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/12322.png"
+            alt="Profilbild von Prescott"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->37<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->TW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Prescott<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->0<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->0<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->500.000 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Tah/173"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/173.png"
+            alt="Profilbild von Tah"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->4<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Tah<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->3.360<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->129<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->32.278.029 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Guerreiro/1862"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/1862.png"
+            alt="Profilbild von Guerreiro"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->22<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Guerreiro<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->1.880<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->111<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->6.025.907 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Upamecano/1991"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/1991.png"
+            alt="Profilbild von Upamecano"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->2<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Upamecano<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.635<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->120<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->28.326.446 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Laimer/2038"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/2038.png"
+            alt="Profilbild von Laimer"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->27<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Laimer<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->3.739<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->138<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->30.162.485 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Stanišić/2300"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/2300.png"
+            alt="Profilbild von Stanišić"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->44<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Stanišić<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->3.088<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->129<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->27.447.530 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Davies/2366"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/2366.png"
+            alt="Profilbild von Davies"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->19<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Davies<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->1.116<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->86<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->16.811.663 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Ito/3089"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/3089.png"
+            alt="Profilbild von Ito"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->21<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Ito<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->1.507<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->100<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->10.977.548 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Minjae/6668"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/6668.png"
+            alt="Profilbild von Minjae"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->3<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Minjae<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.939<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->122<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->15.402.437 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Ofli/12273"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/12273.png"
+            alt="Profilbild von Ofli"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->34<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Ofli<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->16<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->16<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->837.724 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Pavic/13601"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/13601.png"
+            alt="Profilbild von Pavic"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->43<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ABW<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Pavic<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->0<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->0<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->916.644 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Goretzka/660"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/660.png"
+            alt="Profilbild von Goretzka"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->8<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Goretzka<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->3.595<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->124<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->25.478.800 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Kimmich/1685"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/1685.png"
+            alt="Profilbild von Kimmich"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->6<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Kimmich<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->4.836<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->179<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->58.064.993 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Gnabry/1961"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/1961.png"
+            alt="Profilbild von Gnabry"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->7<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="65" viewBox="0 0 65 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="65" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="32.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->INJURED<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Gnabry<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.980<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->142<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->19.191.559 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Musiala/2804"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/2804.png"
+            alt="Profilbild von Musiala"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->10<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Musiala<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->1.340<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->103<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->27.709.538 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Bischof/3120"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/3120.png"
+            alt="Profilbild von Bischof"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->20<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Bischof<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.581<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->108<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->10.820.906 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Pavlović/6080"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/6080.png"
+            alt="Profilbild von Pavlović"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->45<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Pavlović<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.844<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->119<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->27.034.897 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Olise/8329"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/8329.png"
+            alt="Profilbild von Olise"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->17<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Olise<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->6.770<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->226<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->61.850.753 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Mike/10133"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/10133.png"
+            alt="Profilbild von Mike"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->36<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="65" viewBox="0 0 65 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="65" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="32.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->INJURED<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Mike<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->117<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->29<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->500.000 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Karl/10789"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/10789.png"
+            alt="Profilbild von Karl"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->42<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Karl<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->2.514<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->105<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->20.344.846 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Santos Daiber/11105"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/11105.png"
+            alt="Profilbild von Santos Daiber"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->47<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="65" viewBox="0 0 65 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="65" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="32.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->INJURED<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Santos Daiber<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->85<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->43<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->500.000 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Ndiaye/12314"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/12314.png"
+            alt="Profilbild von Ndiaye"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->39<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Ndiaye<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->194<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->49<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->2.789.165 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Cardozo/12324"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/12324.png"
+            alt="Profilbild von Cardozo"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->49<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="37" viewBox="0 0 37 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="37" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="18.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->MIT<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="65" viewBox="0 0 65 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="65" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="32.5" y="12" dy="1"><!--lit-node 2--><!--lit-part-->INJURED<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Cardozo<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->51<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->26<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->500.000 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Jackson/4280"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/4280.png"
+            alt="Profilbild von Jackson"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->11<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ST<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Jackson<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->1.702<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->81<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->10.417.226 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Kane/7226"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/7226.png"
+            alt="Profilbild von Kane"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->9<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ST<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Kane<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->6.235<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->215<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->66.264.774 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Díaz/11675"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/11675.png"
+            alt="Profilbild von Díaz"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->14<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ST<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Díaz<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->5.443<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->181<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->50.993.937 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--lit-part e+C2Kddy/zY=--> <bkb-player-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      height: 128px;
+      align-items: center;
+      /* justify-content: space-between; */
+      cursor: pointer;
+      color: black;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .root > *:not(:first-child) {
+      padding-left: 1rem;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+    .left,
+    .player-img {
+      height: 100%;
+    }
+    .player-img {
+      clip-path: inset(0% 0% 0% 50px round 0.5rem);
+      margin-left: -50px;
+    }
+    .right {
+      display: grid;
+      width: 100%;
+      justify-content: stretch;
+      align-content: stretch;
+      grid-template-columns: 72px 72px minmax(0, 1fr) 132px;
+      padding: 1rem 1rem 1rem 1rem;
+      grid-template-areas:
+        'badges badges . .'
+        'name name name name'
+        'points-value avg-points-value . market-value-value'
+        'points-label avg-points-label . market-value-label';
+    }
+
+    .badges {
+      grid-area: badges;
+    }
+    .name {
+      grid-area: name;
+      font-weight: 700;
+      font-size: x-large;
+      letter-spacing: 0.01rem;
+      padding-top: 0.2rem !important;
+      min-width: 0;
+    }
+    .value {
+      padding-top: 0.5rem;
+    }
+    .points.value {
+      grid-area: points-value;
+    }
+    .avg-points.value {
+      grid-area: avg-points-value;
+    }
+    .market-value.value {
+      grid-area: market-value-value;
+      justify-self: end;
+    }
+    .points.label {
+      grid-area: points-label;
+    }
+    .avg-points.label {
+      grid-area: avg-points-label;
+    }
+    .market-value.label {
+      grid-area: market-value-label;
+      justify-self: end;
+    }
+    .badges {
+      display: flex;
+    }
+    .badge {
+      transform: skew(-10deg);
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    .badge rect {
+      fill: #9cacb9;
+    }
+
+    .badge text {
+      font-size: 8px;
+      fill: white;
+    }
+
+    @media (max-width: 640px) {
+      .root {
+        height: auto;
+        align-items: stretch;
+      }
+
+      .root > *:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .player-img {
+        width: 92px;
+        height: 100%;
+        clip-path: none;
+        margin-left: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      .right {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 0.75rem;
+        padding: 0.85rem;
+        grid-template-areas:
+          'badges badges'
+          'name name'
+          'points-value avg-points-value'
+          'points-label avg-points-label'
+          'market-value-value market-value-value'
+          'market-value-label market-value-label';
+      }
+
+      .name {
+        font-size: 1.15rem;
+      }
+
+      .market-value.value,
+      .market-value.label {
+        justify-self: start;
+      }
+    }
+  </style><!--lit-part mVPUT4b2Sv8=-->
+      <a class="root" href="/kickbase-bundesliga/player/Assomo/13655"><!--lit-node 0-->
+        <div class="left">
+          <img
+            class="player-img"
+            src="https://kickbase.b-cdn.net/pool/playersbig/13655.png"
+            alt="Profilbild von Assomo"
+            data-fallback-src="https://kickbase.b-cdn.net/content/file/48622993193e45f09d696908d75ed523.png"
+            onerror="if(this.dataset.fallbackSrc&amp;&amp;this.src!==this.dataset.fallbackSrc){this.onerror=function(){this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;};this.src=this.dataset.fallbackSrc;}else{this.onerror=null;this.src=&#39;/kickbase-bundesliga/assets/no_profile_pic.89227a2b.png&#39;}"
+            
+          /><!--lit-node 2-->
+        </div>
+
+        <div class="right">
+          <div class="badges">
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->33<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part mbtmS1kvTuk=-->
+      <svg class="badge" width="32" viewBox="0 0 32 16"><!--lit-node 0-->
+        <!--lit-part NHX26IYYuSk=--><svg>
+      <rect x="0" y="0" width="32" height="16"  /><!--lit-node 1-->
+          <text fill="black" font-size="8pt" text-anchor="middle" x="16" y="12" dy="1"><!--lit-node 2--><!--lit-part-->ST<!--/lit-part--></text>
+  </svg><!--/lit-part-->
+      </svg>
+    <!--/lit-part-->
+            <!--lit-part BRUAAAUVAAA=--><?><!--/lit-part-->
+          </div>
+          <div class="name value"><!--lit-part-->Assomo<!--/lit-part--></div>
+          <div class="points value"><!--lit-part-->0<!--/lit-part--></div>
+          <div class="points label">Pkt.</div>
+          <div class="avg-points value"><!--lit-part-->0<!--/lit-part--></div>
+          <div class="avg-points label">∅ Pkt.</div>
+          <div class="market-value value"><!--lit-part-->500.000 €<!--/lit-part--></div>
+          <div class="market-value label">Marktwert</div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-player-list-item> <!--/lit-part--><!--/lit-part-->
+      </div>
+    <!--/lit-part--></template></bkb-team></astro-island>
+  </body></html>

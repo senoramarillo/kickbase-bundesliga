@@ -1,0 +1,4029 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABPlBMVEUTFBgWFxsSExcHBwsGBgoUFRkYGR1ZXGFcXmQaHCAREhYUFRoODxMJCg4jJCje5O3m7fYrLDEQERUKCw8ODhIVFhowMjZNUFUAAQUfICXR2ODV2+MfICQAAANMTlMzNTkKCg6yuL3x+P+QlZsbHCC/xc3l7PRHSk6GipDw9/+4vsSFipDf5u3///+NkplCREne5e30+//7///i6fCKjpUICAwqLDCwtr3Y3+YVFRoiJChtcXdydnwxMzgICQ0tLzOyuL/X3uYmKCx2eoA1NzwHCAyIjZPh6O6LkJZER0zh6PDz+v7k6/KOkpkNDhKutLmMkZgaGx/Bx87k6/NERkuChozu9v22vMIPEBQTFRgLCw9KTFEAAAQfISXV3OMAAAJISk8xMzcKCw7d5Ozl7fURERUUFhpUV11XWmAGBwsf6ADXAAAAAWJLR0QtzdpBPQAAAAd0SU1FB+gIFQsmOIb9C3gAAAABb3JOVAHPoneaAAAAvUlEQVQY02NggABGRgYUwMTMwoTgsTIysbFzcHIxckP5PLxMfPwCgkLCIqIgvqiwmLiEpJS0jKycvIIoWIGikrKKqpq6hqaWENg8Rm0dXT19A0MjYxM2JlaQiKmZuYWllbWNLTPEJiY7ewdHVicbZxdXiAJGN3ddD08vbyMfX7AWVj9/zYDAoOCQ0LDwiEiQtVH20TGxUnGx8QmJSaIQhyUx8SWnmKUK86QhnJ6eEcjFyIrkOddMJlTvwr0PAEAYGZyYd5KIAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTA4LTIxVDExOjM4OjU0KzAwOjAwVcvdUAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0wOC0yMVQxMTozODo1NCswMDowMCSWZewAAAAASUVORK5CYII=">
+    <link rel="preload" as="font" href="/kickbase-bundesliga/fonts/roboto-condensed-v24-latin-700.woff2">
+    <link rel="preload" as="font" href="/kickbase-bundesliga/fonts/roboto-condensed-v24-latin-regular.woff2">
+    <title>Bundesliga Tabelle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="kickbase-bundesliga Bundesliga Tabelle">
+  <link rel="stylesheet" href="/kickbase-bundesliga/assets/spieltag.1c0b4fd0.css" /><script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
+/** Bundled JS generated from "@astrojs/lit/client-shim.js" */
+var N = Object.defineProperty;
+var i = (t, n) => () => (t && (n = t((t = 0))), n);
+var b = (t, n) => {
+	for (var a in n) N(t, a, { get: n[a], enumerable: !0 });
+};
+function s() {
+	if (d === void 0) {
+		let t = document.createElement('div');
+		(t.innerHTML = '<div><template shadowroot="open"></template></div>'),
+			(d = !!t.firstElementChild.shadowRoot);
+	}
+	return d;
+}
+var d,
+	m = i(() => {});
+var p,
+	c,
+	f,
+	u = i(() => {
+		(p = (t) => t.parentElement === null),
+			(c = (t) => t.tagName === 'TEMPLATE'),
+			(f = (t) => t.nodeType === Node.ELEMENT_NODE);
+	});
+var h,
+	E = i(() => {
+		m();
+		u();
+		h = (t) => {
+			var n;
+			if (s()) return;
+			let a = [],
+				e = t.firstElementChild;
+			for (; e !== t && e !== null; )
+				if (c(e)) a.push(e), (e = e.content);
+				else if (e.firstElementChild !== null) e = e.firstElementChild;
+				else if (f(e) && e.nextElementSibling !== null) e = e.nextElementSibling;
+				else {
+					let o;
+					for (; e !== t && e !== null; )
+						if (p(e)) {
+							o = a.pop();
+							let r = o.parentElement,
+								l = o.getAttribute('shadowroot');
+							if (((e = o), l === 'open' || l === 'closed')) {
+								let y = o.hasAttribute('shadowrootdelegatesfocus');
+								try {
+									r.attachShadow({ mode: l, delegatesFocus: y }).append(o.content);
+								} catch {}
+							} else o = void 0;
+						} else {
+							let r = e.nextElementSibling;
+							if (r != null) {
+								(e = r), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							let l =
+								(n = e.parentElement) === null || n === void 0 ? void 0 : n.nextElementSibling;
+							if (l != null) {
+								(e = l), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							(e = e.parentElement), o !== void 0 && (o.parentElement.removeChild(o), (o = void 0));
+						}
+				}
+		};
+	});
+var w = i(() => {
+	E();
+});
+var v = {};
+b(v, { hasNativeDeclarativeShadowRoots: () => s, hydrateShadowRoots: () => h });
+var S = i(() => {
+	m();
+	w();
+});
+async function g() {
+	let { hydrateShadowRoots: t } = await Promise.resolve().then(() => (S(), v));
+	window.addEventListener('DOMContentLoaded', () => t(document.body), { once: true });
+}
+var x = new DOMParser()
+	.parseFromString('<p><template shadowroot="open"></template></p>', 'text/html', {
+		includeShadowRoots: !0,
+	})
+	.querySelector('p');
+(!x || !x.shadowRoot) && g();
+</script></head>
+  <body style="background-color: #e8edf1;  padding: 1rem;">
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="ZI2Op6" component-url="/kickbase-bundesliga/bundesliga-table.page.786aebed.js" ssr="" client="idle" before-hydration-url="/kickbase-bundesliga/chunks/astro_scripts/before-hydration.js.faae8adf.js" opts="{&quot;name&quot;:&quot;BundesligaTablePage&quot;,&quot;value&quot;:true}" await-children=""><bkb-bundesliga-table server-json-data="{&quot;matchDay&quot;:0,&quot;currentMatchDay&quot;:0,&quot;teams&quot;:[{&quot;goadDifference&quot;:33,&quot;matches&quot;:32,&quot;points&quot;:67,&quot;wins&quot;:20,&quot;draws&quot;:7,&quot;losses&quot;:5,&quot;goalsFor&quot;:65,&quot;goalsAgainst&quot;:32,&quot;form&quot;:[&quot;W&quot;,&quot;L&quot;,&quot;L&quot;,&quot;W&quot;,&quot;L&quot;],&quot;place&quot;:2,&quot;teamId&quot;:&quot;3&quot;,&quot;teamName&quot;:&quot;Dortmund&quot;,&quot;teamLogo&quot;:&quot;content/file/dc3d63ae79bf4282a4107bafcd572b99.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-3,&quot;matches&quot;:32,&quot;points&quot;:43,&quot;wins&quot;:11,&quot;draws&quot;:10,&quot;losses&quot;:11,&quot;goalsFor&quot;:57,&quot;goalsAgainst&quot;:60,&quot;form&quot;:[&quot;D&quot;,&quot;W&quot;,&quot;L&quot;,&quot;D&quot;,&quot;L&quot;],&quot;place&quot;:8,&quot;teamId&quot;:&quot;4&quot;,&quot;teamName&quot;:&quot;Frankfurt&quot;,&quot;teamLogo&quot;:&quot;content/file/422de82bee3b47eb898699d6d27095ba.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:16,&quot;matches&quot;:32,&quot;points&quot;:58,&quot;wins&quot;:17,&quot;draws&quot;:7,&quot;losses&quot;:8,&quot;goalsFor&quot;:64,&quot;goalsAgainst&quot;:48,&quot;form&quot;:[&quot;L&quot;,&quot;D&quot;,&quot;W&quot;,&quot;W&quot;,&quot;D&quot;],&quot;place&quot;:6,&quot;teamId&quot;:&quot;14&quot;,&quot;teamName&quot;:&quot;Hoffenheim&quot;,&quot;teamLogo&quot;:&quot;content/file/5212904732a04199aab426e44067347c.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-20,&quot;matches&quot;:32,&quot;points&quot;:32,&quot;wins&quot;:8,&quot;draws&quot;:8,&quot;losses&quot;:16,&quot;goalsFor&quot;:37,&quot;goalsAgainst&quot;:57,&quot;form&quot;:[&quot;L&quot;,&quot;L&quot;,&quot;W&quot;,&quot;D&quot;,&quot;L&quot;],&quot;place&quot;:15,&quot;teamId&quot;:&quot;10&quot;,&quot;teamName&quot;:&quot;Bremen&quot;,&quot;teamLogo&quot;:&quot;content/file/a7e609e72fb04c6d8c96e8ed82f0315d.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-14,&quot;matches&quot;:32,&quot;points&quot;:40,&quot;wins&quot;:11,&quot;draws&quot;:7,&quot;losses&quot;:14,&quot;goalsFor&quot;:42,&quot;goalsAgainst&quot;:56,&quot;form&quot;:[&quot;D&quot;,&quot;D&quot;,&quot;W&quot;,&quot;D&quot;,&quot;W&quot;],&quot;place&quot;:9,&quot;teamId&quot;:&quot;13&quot;,&quot;teamName&quot;:&quot;Augsburg&quot;,&quot;teamLogo&quot;:&quot;content/file/8d68c946b9774505b8292adfa910d0a0.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-13,&quot;matches&quot;:32,&quot;points&quot;:35,&quot;wins&quot;:8,&quot;draws&quot;:11,&quot;losses&quot;:13,&quot;goalsFor&quot;:37,&quot;goalsAgainst&quot;:50,&quot;form&quot;:[&quot;D&quot;,&quot;L&quot;,&quot;D&quot;,&quot;D&quot;,&quot;W&quot;],&quot;place&quot;:11,&quot;teamId&quot;:&quot;15&quot;,&quot;teamName&quot;:&quot;M&#39;gladbach&quot;,&quot;teamLogo&quot;:&quot;content/file/7178ef92ad0747a5ad1a05d0783f5088.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:20,&quot;matches&quot;:32,&quot;points&quot;:58,&quot;wins&quot;:17,&quot;draws&quot;:7,&quot;losses&quot;:8,&quot;goalsFor&quot;:66,&quot;goalsAgainst&quot;:46,&quot;form&quot;:[&quot;L&quot;,&quot;W&quot;,&quot;L&quot;,&quot;D&quot;,&quot;D&quot;],&quot;place&quot;:5,&quot;teamId&quot;:&quot;9&quot;,&quot;teamName&quot;:&quot;Stuttgart&quot;,&quot;teamLogo&quot;:&quot;content/file/9a1bb78d0ccf45f895797c0c6d8c4d40.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:23,&quot;matches&quot;:32,&quot;points&quot;:58,&quot;wins&quot;:17,&quot;draws&quot;:7,&quot;losses&quot;:8,&quot;goalsFor&quot;:66,&quot;goalsAgainst&quot;:43,&quot;form&quot;:[&quot;W&quot;,&quot;W&quot;,&quot;L&quot;,&quot;W&quot;,&quot;W&quot;],&quot;place&quot;:4,&quot;teamId&quot;:&quot;7&quot;,&quot;teamName&quot;:&quot;Leverkusen&quot;,&quot;teamLogo&quot;:&quot;content/file/e06a055a6eaf4fd7bebfadb35037f957.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:21,&quot;matches&quot;:32,&quot;points&quot;:62,&quot;wins&quot;:19,&quot;draws&quot;:5,&quot;losses&quot;:8,&quot;goalsFor&quot;:63,&quot;goalsAgainst&quot;:42,&quot;form&quot;:[&quot;W&quot;,&quot;W&quot;,&quot;W&quot;,&quot;W&quot;,&quot;L&quot;],&quot;place&quot;:3,&quot;teamId&quot;:&quot;43&quot;,&quot;teamName&quot;:&quot;Leipzig&quot;,&quot;teamLogo&quot;:&quot;content/file/29ceb88867954b548ca9e27d39d050c2.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-28,&quot;matches&quot;:32,&quot;points&quot;:26,&quot;wins&quot;:6,&quot;draws&quot;:8,&quot;losses&quot;:18,&quot;goalsFor&quot;:27,&quot;goalsAgainst&quot;:55,&quot;form&quot;:[&quot;D&quot;,&quot;L&quot;,&quot;D&quot;,&quot;L&quot;,&quot;L&quot;],&quot;place&quot;:17,&quot;teamId&quot;:&quot;39&quot;,&quot;teamName&quot;:&quot;St. Pauli&quot;,&quot;teamLogo&quot;:&quot;content/file/cae200d5499e43c4a5c382a1fbb25435.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-25,&quot;matches&quot;:32,&quot;points&quot;:26,&quot;wins&quot;:6,&quot;draws&quot;:8,&quot;losses&quot;:18,&quot;goalsFor&quot;:42,&quot;goalsAgainst&quot;:67,&quot;form&quot;:[&quot;L&quot;,&quot;L&quot;,&quot;W&quot;,&quot;D&quot;,&quot;D&quot;],&quot;place&quot;:16,&quot;teamId&quot;:&quot;11&quot;,&quot;teamName&quot;:&quot;Wolfsburg&quot;,&quot;teamLogo&quot;:&quot;content/file/f23d72a0cf2d48a2a29ede777110aece.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:81,&quot;matches&quot;:32,&quot;points&quot;:83,&quot;wins&quot;:26,&quot;draws&quot;:5,&quot;losses&quot;:1,&quot;goalsFor&quot;:116,&quot;goalsAgainst&quot;:35,&quot;form&quot;:[&quot;W&quot;,&quot;W&quot;,&quot;W&quot;,&quot;W&quot;,&quot;D&quot;],&quot;place&quot;:1,&quot;teamId&quot;:&quot;2&quot;,&quot;teamName&quot;:&quot;Bayern&quot;,&quot;teamLogo&quot;:&quot;content/file/ff70df040a9f4179a7b45219225a2273.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-15,&quot;matches&quot;:32,&quot;points&quot;:34,&quot;wins&quot;:8,&quot;draws&quot;:10,&quot;losses&quot;:14,&quot;goalsFor&quot;:36,&quot;goalsAgainst&quot;:51,&quot;form&quot;:[&quot;D&quot;,&quot;L&quot;,&quot;L&quot;,&quot;L&quot;,&quot;W&quot;],&quot;place&quot;:12,&quot;teamId&quot;:&quot;6&quot;,&quot;teamName&quot;:&quot;Hamburg&quot;,&quot;teamLogo&quot;:&quot;content/file/c9b7d8772f324f9badeb285af4c5810a.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-8,&quot;matches&quot;:32,&quot;points&quot;:44,&quot;wins&quot;:12,&quot;draws&quot;:8,&quot;losses&quot;:12,&quot;goalsFor&quot;:45,&quot;goalsAgainst&quot;:53,&quot;form&quot;:[&quot;L&quot;,&quot;W&quot;,&quot;W&quot;,&quot;L&quot;,&quot;D&quot;],&quot;place&quot;:7,&quot;teamId&quot;:&quot;5&quot;,&quot;teamName&quot;:&quot;Freiburg&quot;,&quot;teamLogo&quot;:&quot;content/file/6c1a9f14b668493283f966834891aa70.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-8,&quot;matches&quot;:32,&quot;points&quot;:32,&quot;wins&quot;:7,&quot;draws&quot;:11,&quot;losses&quot;:14,&quot;goalsFor&quot;:47,&quot;goalsAgainst&quot;:55,&quot;form&quot;:[&quot;D&quot;,&quot;W&quot;,&quot;D&quot;,&quot;L&quot;,&quot;D&quot;],&quot;place&quot;:14,&quot;teamId&quot;:&quot;28&quot;,&quot;teamName&quot;:&quot;Köln&quot;,&quot;teamLogo&quot;:&quot;content/file/dca70c4089fd4623932b245c0e81eaba.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-31,&quot;matches&quot;:32,&quot;points&quot;:23,&quot;wins&quot;:5,&quot;draws&quot;:8,&quot;losses&quot;:19,&quot;goalsFor&quot;:38,&quot;goalsAgainst&quot;:69,&quot;form&quot;:[&quot;D&quot;,&quot;W&quot;,&quot;L&quot;,&quot;W&quot;,&quot;D&quot;],&quot;place&quot;:18,&quot;teamId&quot;:&quot;50&quot;,&quot;teamName&quot;:&quot;Heidenheim&quot;,&quot;teamLogo&quot;:&quot;content/file/f387dd39aafb47d0b4863381fc4a521c.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-9,&quot;matches&quot;:32,&quot;points&quot;:37,&quot;wins&quot;:9,&quot;draws&quot;:10,&quot;losses&quot;:13,&quot;goalsFor&quot;:41,&quot;goalsAgainst&quot;:50,&quot;form&quot;:[&quot;W&quot;,&quot;L&quot;,&quot;D&quot;,&quot;L&quot;,&quot;W&quot;],&quot;place&quot;:10,&quot;teamId&quot;:&quot;18&quot;,&quot;teamName&quot;:&quot;Mainz&quot;,&quot;teamLogo&quot;:&quot;content/file/d4ac9675b44944039d463837f888cb1c.svg&quot;,&quot;trend&quot;:0},{&quot;goadDifference&quot;:-20,&quot;matches&quot;:32,&quot;points&quot;:33,&quot;wins&quot;:8,&quot;draws&quot;:9,&quot;losses&quot;:15,&quot;goalsFor&quot;:37,&quot;goalsAgainst&quot;:57,&quot;form&quot;:[&quot;D&quot;,&quot;L&quot;,&quot;L&quot;,&quot;L&quot;,&quot;D&quot;],&quot;place&quot;:13,&quot;teamId&quot;:&quot;40&quot;,&quot;teamName&quot;:&quot;Union Berlin&quot;,&quot;teamLogo&quot;:&quot;content/file/8f4c7c08ee9b4dca85c28260fc5917bd.svg&quot;,&quot;trend&quot;:0}]}"><template shadowroot="open"><!--lit-part 2ZpZeWOl1O4=-->
+      <div class="root">
+        <!--lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Bayern"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->1<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/2.a58a4fe1.png" alt="Bayern logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Bayern<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->116<!--/lit-part--> / <!--lit-part-->35<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->26<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->5<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->1<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->83<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Dortmund"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->2<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/3.1aaf4c2d.png" alt="Dortmund logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Dortmund<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->65<!--/lit-part--> / <!--lit-part-->32<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->20<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->7<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->5<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->67<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Leipzig"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->3<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/43.9f19ca2e.png" alt="Leipzig logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Leipzig<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->63<!--/lit-part--> / <!--lit-part-->42<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->19<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->5<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->62<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Leverkusen"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->4<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/7.3228187f.png" alt="Leverkusen logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Leverkusen<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->66<!--/lit-part--> / <!--lit-part-->43<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->17<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->7<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->58<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Stuttgart"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->5<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/9.dec4e08a.png" alt="Stuttgart logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Stuttgart<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->66<!--/lit-part--> / <!--lit-part-->46<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->17<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->7<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->58<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Hoffenheim"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->6<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/14.5d4a8ad3.png" alt="Hoffenheim logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Hoffenheim<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->64<!--/lit-part--> / <!--lit-part-->48<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->17<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->7<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->58<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Freiburg"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->7<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/5.3c60513d.png" alt="Freiburg logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Freiburg<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->45<!--/lit-part--> / <!--lit-part-->53<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->12<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->12<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->44<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Frankfurt"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->8<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/4.390aa2e6.png" alt="Frankfurt logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Frankfurt<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->57<!--/lit-part--> / <!--lit-part-->60<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->11<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->10<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->11<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->43<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Augsburg"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part 9FWI6pBrn9g=--><span class="invisible">1</span><!--/lit-part--><!--lit-part-->9<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/13.d1f5ae18.png" alt="Augsburg logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Augsburg<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->42<!--/lit-part--> / <!--lit-part-->56<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->11<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->7<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->14<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->40<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Mainz"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->10<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/18.bb2586fc.png" alt="Mainz logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Mainz<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->41<!--/lit-part--> / <!--lit-part-->50<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->9<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->10<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->13<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->37<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/M&#39;gladbach"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->11<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/15.1de1fa14.png" alt="M&#39;gladbach logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->M&#39;gladbach<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->37<!--/lit-part--> / <!--lit-part-->50<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->11<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->13<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->35<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Hamburg"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->12<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/6.962a11eb.png" alt="Hamburg logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Hamburg<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->36<!--/lit-part--> / <!--lit-part-->51<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->10<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->14<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->34<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Union Berlin"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->13<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/40.3353a31d.png" alt="Union Berlin logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Union Berlin<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->37<!--/lit-part--> / <!--lit-part-->57<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->9<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->15<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->33<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Köln"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->14<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/28.43738ef7.png" alt="Köln logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Köln<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->47<!--/lit-part--> / <!--lit-part-->55<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->7<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->11<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->14<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Bremen"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->15<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/10.8350e8cf.png" alt="Bremen logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Bremen<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->37<!--/lit-part--> / <!--lit-part-->57<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->16<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Wolfsburg"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->16<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/11.966c1542.png" alt="Wolfsburg logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Wolfsburg<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->42<!--/lit-part--> / <!--lit-part-->67<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->6<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->18<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->26<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/St. Pauli"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->17<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/39.37ab8826.png" alt="St. Pauli logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->St. Pauli<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->27<!--/lit-part--> / <!--lit-part-->55<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->6<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->18<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->26<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--lit-part c5AC5l/+O8Q=-->
+            <bkb-bundesliga-table-list-item ><!--lit-node 0--><template shadowroot="open"><style>
+    .root {
+      display: flex;
+      background-color: white;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      min-height: 76px;
+      align-items: center;
+      padding: 0 1rem;
+      gap: 1rem;
+      cursor: pointer;
+      color: black;
+      box-sizing: border-box;
+    }
+
+    .root:link,
+    .root:visited,
+    .root:hover,
+    .root:active {
+      text-decoration: none;
+    }
+
+    .team-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .team-name {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.9rem;
+      white-space: normal;
+      line-height: 1.15;
+      text-align: left;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .stats-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 0 0 auto;
+    }
+
+    .place {
+      width: 32px;
+      flex: 0 0 32px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 56px;
+    }
+
+    .stat-column.wide {
+      min-width: 76px;
+    }
+
+    .record {
+      display: flex;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+
+    .record-item {
+      text-align: center;
+      min-width: 32px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 96px;
+    }
+
+    .form-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .form-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .form-dot.win {
+      background: #2d9d62;
+    }
+
+    .form-dot.draw {
+      background: #7f8c93;
+    }
+
+    .form-dot.loss {
+      background: #d84f4f;
+    }
+
+    .team-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      flex: 0 0 56px;
+    }
+
+    .team-logo > img {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+    }
+
+    .invisible {
+      visibility: hidden;
+    }
+    .label {
+      color: #9ca4a8;
+    }
+
+    @media (max-width: 980px) {
+      .root {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.9rem;
+        gap: 0.85rem;
+      }
+
+      .team-name {
+        font-size: 0.86rem;
+      }
+
+      .stats-section {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .stat-column,
+      .stat-column.wide,
+      .record,
+      .form {
+        min-width: 0;
+      }
+
+      .record {
+        justify-content: space-between;
+      }
+    }
+  </style><!--lit-part ncRI6B61u5A=-->
+      <a class="root" href="/kickbase-bundesliga/bundesliga/team/Heidenheim"><!--lit-node 0-->
+        <div class="team-section">
+          <div class="place">
+            <!--lit-part--><!--/lit-part--><!--lit-part-->18<!--/lit-part-->
+          </div>
+          <div class="team-logo">
+            <img src="/kickbase-bundesliga/assets/50.30de6bef.png" alt="Heidenheim logo" /><!--lit-node 6-->
+          </div>
+          <div class="team-name"><!--lit-part-->Heidenheim<!--/lit-part--></div>
+        </div>
+        <div class="stats-section">
+          <div class="matches-played stat-column">
+            <div class="matches-played value"><!--lit-part-->32<!--/lit-part--></div>
+            <div class="matches-played label">Spiele</div>
+          </div>
+          <div class="goals stat-column wide">
+            <div class="goals value"><!--lit-part-->38<!--/lit-part--> / <!--lit-part-->69<!--/lit-part--></div>
+            <div class="goals label">Tore</div>
+          </div>
+          <div class="record">
+            <div class="record-item">
+              <div class="value"><!--lit-part-->5<!--/lit-part--></div>
+              <div class="label">Siege</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->8<!--/lit-part--></div>
+              <div class="label">Remis</div>
+            </div>
+            <div class="record-item">
+              <div class="value"><!--lit-part-->19<!--/lit-part--></div>
+              <div class="label">Niederlagen</div>
+            </div>
+          </div>
+          <div class="form stat-column wide">
+            <div class="form-dots">
+              <!--lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot loss"><!--lit-node 0--><!--lit-part-->L<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot win"><!--lit-node 0--><!--lit-part-->W<!--/lit-part--></span><!--/lit-part--><!--lit-part dFcHHiywXF4=--><span class="form-dot draw"><!--lit-node 0--><!--lit-part-->D<!--/lit-part--></span><!--/lit-part--><!--/lit-part-->
+            </div>
+            <div class="label">Form</div>
+          </div>
+          <div class="points stat-column">
+            <div class="points value"><!--lit-part-->23<!--/lit-part--></div>
+            <div class="points label">Punkte</div>
+          </div>
+        </div>
+      </a>
+    <!--/lit-part--></template></bkb-bundesliga-table-list-item>
+          <!--/lit-part--><!--/lit-part-->
+      </div>
+    <!--/lit-part--></template></bkb-bundesliga-table></astro-island>
+  </body></html>
