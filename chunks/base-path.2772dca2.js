@@ -1,0 +1,1 @@
+const t="/kickbase-bundesliga",s={BASE_URL:"https://api.kickbase.com/v4",CDN_URL:"https://kickbase.b-cdn.net/",DEFAULT_COMPETITION_ID:"1",DEFAULT_OPTS:{method:"GET",headers:{"Content-Type":"application/json",Accept:"application/json"}}};export{t as B,s as K};
