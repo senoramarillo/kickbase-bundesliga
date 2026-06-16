@@ -1,4 +1,4 @@
-**Unofficial fan-made project for educational and non-commercial purposes only. Kickbase and all related trademarks, logos, and brand names are the property of their respective owners.**
+**Unofficial fan-made project (season 2026/27) for educational and non-commercial purposes only. Kickbase and all related trademarks, logos, and brand names are the property of their respective owners.**
 
 <div align="center">
   <br />
