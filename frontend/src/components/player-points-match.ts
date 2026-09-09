@@ -113,8 +113,8 @@ export class PlayerPointsMatchComponent extends LitElement {
         </div>
         <small class="match-value points">${this.match.points}</small>
         <div class="match-team-logos">
-          <img class="home-team-logo" src="${teamLogosSmall[`team_${this.match.homeTeamId}`]}" />
-          <img class="away-team-logo" src="${teamLogosSmall[`team_${this.match.awayTeamId}`]}" />
+          <img class="home-team-logo" src="${this.match.homeTeamLogo || teamLogosSmall[`team_${this.match.homeTeamId}`]}" alt="Heimteam" />
+          <img class="away-team-logo" src="${this.match.awayTeamLogo || teamLogosSmall[`team_${this.match.awayTeamId}`]}" alt="Auswärtsteam" />
         </div>
         ${this.matchResultBadgeSvg(this.match.homeTeamGoals, this.match.awayTeamGoals)}
         <small class="match-value">${Math.round(this.match.playtimeSeconds / 60)}'</small>

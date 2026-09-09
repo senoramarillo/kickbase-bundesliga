@@ -4,6 +4,8 @@ export interface PlayerUpcomingMatch {
   homeTeamName: string;
   homeTeamNameShort: string;
   awayTeamId: string;
+  homeTeamLogo?: string;
+  awayTeamLogo?: string;
   awayTeamName: string;
   awayTeamNameShort: string;
   match: number;

@@ -1,6 +1,6 @@
 import { PlayerPosition } from './player-position';
 import { PlayerStatus } from './player-status';
-import { getKickbasePlayerPortraitUrl } from '../services/kickbase-v4.service';
+import { getKickbaseImageUrl, getKickbasePlayerPortraitUrl } from '../services/kickbase-v4.service';
 
 export interface PlayerListItem {
   playerId: number;
@@ -23,12 +23,15 @@ export interface PlayerListItem {
 
 export function playerListItemFromApiResponse(player: any): PlayerListItem {
   const playerId = Number(player.playerId ?? player.pi ?? player.i ?? 0);
-  const profileFallback = player.profileFallback ?? player.profileBigFallback ?? player.pim ?? player.plpim ?? '';
+  const profileFallback =
+    player.profileFallback ??
+    player.profileBigFallback ??
+    getKickbaseImageUrl(player.pim ?? player.plpim) ??
+    '';
   const profileImage =
     player.profileBig ??
     player.profile ??
-    getKickbasePlayerPortraitUrl(playerId || undefined, player.pim) ??
-    player.pim ??
+    getKickbasePlayerPortraitUrl(playerId || undefined, player.pim ?? player.plpim) ??
     '';
 
   return {

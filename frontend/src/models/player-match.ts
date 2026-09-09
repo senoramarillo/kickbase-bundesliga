@@ -8,6 +8,8 @@ export interface PlayerMatch {
   startingEleven: boolean;
   homeTeamId: number;
   awayTeamId: number;
+  homeTeamLogo?: string;
+  awayTeamLogo?: string;
   homeTeamGoals: number;
   awayTeamGoals: number;
 }

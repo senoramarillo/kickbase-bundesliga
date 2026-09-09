@@ -7,8 +7,10 @@ import { BundesligaTableEntry, BundesligaTable } from '../models/bundesliga-tabl
 import { PlayerListItem } from '../models/player-list-item';
 import { getPlayerPositionLabel, PlayerPosition } from '../models/player-position';
 import { teamLogosLarge } from '../../images/teams/large';
+import { getTeamLogos } from '../services/team-logos.service';
 
 const bundesligaTable: BundesligaTable = await bundesligaTableService.getData();
+const teamLogos = await getTeamLogos();
 const teamIds: string[] = bundesligaTable.teams.map((team: BundesligaTableEntry) => team.teamId);
 
 const deepPlayerData: PlayerListItem[][] = [];
@@ -523,7 +525,7 @@ const playerSearchData = playerData.map((player: PlayerListItem) => ({
                 <div class="team-card-header-main">
                   <img
                     class="team-logo"
-                    src={teamLogosLarge[`team_${players[0]?.teamId}`]}
+                    src={teamLogos.get(String(players[0]?.teamId)) || teamLogosLarge[`team_${players[0]?.teamId}`]}
                     alt={`Logo von ${team}`}
                   />
                   <h3 class="team-card-title">{team}</h3>
