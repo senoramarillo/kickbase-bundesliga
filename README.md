@@ -39,7 +39,7 @@
 
 ## Introduction
 
-Kickbase Bundesliga is an unofficial football data frontend focused on the German Bundesliga. The project pulls data from the Kickbase v4 API, maps the responses into frontend-friendly models, and renders the result as a statically built site that can be deployed to GitHub Pages.
+Kickbase Bundesliga is an unofficial football data frontend focused on the German Bundesliga (first division). The project pulls data from the Kickbase v4 API, maps the responses into frontend-friendly models, and renders the result as a statically built site that can be deployed to GitHub Pages.
 
 The repository is organized around a simple separation of concerns:
 
