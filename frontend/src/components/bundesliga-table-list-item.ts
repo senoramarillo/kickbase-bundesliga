@@ -181,9 +181,13 @@ export class BundesligaPlayerListItemComponent extends LitElement {
   `;
 
   @property({ type: Object })
-  public data: BundesligaTableEntry;
+  declare public data: BundesligaTableEntry | undefined;
 
   protected render(): TemplateResult {
+    if (!this.data) {
+      return html``;
+    }
+
     const teamHref = `${BASE_PATH_WITHOUT_DOMAIN}/bundesliga/team/${this.data.teamName}`;
     const localLogo = teamLogosLarge[`team_${this.data.teamId}`];
     const fallbackLogo = this.data.teamLogo

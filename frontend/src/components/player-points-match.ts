@@ -91,9 +91,13 @@ export class PlayerPointsMatchComponent extends LitElement {
   // private maxPoints: number = 0;
 
   @property({ type: Object })
-  public match: PlayerMatch | PlayerUpcomingMatch;
+  declare public match: PlayerMatch | PlayerUpcomingMatch | undefined;
 
   protected render(): TemplateResult {
+    if (!this.match) {
+      return html``;
+    }
+
     const color: string = this.match.points >= 100 ? '#25c28b' : '#ea5f42';
     const percentage: string = `${Math.round((this.match.points / 625) * 100)}%`;
 
@@ -113,8 +117,8 @@ export class PlayerPointsMatchComponent extends LitElement {
         </div>
         <small class="match-value points">${this.match.points}</small>
         <div class="match-team-logos">
-          <img class="home-team-logo" src="${this.match.homeTeamLogo || teamLogosSmall[`team_${this.match.homeTeamId}`]}" alt="Heimteam" />
-          <img class="away-team-logo" src="${this.match.awayTeamLogo || teamLogosSmall[`team_${this.match.awayTeamId}`]}" alt="Auswärtsteam" />
+          <img class="home-team-logo" src="${this.match.homeTeamLogo || teamLogosSmall[`team_${this.match.homeTeamId}`] || ''}" alt="Heimteam" />
+          <img class="away-team-logo" src="${this.match.awayTeamLogo || teamLogosSmall[`team_${this.match.awayTeamId}`] || ''}" alt="Auswärtsteam" />
         </div>
         ${this.matchResultBadgeSvg(this.match.homeTeamGoals, this.match.awayTeamGoals)}
         <small class="match-value">${Math.round(this.match.playtimeSeconds / 60)}'</small>

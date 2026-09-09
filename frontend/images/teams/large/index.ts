@@ -24,7 +24,7 @@ import team_43 from './43.png';
 import team_50 from './50.png';
 import team_51 from './51.png';
 
-export const teamLogosLarge = {
+export const teamLogosLarge: Partial<Record<`team_${string}`, string>> = {
   team_2,
   team_3,
   team_4,

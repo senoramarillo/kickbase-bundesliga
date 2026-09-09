@@ -4,7 +4,7 @@ import { property } from 'lit/decorators/property.js';
 import { state } from 'lit/decorators/state.js';
 import { TEAM_IDS, TEAM_NAMES } from '../models/teams';
 import { PlayerListItem } from '../models/player-list-item';
-import './player-list-item.ts';
+import './player-list-item';
 
 @customElement('bkb-team')
 export class BundesligaTeamPage extends LitElement {

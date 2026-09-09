@@ -10,8 +10,8 @@ import type { PlayerStats } from '../services/playerdata/player-stats.service';
 import type { PlayerData } from '../services/playerdata/playerdata.service';
 import { teamColors } from '../models/team-colors';
 import noProfilePicFallback from '../../images/no_profile_pic.png';
-import './player-badges.ts';
-import './player-points.ts';
+import './player-badges';
+import './player-points';
 import { priceFormatter } from '../helpers/price-formatter';
 import { PlayerStatus } from '../models/player-status';
 
