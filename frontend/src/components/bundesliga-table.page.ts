@@ -30,7 +30,7 @@ export class BundesligaTablePage extends LitElement {
       <div class="root">
         ${this.bundesligaTable?.teams.map(
           (team: BundesligaTableEntry) => html`
-            <bkb-bundesliga-table-list-item .data=${team}></bkb-bundesliga-table-list-item>
+            <bkb-bundesliga-table-list-item server-json-data=${JSON.stringify(team)}></bkb-bundesliga-table-list-item>
           `
         )}
       </div>

@@ -1,4 +1,4 @@
-import { LitElement, html, CSSResultGroup, css, TemplateResult } from 'lit';
+import { LitElement, html, CSSResultGroup, css, TemplateResult, PropertyValueMap } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { property } from 'lit/decorators/property.js';
 import { BundesligaTableEntry } from '../models/bundesliga-table';
@@ -182,6 +182,15 @@ export class BundesligaPlayerListItemComponent extends LitElement {
 
   @property({ type: Object })
   declare public data: BundesligaTableEntry | undefined;
+
+  @property({ type: String, attribute: 'server-json-data' })
+  declare public serverJsonData: string;
+
+  protected willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+    if (!this.data && this.serverJsonData) {
+      this.data = JSON.parse(this.serverJsonData) as BundesligaTableEntry;
+    }
+  }
 
   protected render(): TemplateResult {
     if (!this.data) {
