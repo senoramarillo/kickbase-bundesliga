@@ -100,6 +100,8 @@ export class PlayerPointsMatchComponent extends LitElement {
 
     const color: string = this.match.points >= 100 ? '#25c28b' : '#ea5f42';
     const percentage: string = `${Math.round((this.match.points / 625) * 100)}%`;
+    const homeTeamLogo = this.match.homeTeamLogo || teamLogosSmall[`team_${this.match.homeTeamId}`];
+    const awayTeamLogo = this.match.awayTeamLogo || teamLogosSmall[`team_${this.match.awayTeamId}`];
 
     const matchBarStyles: StyleInfo = {
       background: `linear-gradient(to top, ${color}, ${color}, ${percentage}, #f5f7f6, ${percentage}, #f5f7f6)`
@@ -117,13 +119,17 @@ export class PlayerPointsMatchComponent extends LitElement {
         </div>
         <small class="match-value points">${this.match.points}</small>
         <div class="match-team-logos">
-          <img class="home-team-logo" src="${this.match.homeTeamLogo || teamLogosSmall[`team_${this.match.homeTeamId}`] || ''}" alt="Heimteam" />
-          <img class="away-team-logo" src="${this.match.awayTeamLogo || teamLogosSmall[`team_${this.match.awayTeamId}`] || ''}" alt="Auswärtsteam" />
+          ${homeTeamLogo ? html`<img class="home-team-logo" src=${homeTeamLogo} alt="" @error=${this.hideBrokenLogo} />` : ''}
+          ${awayTeamLogo ? html`<img class="away-team-logo" src=${awayTeamLogo} alt="" @error=${this.hideBrokenLogo} />` : ''}
         </div>
         ${this.matchResultBadgeSvg(this.match.homeTeamGoals, this.match.awayTeamGoals)}
         <small class="match-value">${Math.round(this.match.playtimeSeconds / 60)}'</small>
       </div>
     `;
+  }
+
+  private hideBrokenLogo(event: Event): void {
+    (event.currentTarget as HTMLImageElement).style.display = 'none';
   }
 
   private matchResultBadgeSvg(homeTeamScore: number, awayTeamScore: number): TemplateResult {
